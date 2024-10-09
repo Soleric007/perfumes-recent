@@ -72,7 +72,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 10</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -119,7 +119,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 5</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -166,7 +166,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 8</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -213,7 +213,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 10</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -260,7 +260,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 10</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -307,7 +307,7 @@
                       <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: 7</p>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
             </div>

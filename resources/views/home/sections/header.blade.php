@@ -250,7 +250,7 @@
                                 <ul>
                                   <li><a href="https://html.laralink.com/glowify/{{ route('useraccount') }}">My Account</a></li>
                                   <li><a href="{{route('wishlist')}}">Wishlist</a></li>
-                                  <li><a href="cart.html">Cart</a></li>
+                                  <li><a href="{{route('cart')}}">Cart</a></li>
                                   <li><a href="checkout.html">Checkout</a></li>
                                 </ul>
                               </li>

@@ -52,7 +52,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-6">
@@ -92,7 +92,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-6">
@@ -132,7 +132,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-6">
@@ -172,7 +172,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-6">
@@ -212,7 +212,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="col-lg-4 col-sm-6">
@@ -252,7 +252,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
             </div>
@@ -319,7 +319,7 @@
                 </div>
                 <div class="cs_product_row_1">
                   <div>
-                    <h2 class="cs_product_title cs_fs_24 cs_normal cs_secondary_font"><a href="product-details.html">Mascara Perfect Black</a></h2>
+                    <h2 class="cs_product_title cs_fs_24 cs_normal cs_secondary_font"><a href="{{route('shop.product.detail', $product->id)}}">Mascara Perfect Black</a></h2>
                     <div class="cs_product_ratings">
                       <div class="cs_rating" data-rating="4.5">
                         <div class="cs_rating_percentage"></div>

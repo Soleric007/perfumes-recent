@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +19,43 @@ class AdminController extends Controller
         $user = Auth::user();
         return view('admin.pages.createproduct', compact('user'));
     }
+    public function storeProduct(Request $request){
+        // Validate product data
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|min:30',
+            'price' => 'required|string',
+            'discount' => 'string',
+            'stock' => 'required|string',
+            'image' => 'required|file|mimes:jpg,png,jpeg,webp|max:2048',
+        ]);
+
+        // Upload image
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        // Create new product
+        $product = Product::create($validatedData);
+
+        return redirect()->route('admin.products')->with('message', 'Product Added Successfully');
+    }
+
     public function showproducts()
     {
-        $user = Auth::user();
-        return view('admin.pages.products', compact('user'));
+        $products = Product::all();
+        return view('admin.pages.products', compact('products'));
     }
-    public function showproductdetails()
+    public function showproductdetails($product)
     {
-        $user = Auth::user();
-        return view('admin.pages.productdetails', compact('user'));
+        $product = Product::find($product);
+        return view('admin.pages.productdetails', compact('product'));
+    }
+    public function deleteProduct($product)
+    {
+        $product = Product::find($product);
+        $product->delete();
+        return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
     public function showorderdetails()
     {

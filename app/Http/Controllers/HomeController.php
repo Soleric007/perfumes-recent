@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,14 @@ class HomeController extends Controller
     public function showAboutUs(){
         return view('home.pages.about');
     }
+    public function showproductdetails($product)
+    {
+        $product = Product::find($product);
+        return view('home.pages.productdetails', compact('product'));
+    }
     public function showShop(){
-        return view('home.pages.shop');
+        $products = Product::all();
+        return view('home.pages.shop', compact('products'));
     }
     public function showFaq(){
         return view('home.pages.faq');

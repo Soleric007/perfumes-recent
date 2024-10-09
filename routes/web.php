@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -26,12 +27,15 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 });
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/pages/createproduct', [AdminController::class, 'createproduct'])->name('admin.createproduct');
+    Route::post('/admin/createproduct', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
+    Route::get('/admin/deleteproduct/{product}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
+
 });
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/pages/products', [AdminController::class, 'showproducts'])->name('admin.products');
 });
 Route::middleware(['auth', 'role:admin'])->group(function(){
-    Route::get('/admin/pages/productdetails', [AdminController::class, 'showproductdetails'])->name('admin.productdetails');
+    Route::get('/admin/pages/productdetails/{product}', [AdminController::class, 'showproductdetails'])->name('admin.productdetails');
 });
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/pages/orderdetails', [AdminController::class, 'showorderdetails'])->name('admin.orderdetails');
@@ -49,6 +53,7 @@ Route::middleware(['auth', 'role:agent'])->group(function(){
 
 
 Route::get('/shop', [HomeController::class, 'showShop'])->name('shop.show');
+Route::get('/productdetails/{product}', [HomeController::class, 'showProductDetails'])->name('shop.product.detail');
 Route::get('/about', [HomeController::class, 'showAboutUs'])->name('aboutUs');
 Route::get('/faq', [HomeController::class, 'showFaq'])->name('faq');
 Route::get('/contact', [HomeController::class, 'showContact'])->name('contact');
@@ -56,5 +61,12 @@ Route::get('/wishlist', [HomeController::class, 'showWishlist'])->name('wishlist
 Route::get('/orders', [HomeController::class, 'showOrders'])->name('orders');
 Route::get('/address', [HomeController::class, 'showAddress'])->name('address');
 Route::get('/accountdetails', [HomeController::class, 'showAccountdetails'])->name('accountdetails');
+
+
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
+Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart');
+Route::patch('updatecart', [ProductController::class, 'update'])->name('updatecart');
+Route::delete('removefromcart', [ProductController::class, 'remove'])->name('removecart');
+
 
 require __DIR__.'/auth.php';

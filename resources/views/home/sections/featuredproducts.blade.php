@@ -52,7 +52,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -92,7 +92,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -132,7 +132,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -172,7 +172,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -212,7 +212,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
               <div class="cs_slider">
@@ -252,7 +252,7 @@
                       </div>
                     </div>
                   </div>
-                  <a href="product-details.html" class="cs_product_link"></a>
+                  <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
                 </div>
               </div>
             </div>

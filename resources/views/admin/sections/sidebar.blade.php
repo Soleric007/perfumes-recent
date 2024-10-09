@@ -19,7 +19,7 @@
                 <img src="/admin/assets/images/logo-light.png" alt="" height="17">
             </span>
         </a>
-        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+        <button type="button" class="p-0 btn btn-sm fs-20 header-item float-end btn-vertical-sm-hover"
             id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
@@ -45,10 +45,10 @@
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Products</span>
                     </a>
-                    <a class="nav-link menu-link" href="{{ route('admin.productdetails') }}"
+                    {{-- <a class="nav-link menu-link" href="{{ route('admin.productdetails') }}"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Products Details</span>
-                    </a>
+                    </a> --}}
                     <a class="nav-link menu-link" href="{{ route('admin.orders') }}"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Orders</span>

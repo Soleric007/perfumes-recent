@@ -16,11 +16,11 @@
                     <h3 class="cs_fs_18 cs_medium">Rosewater Hydrating Mist</h3>
                     <div class="cs_quantity cs_style_1">
                       <button class="cs_quantity_button cs_decrement">
-                        <i class="fa-solid fa-minus"></i>                      
+                        <i class="fa-solid fa-minus"></i>
                       </button>
                       <span class="cs_quantity_input cs_primary_color cs_medium">1</span>
                       <button class="cs_quantity_button cs_increment">
-                        <i class="fa-solid fa-plus"></i>                      
+                        <i class="fa-solid fa-plus"></i>
                       </button>
                     </div>
                     <p class="mb-0">1 x <span class="cs_primary_color cs_medium"> $19.99</span></p>
@@ -37,11 +37,11 @@
                     <h3 class="cs_fs_18 cs_medium">Charcoal Detoxifying Mask</h3>
                     <div class="cs_quantity cs_style_1">
                       <button class="cs_quantity_button cs_decrement">
-                        <i class="fa-solid fa-minus"></i>                      
+                        <i class="fa-solid fa-minus"></i>
                       </button>
                       <span class="cs_quantity_input cs_primary_color cs_medium">1</span>
                       <button class="cs_quantity_button cs_increment">
-                        <i class="fa-solid fa-plus"></i>                      
+                        <i class="fa-solid fa-plus"></i>
                       </button>
                     </div>
                     <p class="mb-0">1 x <span class="cs_primary_color cs_medium"> $14.99</span></p>
@@ -58,11 +58,11 @@
                     <h3 class="cs_fs_18 cs_medium">Rosewater Hydrating Mist</h3>
                     <div class="cs_quantity cs_style_1">
                       <button class="cs_quantity_button cs_decrement">
-                        <i class="fa-solid fa-minus"></i>                      
+                        <i class="fa-solid fa-minus"></i>
                       </button>
                       <span class="cs_quantity_input cs_primary_color cs_medium">0</span>
                       <button class="cs_quantity_button cs_increment">
-                        <i class="fa-solid fa-plus"></i>                      
+                        <i class="fa-solid fa-plus"></i>
                       </button>
                     </div>
                     <p class="mb-0">1 x <span class="cs_primary_color cs_medium"> $19.99</span></p>
@@ -78,11 +78,11 @@
             <span>Subtotal:</span>
             <span class="cs_primary_color cs_semibold">$54.97</span>
           </div>
-          <a href="cart.html" class="cs_btn cs_style_2 cs_medium cs_type_1 w-100">                                               
+          <a href="{{route('cart')}}" class="cs_btn cs_style_2 cs_medium cs_type_1 w-100">
             <span>View Cart</span>
           </a>
           <div class="cs_height_10 cs_height_lg_10"></div>
-          <a href="checkout.html" class="cs_btn cs_style_1 cs_medium cs_type_1 w-100">                                               
+          <a href="checkout.html" class="cs_btn cs_style_1 cs_medium cs_type_1 w-100">
             <span>Checkout</span>
           </a>
         </div>
