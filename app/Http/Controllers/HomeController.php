@@ -11,10 +11,12 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        return view('home.pages.index');
+        $products = Product::paginate(5);
+        return view('home.pages.index', compact('products'));
     }
     public function redirect(){
-        return view('home.pages.index');
+        $products = Product::paginate(5);
+        return view('home.pages.index', compact('products'));
     }
     public function showAboutUs(){
         return view('home.pages.about');
@@ -25,7 +27,7 @@ class HomeController extends Controller
         return view('home.pages.productdetails', compact('product'));
     }
     public function showShop(){
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('home.pages.shop', compact('products'));
     }
     public function showFaq(){

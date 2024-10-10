@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/redirect', [HomeController::class, 'redirect'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::patch('/profile', [ProfileController::class, 'updatePhoneImage'])->name('profile.update.phone.image');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/useraccount', [HomeController::class, 'showUserAccount'])->name('useraccount');
 });

@@ -36,7 +36,7 @@
             <div>
                 <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Discover Our Beauty Collection</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
-                    <li class="breadcrumb-item"><a href="home-v2.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
                     <li class="breadcrumb-item active">Products</li>
                 </ol>
             </div>
