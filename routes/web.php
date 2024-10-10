@@ -21,34 +21,35 @@ Route::middleware('auth')->group(function () {
     // Route::patch('/profile', [ProfileController::class, 'updatePhoneImage'])->name('profile.update.phone.image');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/useraccount', [HomeController::class, 'showUserAccount'])->name('useraccount');
+    Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/createproduct', [AdminController::class, 'createproduct'])->name('admin.createproduct');
     Route::post('/admin/createproduct', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
     Route::get('/admin/deleteproduct/{product}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
-
+    Route::get('/admin/deletecustomer/{customer}', [AdminController::class, 'deleteCustomer'])->name('admin.deleteCustomer');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/products', [AdminController::class, 'showproducts'])->name('admin.products');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/productdetails/{product}', [AdminController::class, 'showproductdetails'])->name('admin.productdetails');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/orderdetails', [AdminController::class, 'showorderdetails'])->name('admin.orderdetails');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/orders', [AdminController::class, 'showorder'])->name('admin.orders');
 });
-Route::middleware(['auth', 'role:admin'])->group(function(){
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/customers', [AdminController::class, 'showcustomers'])->name('admin.customers');
 });
 
-Route::middleware(['auth', 'role:agent'])->group(function(){
+Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::get('/agent/dashboard', [AgentController::class, 'dashboard'])->name('agent.dashboard');
 });
 
@@ -64,10 +65,9 @@ Route::get('/address', [HomeController::class, 'showAddress'])->name('address');
 Route::get('/accountdetails', [HomeController::class, 'showAccountdetails'])->name('accountdetails');
 
 
-Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
 Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart');
-Route::patch('updatecart', [ProductController::class, 'update'])->name('updatecart');
-Route::delete('removefromcart', [ProductController::class, 'remove'])->name('removecart');
+Route::patch('/updatecart', [ProductController::class, 'update'])->name('updatecart');
+Route::delete('/cart/remove/{id}', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -25,7 +25,7 @@
 
     <div class="cs_site_header_height_1"></div>
     <!-- Cart Modal -->
-     @include('home.sections.cartmodal')
+
      <!-- End Header Section -->
      <!-- Start Hero Section -->
      <div class="cs_height_40 cs_height_lg_30"></div>

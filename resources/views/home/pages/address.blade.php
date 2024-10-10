@@ -25,7 +25,7 @@
 
     <div class="cs_site_header_height_1"></div>
     <!-- Cart Modal -->
-     @include('home.sections.cartmodal')
+
      <!-- End Header Section -->
      <div class="container">
         <div class="cs_height_45 cs_height_lg_45"></div>

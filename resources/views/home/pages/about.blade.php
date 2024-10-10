@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">
     <link rel="stylesheet" href="/template/assets/css/select2.min.css">
     <link rel="stylesheet" href="/template/assets/css/style.css">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body>
@@ -23,9 +26,7 @@
     @include('home.sections.header')
 
     <div class="cs_site_header_height_1"></div>
-    <!-- Cart Modal -->
-    @include('home.sections.cartmodal')
-    <!-- End Header Section -->
+
     <!-- Start Breadcamp -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">

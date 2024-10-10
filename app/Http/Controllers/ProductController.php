@@ -13,7 +13,6 @@ class ProductController extends Controller
     /**
      * Write code on Method
      *
-     * @return response()
      */
     public function viewCart()
     {
@@ -23,7 +22,6 @@ class ProductController extends Controller
     /**
      * Write code on Method
      *
-     * @return response()
      */
     public function addToCart($id)
     {
@@ -31,7 +29,7 @@ class ProductController extends Controller
 
         $cart = session()->get('cart', []);
 
-        if(isset($cart[$id])) {
+        if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
@@ -49,33 +47,45 @@ class ProductController extends Controller
     /**
      * Write code on Method
      *
-     * @return response()
      */
     public function update(Request $request)
     {
-        if($request->id & $request->quantity){
+        if ($request->id && $request->quantity) {
+            if ($request->quantity <= 0) {
+                session()->flash('error', 'Invalid quantity.');
+            }
+
             $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart updated successfully');
+
+            if (isset($cart[$request->id])) {
+                $cart[$request->id]["quantity"] = $request->quantity;
+                session()->put('cart', $cart);
+                session()->flash('success', 'Cart updated successfully');
+            } else {
+                session()->flash('error', 'Product not found in cart.');
+            }
         }
     }
+
+
 
     /**
      * Write code on Method
      *
-     * @return response()
      */
     public function remove(Request $request)
-    {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
+{
+    if ($request->id) {
+        $cart = session()->get('cart');
+
+        if (isset($cart[$request->id])) {
+            unset($cart[$request->id]);
+            session()->put('cart', $cart);
             session()->flash('success', 'Product removed successfully');
+        } else {
+            session()->flash('error', 'Product not found in cart.');
         }
     }
 }
 
+}

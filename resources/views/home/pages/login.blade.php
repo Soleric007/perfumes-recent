@@ -25,7 +25,7 @@
 
     <div class="cs_site_header_height_1"></div>
     <!-- Cart Modal -->
-     @include('home.sections.cartmodal')
+
      <!-- End Header Section -->
     <div class="container">
       <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="assets/images/login_banner.jpeg">

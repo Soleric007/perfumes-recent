@@ -25,7 +25,7 @@
 
     <div class="cs_site_header_height_1"></div>
     <!-- Cart Modal -->
-     @include('home.sections.cartmodal')
+
      <!-- End Header Section -->
 
         <!-- Start Product Details -->

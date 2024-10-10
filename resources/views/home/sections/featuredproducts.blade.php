@@ -26,10 +26,10 @@
                                     <div class="cs_product_thumb cs_center">
                                         <img src="/storage/{{$product->image}}" alt="Product">
                                         <div class="cs_products_btns">
-                                            <button class="cs_btn cs_style_1 cs_medium cs_size_md">
+                                            <a href="{{route('addtocart', $product->id)}}" class="cs_btn cs_style_1 cs_medium cs_size_md">
                                                 <img src="/template/assets/images/icons/cart_white.svg" alt="">
                                                 <span>Add To Bag</span>
-                                            </button>
+                                            </a>
                                             <button class="cs_like_btn cs_center cs_accent_color">
                                                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">

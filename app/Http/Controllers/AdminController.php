@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -69,7 +70,13 @@ class AdminController extends Controller
     }
     public function showcustomers()
     {
-        $user = Auth::user();
-        return view('admin.pages.customers', compact('user'));
+        $users = User::paginate('10');
+        return view('admin.pages.customers', compact('users'));
+    }
+    public function deleteCustomer($customer)
+    {
+        $user = User::find($customer);
+        $user->delete();
+        return redirect()->route('admin.customers')->with('message', 'Customer Removed Successfully');
     }
 }

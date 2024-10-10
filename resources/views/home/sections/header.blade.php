@@ -74,7 +74,7 @@
                                                 alt=""></a>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button class="cs_login_btn" type="submit" >
+                                            <button class="cs_login_btn bg-none" type="submit" >
                                                 Log Out
                                             </button>
                                         </form>
@@ -98,11 +98,11 @@
                             @endauth
                         @endif
                         <li>
-                            <button type="button" class="cs_cart_btn">
+                            <a href="{{route('cart')}}" type="button" class="cs_cart_btn">
                                 <img src="/template/assets/images/icons/bag.svg" alt="">
-                                <span class="cs_cart_label cs_accent_bg cs_white_color">3</span>
-                                <span>My Bag <b>($54.97)</b></span>
-                            </button>
+                                <span class="cs_cart_label cs_accent_bg cs_white_color">{{session('cart') ? count(session('cart')) : 0}}</span>
+                                <span>Cart </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
