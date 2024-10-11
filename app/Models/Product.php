@@ -14,7 +14,13 @@ class Product extends Model
         'description',
         'price',
         'discount',
+        'shippingfee',
         'stock',
         'image'
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

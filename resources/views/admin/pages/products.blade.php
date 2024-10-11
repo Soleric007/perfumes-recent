@@ -126,6 +126,24 @@
                                                                             title="Sort column descending"
                                                                             class="gridjs-sort gridjs-sort-asc"></button>
                                                                     </th>
+                                                                    <th data-column-id="price"
+                                                                        class="gridjs-th gridjs-th-sort text-muted"
+                                                                        tabindex="0" style="width: 101px;">
+                                                                        <div class="gridjs-th-content">Discount</div>
+                                                                        <button tabindex="-1"
+                                                                            aria-label="Sort column descending"
+                                                                            title="Sort column descending"
+                                                                            class="gridjs-sort gridjs-sort-asc"></button>
+                                                                    </th>
+                                                                    <th data-column-id="price"
+                                                                        class="gridjs-th gridjs-th-sort text-muted"
+                                                                        tabindex="0" style="width: 101px;">
+                                                                        <div class="gridjs-th-content">Shipping Fee</div>
+                                                                        <button tabindex="-1"
+                                                                            aria-label="Sort column descending"
+                                                                            title="Sort column descending"
+                                                                            class="gridjs-sort gridjs-sort-asc"></button>
+                                                                    </th>
                                                                     <th data-column-id="orders"
                                                                         class="gridjs-th gridjs-th-sort text-muted"
                                                                         tabindex="0" style="width: 84px;">
@@ -197,6 +215,12 @@
                                                                         </td>
                                                                         <td data-column-id="price" class="gridjs-td">
                                                                             <span>${{$product->price}}</span>
+                                                                        </td>
+                                                                        <td data-column-id="price" class="gridjs-td">
+                                                                            <span>{{$product->discount}}%</span>
+                                                                        </td>
+                                                                        <td data-column-id="price" class="gridjs-td">
+                                                                            <span>${{$product->shippingfee}}</span>
                                                                         </td>
                                                                         <td data-column-id="orders" class="gridjs-td">
                                                                             45

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +29,7 @@ class AdminController extends Controller
             'description' => 'required|string|min:30',
             'price' => 'required|string',
             'discount' => 'string',
+            'shippingfee' => 'string',
             'stock' => 'required|string',
             'image' => 'required|file|mimes:jpg,png,jpeg,webp|max:2048',
         ]);
@@ -58,15 +61,28 @@ class AdminController extends Controller
         $product->delete();
         return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
-    public function showorderdetails()
+    public function showorderdetails($order)
     {
-        $user = Auth::user();
-        return view('admin.pages.orderdetails', compact('user'));
+        $order = Order::find($order);
+        return view('admin.pages.orderdetails', compact('order'));
     }
     public function showorder()
     {
-        $user = Auth::user();
-        return view('admin.pages.orders', compact('user'));
+        $orders = Order::with('items.product')->latest()->paginate(10);
+        // dd($orders);
+        return view('admin.pages.orders', compact('orders'));
+    }
+    public function orderDelivered()
+    {
+        $orders = Order::with('items.product')->latest()->paginate(10);
+        // dd($orders);
+        return view('admin.pages.orders', compact('orders'));
+    }
+    public function deletOrder($order)
+    {
+        $order = Order::find($order);
+        $order->delete();
+        return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
     public function showcustomers()
     {

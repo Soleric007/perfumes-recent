@@ -18,6 +18,10 @@ class ProductController extends Controller
     {
         return view('home.pages.cart');
     }
+    public function viewCheckout()
+    {
+        return view('home.pages.checkout');
+    }
 
     /**
      * Write code on Method
@@ -36,6 +40,8 @@ class ProductController extends Controller
                 "name" => $product->title,
                 "quantity" => 1,
                 "price" => $product->price,
+                "discount" => $product->discount,
+                "shippingfee" => $product->shippingfee,
                 "image" => $product->image
             ];
         }

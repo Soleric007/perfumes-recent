@@ -47,7 +47,8 @@
     <div class="container">
         <div class="row cs_gap_y_40">
             <div class="col-lg-7">
-                <h2 class="mb-0 cs_fs_36 cs_secondary_font cs_medium">MY CART ({{session('cart') ? count(session('cart')) : 0}})</h2>
+                <h2 class="mb-0 cs_fs_36 cs_secondary_font cs_medium">MY CART
+                    ({{ session('cart') ? count(session('cart')) : 0 }})</h2>
                 <div class="cs_height_40 cs_height_lg_40"></div>
                 @if (session('success'))
                     <div class="alert alert-success">
@@ -55,10 +56,16 @@
                     </div>
                 @endif
 
+                @php $subtotal = 0 @endphp
                 @php $total = 0 @endphp
+                @php $totaldiscount = 0 @endphp
+                @php $totalshippingfee = 0 @endphp
                 @foreach ((array) session('cart') as $id => $details)
-                    @php $total += $details['price'] * $details['quantity'] @endphp
+                    @php $subtotal += $details['price'] * $details['quantity'] @endphp
+                    @php $totaldiscount += $details['discount'] @endphp
+                    {{-- @php $totalshippingfee += $details['shippingfee'] @endphp --}}
                 @endforeach
+                @php $total = $subtotal - ($subtotal * ($totaldiscount / 100)) @endphp
 
                 @if (session('cart'))
 
@@ -83,6 +90,14 @@
                                             <input type="number" value="{{ $details['quantity'] }}"
                                                 class="form-control quantity update-cart" />
                                         </div>
+                                        <div>
+                                            <h3>
+                                                <span class="cs_fs_24 cs_medium cs_primary_color">Subtotal:</span>
+                                                <span
+                                                    class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] . ' x ' . $details['price'] }}
+                                                    = ${{ $details['price'] * $details['quantity'] }}</span>
+                                            </h3>
+                                        </div>
 
                                         <button class="cs_product_card_close remove-from-cart">
                                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
@@ -105,16 +120,9 @@
                 @endif
             </div>
             <div class="col-xxl-4 col-lg-5 offset-xxl-1">
-                <form action="checkout.html" class="cs_order_card cs_accent_light_bg cs_radius_10">
+                <form action="{{route('checkout')}}" class="cs_order_card cs_accent_light_bg cs_radius_10">
                     <h3 class="cs_order_card_title cs_fs_24 cs_medium cs_secondary_font">YOUR ORDER</h3>
-                    <h4 class="cs_coupon_title cs_semibold cs_fs_16 cs_secondary_font">Have a Promo Code?</h4>
-                    <p class="cs_coupon_subtitle cs_light">Enter it here for additional savings.</p>
-                    <div class="cs_coupon_form">
-                        <input type="text" class="cs_coupon_input cs_light" placeholder="Enter Coupon Code">
-                        <button class="cs_btn cs_style_1 cs_fs_18 cs_coupon_btn cs_medium"
-                            type="button"><span>Get</span></button>
-                    </div>
-                    <div class="cs_height_40 cs_height_lg_30"></div>
+
                     <ul class="cs_card_price_list cs_mp_0">
                         <li>
                             <span class="cs_light">Items</span>
@@ -122,29 +130,23 @@
                         </li>
                         <li>
                             <span class="cs_light">Subtotal</span>
-                            <span class="cs_semibold cs_primary_color">$239.37</span>
+                            <span class="cs_semibold cs_primary_color">${{ $subtotal }}</span>
                         </li>
-                        <li>
-                            <span class="cs_light">Total Item Values</span>
-                            <span class="cs_semibold cs_primary_color">$239.37</span>
-                        </li>
+
                         <li>
                             <span class="cs_light">Total Discount</span>
-                            <span class="cs_semibold cs_primary_color">-$10.00</span>
+                            <span class="cs_semibold cs_primary_color">{{ $totaldiscount }}%</span>
                         </li>
                         <li>
                             <span class="cs_light">Shipping Fee</span>
-                            <span class="cs_semibold cs_primary_color">$4.99</span>
+                            {{-- <span class="cs_semibold cs_primary_color">${{$totalshippingfee}}</span> --}}
                         </li>
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>
                             <span class="cs_medium cs_fs_24 cs_primary_color">${{ $total }}</span>
                         </li>
                     </ul>
-                    <div class="cs_height_40 cs_height_lg_30"></div>
-                    <p class="cs_order_note cs_light">Is there anything specific you'd like to add or any special
-                        instructions for your order? Let us know in the box below.</p>
-                    <textarea cols="30" rows="4" class="cs_order_note_input cs_light" placeholder="Notes about your orders"></textarea>
+
                     <div class="cs_height_40 cs_height_lg_30"></div>
                     <button class="cs_btn cs_style_1 cs_fs_18 w-100" type="submit"><span>PROCEED TO
                             CHECKOUT</span></button>
@@ -193,7 +195,7 @@
             if (confirm("Are you sure want to remove?")) {
                 $.ajax({
                     url: '{{ url('cart/remove') }}/' + ele.parents("li").attr(
-                    "data-id"), // Appending the id to the route
+                        "data-id"), // Appending the id to the route
                     method: "DELETE",
                     data: {
                         _token: '{{ csrf_token() }}',
