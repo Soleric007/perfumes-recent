@@ -194,10 +194,9 @@
                                                                                 <div class="d-flex align-items-center">
                                                                                     <div class="flex-shrink-0 me-3">
                                                                                         <div
+                                                                                            style="background-image: url('/storage/{{$product->image}}'); background-size:contain; background-position: center;"
                                                                                             class="p-1 rounded avatar-sm bg-light">
-                                                                                            <img src="/storage/{{$product->image}}"
-                                                                                                alt=""
-                                                                                                class="img-fluid d-block">
+                                                                                            
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="flex-grow-1">

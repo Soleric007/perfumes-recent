@@ -75,13 +75,6 @@
                                         <table class="table align-middle" id="customerTable">
                                             <thead class="table-light text-muted">
                                                 <tr>
-                                                    <th scope="col" style="width: 50px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="checkAll" value="option">
-                                                        </div>
-                                                    </th>
-
                                                     <th class="sort" data-sort="customer_name">Customer</th>
                                                     <th class="sort" data-sort="email">Email</th>
                                                     <th class="sort" data-sort="phone">Phone</th>
@@ -93,12 +86,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($users as $user)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="chk_child" value="option1">
-                                                            </div>
-                                                        </th>
                                                         <td class="id" style="display:none;"><a
                                                                 href="javascript:void(0);"
                                                                 class="fw-medium link-primary">#{{$user->id}}</a></td>

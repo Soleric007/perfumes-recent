@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -25,7 +26,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
     Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/order/{order}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
+    Route::get('/orders/{order}', [OrderController::class, 'deleteOrder'])->name('order.delete');
+    Route::get('/order/deliver/{order}', [OrderController::class, 'orderDelivered'])->name('deliver.order');
 
+    // PAYMENT ROUTE 
+    Route::controller(StripePaymentController::class)->group(function () {
+
+        Route::get('stripe', 'stripe')->name('stripe');
+
+        Route::post('stripe', 'stripePost')->name('stripe.post');
+    });
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -43,13 +54,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/productdetails/{product}', [AdminController::class, 'showproductdetails'])->name('admin.productdetails');
 });
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/pages/orderdetails/{order}', [AdminController::class, 'showorderdetails'])->name('admin.orderdetails');
-});
+Route::middleware(['auth', 'role:admin'])->group(function () {});
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/orders', [AdminController::class, 'showorder'])->name('admin.orders');
-    // Route::get('/admin/pages/orders/{order}', [AdminController::class, 'orderDelivered'])->name('order.delivered');
-    // Route::get('/admin/pages/orders/{order}', [AdminController::class, 'deleteOrder'])->name('order.delete');
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/customers', [AdminController::class, 'showcustomers'])->name('admin.customers');

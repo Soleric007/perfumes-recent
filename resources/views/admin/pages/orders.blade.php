@@ -75,43 +75,13 @@
                                                 <i class="ri-store-2-fill me-1 align-bottom"></i> All Orders
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link py-3 Delivered" data-bs-toggle="tab" id="Delivered"
-                                                href="#delivered" role="tab" aria-selected="false">
-                                                <i class="ri-checkbox-circle-line me-1 align-bottom"></i> Delivered
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link py-3 Pickups" data-bs-toggle="tab" id="Pickups"
-                                                href="#pickups" role="tab" aria-selected="false">
-                                                <i class="ri-truck-line me-1 align-bottom"></i> Pickups <span
-                                                    class="badge bg-danger align-middle ms-1">2</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link py-3 Returns" data-bs-toggle="tab" id="Returns"
-                                                href="#returns" role="tab" aria-selected="false">
-                                                <i class="ri-arrow-left-right-fill me-1 align-bottom"></i> Returns
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link py-3 Cancelled" data-bs-toggle="tab" id="Cancelled"
-                                                href="#cancelled" role="tab" aria-selected="false">
-                                                <i class="ri-close-circle-line me-1 align-bottom"></i> Cancelled
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
 
                                     <div class="table-responsive table-card mb-1">
                                         <table class="table table-nowrap align-middle" id="orderTable">
                                             <thead class="text-muted table-light">
                                                 <tr class="text-uppercase">
-                                                    <th scope="col" style="width: 25px;">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="checkAll" value="option">
-                                                        </div>
-                                                    </th>
                                                     <th class="sort" data-sort="id">Order ID</th>
                                                     <th class="sort" data-sort="customer_name">Customer</th>
                                                     <th class="sort" data-sort="product_name">Product</th>
@@ -126,12 +96,6 @@
                                             <tbody class="list form-check-all">
                                                 @foreach ($orders as $order)
                                                     <tr>
-                                                        <th scope="row">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    name="checkAll" value="option1">
-                                                            </div>
-                                                        </th>
                                                         <td class="id"><a href="apps-ecommerce-order-details.html"
                                                                 class="fw-medium link-primary">#{{ $order->id }}</a>
                                                         </td>
@@ -148,27 +112,27 @@
                                                         <td class="amount">${{ $order->total_amount }}</td>
                                                         <td class="payment">{{ $order->payment_method }}</td>
                                                         <td class="status"><span
-                                                                class="badge bg-warning-subtle text-warning text-uppercase">{{ $order->payment_status }}</span>
+                                                                class="badge {{$order->payment_status === 'paid' ? 'bg-success-subtle text-white' : 'bg-warning-subtle text-warning'}} text-warning text-uppercase">{{ $order->payment_status }}</span>
                                                         </td>
                                                         <td class="status"><span
-                                                                class="badge bg-warning-subtle text-warning text-uppercase">{{ $order->delivery_status }}</span>
+                                                                class="badge {{$order->delivery_status === 'delivered' ? 'bg-success-subtle text-white' : 'bg-warning-subtle text-warning'}} text-uppercase">{{ $order->delivery_status }}</span>
                                                         </td>
                                                         <td>
                                                             <ul class="list-inline hstack gap-2 mb-0">
-                                                                {{-- <li class="list-inline-item" data-bs-toggle="tooltip"
+                                                                <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"
                                                                     title="View">
                                                                     <a href="{{ route('admin.orderdetails', $order->id) }}"
-                                                                        class="text-primary d-inline-block">
+                                                                        class="btn btn-primary text-white text-primary d-inline-block">
                                                                         View
                                                                     </a>
-                                                                </li> --}}
-                                                                {{-- <li class="list-inline-item edit"
+                                                                </li>
+                                                                <li class="list-inline-item edit"
                                                                     data-bs-toggle="tooltip" data-bs-trigger="hover"
                                                                     data-bs-placement="top" title="Edit">
-                                                                    <a href=""
+                                                                    <a aria-disabled="{{$order->delivery_status === "delivered" ? true : false}}" href="{{route('deliver.order', $order->id)}}"
 
-                                                                        class="text-primary d-inline-block edit-item-btn">
+                                                                        class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
                                                                         Delivered
                                                                     </a>
                                                                 </li>
@@ -180,7 +144,7 @@
                                                                         href="{{ route('order.delete', $order->id) }}">
                                                                         Delete
                                                                     </a>
-                                                                </li> --}}
+                                                                </li>
                                                             </ul>
                                                         </td>
                                                     </tr>

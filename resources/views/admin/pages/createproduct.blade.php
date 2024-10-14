@@ -134,7 +134,7 @@
                                                         <label class="form-label" for="product-discount-input">Shipping Fee</label>
                                                         <div class="input-group">
                                                             <span class="input-group-text" id="product-discount-addon">$</span>
-                                                            <input type="number" step="0.01" name="shippingfee" class="form-control" id="product-discount-input" placeholder="Enter discount" aria-describedby="product-discount-addon">
+                                                            <input type="number" step="0.01" name="shippingfee" class="form-control" id="product-discount-input" placeholder="Enter Shipping Fee" aria-describedby="product-discount-addon">
                                                             <div class="invalid-feedback">Please enter a valid amount.</div>
                                                             @error('shippingfee')
                                                                 <p class="text-sm text-red-600">{{ $message }}</p>

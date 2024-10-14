@@ -37,6 +37,11 @@ class OrderController extends Controller
 
         // Create new order
         $order = new Order();
+
+        if($validatedData['payment_method'] === 'card'){
+            return redirect()->route('stripe');
+        }
+
         $order->first_name = $validatedData['fname'];
         $order->last_name = $validatedData['lname'];
         $order->email = $validatedData['email'];
@@ -73,5 +78,25 @@ class OrderController extends Controller
         session()->forget('cart');
 
         return redirect()->route('index')->with('success', 'Order placed successfully, An email will be sent you once your order has been confirmed!');
+    }
+    public function orderDelivered($order)
+    {
+        $order = Order::find($order);
+        $order->delivery_status = "delivered";
+        $order->payment_status = "paid";
+        $order->save();
+        // dd($orders);
+        return redirect()->back()->with('message', 'Order Delivered successfully!');
+    }
+    public function deleteOrder($order)
+    {
+        $order = Order::find($order);
+        $order->delete();
+        return redirect()->back()->with('message', 'Order Removed Successfully');
+    }
+    public function showorderdetails($order)
+    {
+        $order = Order::find($order);
+        return view('admin.pages.orderdetails', compact('order'));
     }
 }

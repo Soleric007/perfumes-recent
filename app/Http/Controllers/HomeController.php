@@ -11,11 +11,11 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        $products = Product::paginate(5);
+        $products = Product::latest()->paginate(5);
         return view('home.pages.index', compact('products'));
     }
     public function redirect(){
-        $products = Product::paginate(5);
+        $products = Product::latest()->paginate(5);
         return view('home.pages.index', compact('products'));
     }
     public function showAboutUs(){

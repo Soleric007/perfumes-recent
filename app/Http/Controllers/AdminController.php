@@ -47,7 +47,7 @@ class AdminController extends Controller
 
     public function showproducts()
     {
-        $products = Product::paginate(10);
+        $products = Product::latest()->paginate(10);
         return view('admin.pages.products', compact('products'));
     }
     public function showproductdetails($product)
@@ -61,29 +61,14 @@ class AdminController extends Controller
         $product->delete();
         return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
-    public function showorderdetails($order)
-    {
-        $order = Order::find($order);
-        return view('admin.pages.orderdetails', compact('order'));
-    }
+    
     public function showorder()
     {
         $orders = Order::with('items.product')->latest()->paginate(10);
         // dd($orders);
         return view('admin.pages.orders', compact('orders'));
     }
-    public function orderDelivered()
-    {
-        $orders = Order::with('items.product')->latest()->paginate(10);
-        // dd($orders);
-        return view('admin.pages.orders', compact('orders'));
-    }
-    public function deletOrder($order)
-    {
-        $order = Order::find($order);
-        $order->delete();
-        return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
-    }
+    
     public function showcustomers()
     {
         $users = User::paginate('10');
