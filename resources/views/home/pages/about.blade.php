@@ -10,7 +10,7 @@
     <!-- Favicon Icon -->
     <link rel="icon" href="/template/assets/images/favicon.png">
     <!-- Site Title -->
-    <title>Glowify - Beauty E-Commerce</title>
+    <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/template/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">
@@ -34,7 +34,7 @@
             data-src="assets/images/breadcamp_bg_5.jpeg">
             <div>
                 <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">About Glowify</h1>
-                <ol class="breadcrumb cs_fs_18 mb-0">
+                <ol class="mb-0 breadcrumb cs_fs_18">
                     <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
                     <li class="breadcrumb-item active">About</li>
                 </ol>
@@ -101,7 +101,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
-                                <p class="cs_value_box_subtitle mb-0">We're committed to delivering beauty products of
+                                <p class="mb-0 cs_value_box_subtitle">We're committed to delivering beauty products of
                                     the highest quality, rigorously tested for safety and effectiveness.</p>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Customer Satisfaction</h2>
-                                <p class="cs_value_box_subtitle mb-0">Your happiness is our success. We prioritize your
+                                <p class="mb-0 cs_value_box_subtitle">Your happiness is our success. We prioritize your
                                     satisfaction and continuously seek ways to enhance your experience.</p>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Trust and Reliability</h2>
-                                <p class="cs_value_box_subtitle mb-0">We've built a reputation for trustworthiness and
+                                <p class="mb-0 cs_value_box_subtitle">We've built a reputation for trustworthiness and
                                     reliability. Count on us for your beauty needs.</p>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
-                                <p class="cs_value_box_subtitle mb-0">Beauty is personal. We believe in tailoring our
+                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our
                                     offerings to meet your unique preferences and needs.</p>
                             </div>
                         </div>
@@ -141,7 +141,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
-                                <p class="cs_value_box_subtitle mb-0">We're committed to delivering beauty products of
+                                <p class="mb-0 cs_value_box_subtitle">We're committed to delivering beauty products of
                                     the highest quality, rigorously tested for safety and effectiveness.</p>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Customer Satisfaction</h2>
-                                <p class="cs_value_box_subtitle mb-0">Your happiness is our success. We prioritize your
+                                <p class="mb-0 cs_value_box_subtitle">Your happiness is our success. We prioritize your
                                     satisfaction and continuously seek ways to enhance your experience.</p>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Trust and Reliability</h2>
-                                <p class="cs_value_box_subtitle mb-0">We've built a reputation for trustworthiness and
+                                <p class="mb-0 cs_value_box_subtitle">We've built a reputation for trustworthiness and
                                     reliability. Count on us for your beauty needs.</p>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
-                                <p class="cs_value_box_subtitle mb-0">Beauty is personal. We believe in tailoring our
+                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our
                                     offerings to meet your unique preferences and needs.</p>
                             </div>
                         </div>
@@ -259,7 +259,7 @@
     <!-- Start CTA Section -->
     <div class="cs_height_120 cs_height_lg_70"></div>
     <div class="container">
-        <div class="cs_cta cs_style_3 cs_accent_bg cs_radius_16 position-relative overflow-hidden">
+        <div id="colorMe" class="overflow-hidden cs_cta cs_style_3 cs_accent_bg cs_radius_16 position-relative">
             <div class="cs_cta_text">
                 <h2 class="cs_cta_title cs_white_color cs_fs_54 cs_semibold">Your beauty journey is our journey</h2>
                 <p class="cs_cta_subtitle cs_fs_18">Join us, explore our handpicked selection of products, and let's

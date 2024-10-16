@@ -10,7 +10,7 @@
     <!-- Favicon Icon -->
     <link rel="icon" href="/template/assets/images/favicon.png">
     <!-- Site Title -->
-    <title>Glowify - Beauty E-Commerce</title>
+    <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/template/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">

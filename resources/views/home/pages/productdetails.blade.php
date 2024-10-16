@@ -9,7 +9,7 @@
     <!-- Favicon Icon -->
     <link rel="icon" href="/template/assets/images/favicon.png">
     <!-- Site Title -->
-    <title>Glowify - Beauty E-Commerce</title>
+    <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/template/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">
@@ -97,12 +97,7 @@
                 <div class="cs_share_links_wrap">
                   <div class="cs_height_25 cs_height_lg_25"></div>
                   <p class="cs_light cs_primary_color">Share</p>
-                  <div class="cs_share_links">
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-messenger"></i></a>
-                  </div>
+                  
                 </div>
               </div>
               <div class="col-lg-6">

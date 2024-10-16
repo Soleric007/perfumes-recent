@@ -2163,7 +2163,7 @@ hr {
 }
 
 .cs_gray_bg_4 {
-  background-color: rgba(242, 242, 242, 0.6);
+  background-color: var( --accent-light);
 }
 
 .cs_accent_bg {
@@ -2175,7 +2175,7 @@ hr {
 }
 
 .cs_accent_bg_03p {
-  background-color: rgba(230, 31, 127, 0.03);
+  background-color: var( --accent-light);
 }
 
 .cs_accent_strong_bg {

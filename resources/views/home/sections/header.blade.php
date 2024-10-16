@@ -6,9 +6,10 @@
                     <ul class="cs_top_header_list cs_mp_0">
                         <li>
                             <div class="cs_header_social">
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="wa.me/message/JUK236VPQJAAA1"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/riyallure_fragrances/"><i class="fa-brands fa-instagram"></i></a>
+
                             </div>
                         </li>
                         <li>
@@ -280,9 +281,9 @@
                                 </ul>
                             </nav>
                             <div class="cs_header_social cs_mobile_show">
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="wa.me/message/JUK236VPQJAAA1"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/riyallure_fragrances/"><i class="fa-brands fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
