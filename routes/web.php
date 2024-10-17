@@ -82,5 +82,8 @@ Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->nam
 Route::patch('/updatecart', [ProductController::class, 'update'])->name('updatecart');
 Route::delete('/cart/remove/{id}', [ProductController::class, 'remove'])->name('remove.from.cart');
 
+Route::get('/wishlist/{id}', [ProductController::class, 'addToWishList'])->name('addToWishlist');
+Route::delete('/wishlist/remove/{id}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
+
 
 require __DIR__ . '/auth.php';

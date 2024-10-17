@@ -88,11 +88,13 @@
                                                     <tr>
                                                         <td class="id" style="display:none;"><a
                                                                 href="javascript:void(0);"
-                                                                class="fw-medium link-primary">#{{$user->id}}</a></td>
-                                                        <td class="customer_name">{{$user->name}}</td>
-                                                        <td class="email">{{$user->email}}</td>
-                                                        <td class="phone">{{$user->phone ? $user->phone : 'null'}}</td>
-                                                        <td class="date">{{$user->created_at}}</td>
+                                                                class="fw-medium link-primary">#{{ $user->id }}</a>
+                                                        </td>
+                                                        <td class="customer_name">{{ $user->name }}</td>
+                                                        <td class="email">{{ $user->email }}</td>
+                                                        <td class="phone">{{ $user->phone ? $user->phone : 'null' }}
+                                                        </td>
+                                                        <td class="date">{{ $user->created_at }}</td>
                                                         <td class="status"><span
                                                                 class="badge bg-success-subtle text-success text-uppercase">Active</span>
                                                         </td>
@@ -104,7 +106,7 @@
                                                                     title="Remove">
                                                                     <a class="text-danger d-inline-block remove-item-btn btn btn-danger text-white"
                                                                         onclick="return confirm('Are you sure you want to delete this user?')"
-                                                                        href="{{route('admin.deleteCustomer', $user->id)}}">
+                                                                        href="{{ route('admin.deleteCustomer', $user->id) }}">
                                                                         Delete
                                                                     </a>
                                                                 </li>
@@ -114,158 +116,163 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <div class="noresult" style="display: none">
-                                            <div class="text-center">
-                                                <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop"
-                                                    colors="primary:#121331,secondary:#08a88a"
-                                                    style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                <p class="text-muted mb-0">We've searched more than 150+ customer We
-                                                    did not find any customer for you search.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <div class="pagination-wrap hstack gap-2">
-                                            <div class="mt-8">{!! $users->withQueryString()->links('pagination::bootstrap-5') !!}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-light p-3">
-                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close" id="close-modal"></button>
-                                            </div>
-                                            <form class="tablelist-form" autocomplete="off">
-                                                <div class="modal-body">
-                                                    <input type="hidden" id="id-field" />
-
-                                                    <div class="mb-3" id="modal-id" style="display: none;">
-                                                        <label for="id-field1" class="form-label">ID</label>
-                                                        <input type="text" id="id-field1" class="form-control"
-                                                            placeholder="ID" readonly />
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="customername-field" class="form-label">Customer
-                                                            Name</label>
-                                                        <input type="text" id="customername-field"
-                                                            class="form-control" placeholder="Enter name" required />
-                                                        <div class="invalid-feedback">Please enter a customer name.
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="email-field" class="form-label">Email</label>
-                                                        <input type="email" id="email-field" class="form-control"
-                                                            placeholder="Enter email" required />
-                                                        <div class="invalid-feedback">Please enter an email.</div>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="phone-field" class="form-label">Phone</label>
-                                                        <input type="text" id="phone-field" class="form-control"
-                                                            placeholder="Enter phone no." required />
-                                                        <div class="invalid-feedback">Please enter a phone.</div>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="date-field" class="form-label">Joining
-                                                            Date</label>
-                                                        <input type="date" id="date-field" class="form-control"
-                                                            data-provider="flatpickr" data-date-format="d M, Y"
-                                                            required placeholder="Select date" />
-                                                        <div class="invalid-feedback">Please select a date.</div>
-                                                    </div>
-
-                                                    <div>
-                                                        <label for="status-field" class="form-label">Status</label>
-                                                        <select class="form-control" data-choices
-                                                            data-choices-search-false name="status-field"
-                                                            id="status-field" required>
-                                                            <option value="">Status</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Block">Block</option>
-                                                        </select>
-                                                    </div>
+                                        @if (count($users) === 0)
+                                            <div class="noresult">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json"
+                                                        trigger="loop" colors="primary:#405189,secondary:#0ab39c"
+                                                        style="width:75px;height:75px"></lord-icon>
+                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                    <p class="text-muted">No product yet.</p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <div class="hstack gap-2 justify-content-end">
-                                                        <button type="button" class="btn btn-light"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-success"
-                                                            id="add-btn">Add Customer</button>
-                                                        <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="gridjs-footer">
+                                        <div class="gridjs-pagination">
+                                            {!! $users->withQueryString()->links('pagination::bootstrap-5') !!}
+
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="btn-close" id="deleteRecord-close"
-                                                    data-bs-dismiss="modal" aria-label="Close"
-                                                    id="btn-close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mt-2 text-center">
-                                                    <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json"
-                                                        trigger="loop" colors="primary:#f7b84b,secondary:#f06548"
-                                                        style="width:100px;height:100px"></lord-icon>
-                                                    <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                        <h4>Are you sure ?</h4>
-                                                        <p class="text-muted mx-4 mb-0">Are you sure you want to remove
-                                                            this record ?</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                    <button type="button" class="btn w-sm btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn w-sm btn-danger"
-                                                        id="delete-record">Yes, Delete It!</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="d-flex justify-content-end">
+                                    <div class="pagination-wrap hstack gap-2">
+                                        <div class="mt-8">{!! $users->withQueryString()->links('pagination::bootstrap-5') !!}</div>
                                     </div>
                                 </div>
-                                <!--end modal -->
                             </div>
+                            <div class="modal fade" id="showModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-light p-3">
+                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close" id="close-modal"></button>
+                                        </div>
+                                        <form class="tablelist-form" autocomplete="off">
+                                            <div class="modal-body">
+                                                <input type="hidden" id="id-field" />
+
+                                                <div class="mb-3" id="modal-id" style="display: none;">
+                                                    <label for="id-field1" class="form-label">ID</label>
+                                                    <input type="text" id="id-field1" class="form-control"
+                                                        placeholder="ID" readonly />
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="customername-field" class="form-label">Customer
+                                                        Name</label>
+                                                    <input type="text" id="customername-field"
+                                                        class="form-control" placeholder="Enter name" required />
+                                                    <div class="invalid-feedback">Please enter a customer name.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="email-field" class="form-label">Email</label>
+                                                    <input type="email" id="email-field" class="form-control"
+                                                        placeholder="Enter email" required />
+                                                    <div class="invalid-feedback">Please enter an email.</div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="phone-field" class="form-label">Phone</label>
+                                                    <input type="text" id="phone-field" class="form-control"
+                                                        placeholder="Enter phone no." required />
+                                                    <div class="invalid-feedback">Please enter a phone.</div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="date-field" class="form-label">Joining
+                                                        Date</label>
+                                                    <input type="date" id="date-field" class="form-control"
+                                                        data-provider="flatpickr" data-date-format="d M, Y" required
+                                                        placeholder="Select date" />
+                                                    <div class="invalid-feedback">Please select a date.</div>
+                                                </div>
+
+                                                <div>
+                                                    <label for="status-field" class="form-label">Status</label>
+                                                    <select class="form-control" data-choices data-choices-search-false
+                                                        name="status-field" id="status-field" required>
+                                                        <option value="">Status</option>
+                                                        <option value="Active">Active</option>
+                                                        <option value="Block">Block</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="hstack gap-2 justify-content-end">
+                                                    <button type="button" class="btn btn-light"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-success" id="add-btn">Add
+                                                        Customer</button>
+                                                    <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" id="deleteRecord-close"
+                                                data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mt-2 text-center">
+                                                <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                                                    colors="primary:#f7b84b,secondary:#f06548"
+                                                    style="width:100px;height:100px"></lord-icon>
+                                                <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                                                    <h4>Are you sure ?</h4>
+                                                    <p class="text-muted mx-4 mb-0">Are you sure you want to remove
+                                                        this record ?</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                                                <button type="button" class="btn w-sm btn-light"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn w-sm btn-danger"
+                                                    id="delete-record">Yes, Delete It!</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end modal -->
                         </div>
-
                     </div>
-                    <!--end col-->
-                </div>
-                <!--end row-->
 
+                </div>
+                <!--end col-->
             </div>
-            <!-- container-fluid -->
+            <!--end row-->
+
         </div>
-        <!-- End Page-content -->
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> © Riyallure.
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Soleric
-                        </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> © Riyallure.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design & Develop by Soleric
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
     </div>
 </x-ad-layout>

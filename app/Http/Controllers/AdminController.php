@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,13 @@ class AdminController extends Controller
     //
     public function dashboard()
     {
+        $orders = Order::with('items.product')->latest()->paginate(10);
         $user = Auth::user();
-        return view('admin.pages.dashboard', compact('user'));
+        $totalEarnings = Order::sum('total_amount');
+        $totalCustomers = count(User::all());
+        $totalProducts = count(Product::all());
+
+        return view('admin.pages.dashboard', compact('user', 'orders', 'totalEarnings', 'totalCustomers', 'totalProducts'));
     }
     public function createproduct()
     {
@@ -79,5 +85,15 @@ class AdminController extends Controller
         $user = User::find($customer);
         $user->delete();
         return redirect()->route('admin.customers')->with('message', 'Customer Removed Successfully');
+    }
+
+    public function showAddCategory()
+    {
+        return view('admin.pages.addcategory');
+    }
+    public function showCategories()
+    {
+        $categories = Category::all();
+        return view('admin.pages.categories', compact('categories'));
     }
 }

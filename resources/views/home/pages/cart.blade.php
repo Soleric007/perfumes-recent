@@ -72,7 +72,6 @@
                     <ul class="cs_cart_list cs_mp_0">
                         @foreach (session('cart') as $id => $details)
                             <li data-id="{{ $id }}">
-
                                 <div class="cs_product_card cs_style_11 cs_radius_10">
                                     <a href="" class="cs_product_thumb">
                                         <img src="/storage/{{ $details['image'] }}" alt="Product">
@@ -83,7 +82,7 @@
                                             <a href="">{{ $details['name'] }}</a>
                                         </h2>
                                         <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium cs_accent_color">
-                                            ${{ $details['name'] }}
+                                            N{{ $details['price'] }}
                                         </p>
                                         <div class="flex flex-col gap-2">
                                             <label for="quantity" class="text-xl">Quantity:</label>
@@ -139,7 +138,7 @@
                         </li>
                         <li>
                             <span class="cs_light">Shipping Fee</span>
-                            {{-- <span class="cs_semibold cs_primary_color">${{$totalshippingfee}}</span> --}}
+                            {{-- <span class="cs_semibold cs_primary_color">N{{$totalshippingfee}}</span> --}}
                         </li>
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>

@@ -4,7 +4,6 @@
           <a href="{{route('shop.show')}}" class="cs_banner cs_style_1 cs_accent_light_bg cs_radius_12 overflow-hidden position-relative">
             <div class="cs_banner_text">
               <p class="cs_fs_24 cs_medium text-uppercase mb-0">LIMITED TIME OFFER</p>
-              <h2 class="cs_fs_100 cs_accent_color mb-0">Save <br>20%</h2>
             </div>
             <img src="/template/assets/images/banner/banner_img_1.png" alt="Banner" class="cs_banner_img">
             <div class="cs_banner_shape">

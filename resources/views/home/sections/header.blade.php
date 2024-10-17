@@ -277,6 +277,7 @@
 
                                     </li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li><a href="{{route('wishlist')}}">Wishlist</a></li>
 
                                 </ul>
                             </nav>

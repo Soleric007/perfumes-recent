@@ -10,52 +10,74 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $products = Product::latest()->paginate(5);
         return view('home.pages.index', compact('products'));
     }
-    public function redirect(){
+    public function redirect()
+    {
         $products = Product::latest()->paginate(5);
         return view('home.pages.index', compact('products'));
     }
-    public function showAboutUs(){
+    public function showAboutUs()
+    {
         return view('home.pages.about');
     }
-    public function showproductdetails($product)
+    public function showProductDetails($product)
     {
         $product = Product::find($product);
-        return view('home.pages.productdetails', compact('product'));
+
+        if (!$product) {
+            // Handle the case where the product is not found
+            return redirect()->route('index')->with('error', 'Product not found.');
+        }
+
+        // Fetch related products based on similar titles, excluding the current product
+        $relatedProducts = Product::where('title', 'like', '%' . $product->title . '%')
+            ->where('id', '!=', $product->id) // Exclude the current product
+            ->limit(5) // Limit the number of related products
+            ->get();
+
+        return view('home.pages.productdetails', compact('product', 'relatedProducts'));
     }
-    public function showShop(){
+
+    public function showShop()
+    {
         $products = Product::paginate(10);
         return view('home.pages.shop', compact('products'));
     }
-    public function showFaq(){
+    public function showFaq()
+    {
         return view('home.pages.faq');
     }
-    public function showContact(){
+    public function showContact()
+    {
         return view('home.pages.contact');
     }
-    public function showWishlist(){
+    public function showWishlist()
+    {
         return view('home.pages.wishlist');
     }
-    public function showOrders(){
+    public function showOrders()
+    {
         $user = Auth::user();
-        return view('home.pages.orders',compact('user'));
+        return view('home.pages.orders', compact('user'));
     }
-    public function showAddress(){
+    public function showAddress()
+    {
         $user = Auth::user();
-        return view('home.pages.address',compact('user'));
+        return view('home.pages.address', compact('user'));
     }
-    public function showAccountdetails(){
+    public function showAccountdetails()
+    {
         $user = Auth::user();
-        return view('home.pages.accountdetails',compact('user'));
+        return view('home.pages.accountdetails', compact('user'));
     }
 
-    public function showUserAccount(){
+    public function showUserAccount()
+    {
         $user = Auth::user();
         return view('home.pages.useraccount', compact('user'));
     }
-
-
 }

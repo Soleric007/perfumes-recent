@@ -80,18 +80,54 @@ class ProductController extends Controller
      *
      */
     public function remove(Request $request)
-{
-    if ($request->id) {
-        $cart = session()->get('cart');
+    {
+        if ($request->id) {
+            $cart = session()->get('cart');
 
-        if (isset($cart[$request->id])) {
-            unset($cart[$request->id]);
-            session()->put('cart', $cart);
-            session()->flash('success', 'Product removed successfully');
-        } else {
-            session()->flash('error', 'Product not found in cart.');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+                session()->flash('success', 'Product removed successfully');
+            } else {
+                session()->flash('error', 'Product not found in cart.');
+            }
         }
     }
-}
 
+    public function addToWishlist($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $wishlist = session()->get('wishlist', []);
+
+        if (isset($cart[$id])) {
+            $wishlist[$id]['quantity']++;
+        } else {
+            $wishlist[$id] = [
+                "name" => $product->title,
+                "quantity" => 1,
+                "price" => $product->price,
+                "discount" => $product->discount,
+                "shippingfee" => $product->shippingfee,
+                "image" => $product->image
+            ];
+        }
+
+        session()->put('wishlist', $wishlist);
+        return redirect()->back()->with('success', 'Product added to wishlist successfully!');
+    }
+    public function removeFromWishlist(Request $request)
+    {
+        if ($request->id) {
+            $wishlist = session()->get('wishlist');
+
+            if (isset($wishlist[$request->id])) {
+                unset($wishlist[$request->id]);
+                session()->put('wishlist', $wishlist);
+                session()->flash('success', 'Product removed from wishilist successfully');
+            } else {
+                session()->flash('error', 'Product not found in wishlist.');
+            }
+        }
+    }
 }

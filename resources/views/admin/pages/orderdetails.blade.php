@@ -62,11 +62,11 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>${{$item->product->price}}</td>
+                                                    <td>N{{$item->product->price}}</td>
                                                     <td>{{$item->quantity}}</td>
 
                                                     <td class="fw-medium text-end">
-                                                        ${{$item->product->price * $item->quantity}}
+                                                        N{{$item->product->price * $item->quantity}}
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -142,7 +142,7 @@
                                         <p class="text-muted mb-0">Total Amount:</p>
                                     </div>
                                     <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-0">${{$order->total_amount}}</h6>
+                                        <h6 class="mb-0">N{{$order->total_amount}}</h6>
                                     </div>
                                 </div>
                             </div>

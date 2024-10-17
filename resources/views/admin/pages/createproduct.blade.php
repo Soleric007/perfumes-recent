@@ -107,7 +107,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="product-price-input">Price</label>
                                                         <div class="input-group has-validation">
-                                                            <span class="input-group-text" id="product-price-addon">$</span>
+                                                            <span class="input-group-text" id="product-price-addon">N</span>
                                                             <input type="number" step="0.01" name="price" class="form-control" id="product-price-input" placeholder="Enter price" aria-describedby="product-price-addon" required>
                                                             <div class="invalid-feedback">Please enter a product price.</div>
                                                         </div>
@@ -120,7 +120,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="product-discount-input">Discount</label>
                                                         <div class="input-group">
-                                                            <span class="input-group-text" id="product-discount-addon">%</span>
+                                                            <span class="input-group-text" id="product-discount-addon">N</span>
                                                             <input type="number" step="0.01" name="discount" class="form-control" id="product-discount-input" placeholder="Enter discount" aria-describedby="product-discount-addon">
                                                             <div class="invalid-feedback">Please enter a valid discount.</div>
                                                             @error('discount')
@@ -133,7 +133,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label" for="product-discount-input">Shipping Fee</label>
                                                         <div class="input-group">
-                                                            <span class="input-group-text" id="product-discount-addon">$</span>
+                                                            <span class="input-group-text" id="product-discount-addon">N</span>
                                                             <input type="number" step="0.01" name="shippingfee" class="form-control" id="product-discount-input" placeholder="Enter Shipping Fee" aria-describedby="product-discount-addon">
                                                             <div class="invalid-feedback">Please enter a valid amount.</div>
                                                             @error('shippingfee')
