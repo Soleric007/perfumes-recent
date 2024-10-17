@@ -33,7 +33,7 @@
         <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
             data-src="assets/images/breadcamp_bg_5.jpeg">
             <div>
-                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">About Glowify</h1>
+                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">About RIYALLURE</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
                     <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
                     <li class="breadcrumb-item active">About</li>
@@ -51,14 +51,8 @@
                         class="cs_radius_7">
                 </div>
                 <div class="cs_about_right">
-                    <h2 class="cs_secondary_font cs_fs_36 cs_medium">ABOUT RADIANT JOURNEY</h2>
-                    <p class="mb-0">We're more than just a beauty e-commerce platform; we're your trusted partner on
-                        your journey to radiance. Our mission is to empower every individual, regardless of age,
-                        background, or gender, to embrace their unique beauty, rediscover their inner glow, and feel
-                        confident in their skin. We believe that beauty is not one-size-fits-all, and our diverse range
-                        of curated products caters to your distinct needs and preferences. <br><br>With our carefully
-                        selected products and expert guidance, we're here to support you at every step, so you can truly
-                        shine and radiate with the confidence that comes from embracing your own, one-of-a-kind beauty.
+                    <h2 class="cs_secondary_font cs_fs_36 cs_medium">ABOUT RIYALLURE PERFUMES</h2>
+                    <p class="mb-0">Riyallure is a Nigerian perfume brand dedicated to crafting exquisite fragrances that embody the unique personalities and moods of individuals. Our alluring, long-lasting scents are thoughtfully designed to evoke emotions and enhance your personal style. Each perfume is a work of art, expertly blended with rich ingredients sourced from around the world. We celebrate the beauty of self-expression, ensuring you feel confident and captivating every day. At Riyallure, we believe that a fragrance is more than just a scent; it’s an extension of who you are. Join us on this aromatic journey and discover the perfect fragrance that resonates with you.
                     </p>
                 </div>
             </div>
@@ -101,8 +95,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
-                                <p class="mb-0 cs_value_box_subtitle">We're committed to delivering beauty products of
-                                    the highest quality, rigorously tested for safety and effectiveness.</p>
+                                <p class="mb-0 cs_value_box_subtitle">We prioritize quality assurance, ensuring every fragrance meets our high standards for your satisfaction.</p>
                             </div>
                         </div>
                         <div class="cs_slider">
@@ -122,7 +115,7 @@
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Trust and Reliability</h2>
                                 <p class="mb-0 cs_value_box_subtitle">We've built a reputation for trustworthiness and
-                                    reliability. Count on us for your beauty needs.</p>
+                                    reliability. Count on us for your fragrance needs.</p>
                             </div>
                         </div>
                         <div class="cs_slider">
@@ -131,8 +124,7 @@
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
-                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our
-                                    offerings to meet your unique preferences and needs.</p>
+                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our perfume offerings to meet your unique scent preferences and desires.</p>
                             </div>
                         </div>
                         <div class="cs_slider">
@@ -141,8 +133,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
-                                <p class="mb-0 cs_value_box_subtitle">We're committed to delivering beauty products of
-                                    the highest quality, rigorously tested for safety and effectiveness.</p>
+                                <p class="mb-0 cs_value_box_subtitle">We prioritize quality assurance, ensuring every fragrance meets our high standards for your satisfaction.</p>
                             </div>
                         </div>
                         <div class="cs_slider">
@@ -171,8 +162,7 @@
                                         src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
-                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our
-                                    offerings to meet your unique preferences and needs.</p>
+                                <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our perfume offerings to meet your unique scent preferences and desires.</p>
                             </div>
                         </div>
                     </div>
@@ -184,7 +174,7 @@
     <!-- End Our Values -->
     <!-- Start Road Map -->
     <div class="cs_height_120 cs_height_lg_70"></div>
-    <div class="container">
+    {{-- <div class="container">
         <div class="cs_accent_light_bg">
             <div class="cs_height_100 cs_height_lg_70"></div>
             <div class="text-center cs_fs_36 cs_medium cs_primary_color">MILESTONES</div>
@@ -201,7 +191,7 @@
                             <div class="cs_roadmap_year cs_accent_color cs_semibold cs_fs_36">2010</div>
                             <div class="cs_roadmap_right">
                                 <h3 class="cs_fs_24 cs_medium cs_secondary_color cs_secondary_font">Inception</h3>
-                                <p class="mb-0 cs_light">Glowify's humble beginnings, starting as a small online store
+                                <p class="mb-0 cs_light">RIYALLURE's humble beginnings, starting as a small online store
                                     with a passion for beauty.</p>
                             </div>
                         </div>
@@ -223,7 +213,7 @@
                             <div class="cs_roadmap_year cs_accent_color cs_semibold cs_fs_36">2018</div>
                             <div class="cs_roadmap_right">
                                 <h3 class="cs_fs_24 cs_medium cs_secondary_color cs_secondary_font">Brand Launch</h3>
-                                <p class="mb-0 cs_light">Glowify launched its own brand, ensuring quality and
+                                <p class="mb-0 cs_light">RIYALLURE launched its own brand, ensuring quality and
                                     affordability.</p>
                             </div>
                         </div>
@@ -254,17 +244,17 @@
             </div>
             <div class="cs_height_100 cs_height_lg_70"></div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Road Map -->
     <!-- Start CTA Section -->
     <div class="cs_height_120 cs_height_lg_70"></div>
     <div class="container">
         <div id="colorMe" class="overflow-hidden cs_cta cs_style_3 cs_accent_bg cs_radius_16 position-relative">
             <div class="cs_cta_text">
-                <h2 class="cs_cta_title cs_white_color cs_fs_54 cs_semibold">Your beauty journey is our journey</h2>
+                <h2 class="cs_cta_title cs_white_color cs_fs_54 cs_semibold">Your fragrance journey is our journey</h2>
                 <p class="cs_cta_subtitle cs_fs_18">Join us, explore our handpicked selection of products, and let's
-                    embark on a radiant experience together.</p>
-                <a href="{{route('contact')}}" class="cs_btn cs_style_1 cs_medium"><span>JOIN THE GLOWIFY COMUNITY</span></a>
+                    embark on a fragrant experience together.</p>
+                <a href="{{route('contact')}}" class="cs_btn cs_style_1 cs_medium"><span>CONTACT RIYALLURE</span></a>
             </div>
             <img src="/template/assets/images/cta_img_1.png" alt="" class="cs_cta_img">
             <div class="cs_star_shape_1">

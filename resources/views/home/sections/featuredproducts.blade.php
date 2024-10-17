@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="cs_product_info">
                                         <div class="cs_product_category text-uppercase cs_fs_14 cs_light">
-                                            <a href="{{ route('shop.show') }}">GLOWIFY BEAUTY</a>
+                                            <a href="{{ route('shop.show') }}">RIYALLURE BEAUTY</a>
                                         </div>
                                         <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font uppercase text-2xl">
                                             {{ $product->title }}</h2>

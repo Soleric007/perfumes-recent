@@ -33,7 +33,7 @@
         <div class="container">
           <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/breadcamp_bg_9.jpeg">
             <div>
-              <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Your Glowify Wish List</h1>
+              <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Wish List</h1>
               <ol class="mb-0 breadcrumb cs_fs_18">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Wishlist</li>

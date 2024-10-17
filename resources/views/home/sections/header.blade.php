@@ -20,7 +20,7 @@
                                         d="M7.5 0C4.74305 0 2.49999 2.24306 2.49999 5.00001C2.49999 5.82765 2.70692 6.64825 3.10029 7.3761L7.22657 14.8389C7.28151 14.9384 7.38618 15 7.5 15C7.61382 15 7.7185 14.9384 7.77343 14.8389L11.9012 7.37364C12.2931 6.64825 12.5 5.82762 12.5 4.99998C12.5 2.24306 10.257 0 7.5 0ZM7.5 7.5C6.12153 7.5 5.00001 6.37849 5.00001 5.00001C5.00001 3.62153 6.12153 2.50002 7.5 2.50002C8.87848 2.50002 9.99999 3.62153 9.99999 5.00001C9.99999 6.37849 8.87848 7.5 7.5 7.5Z"
                                         fill="currentColor" />
                                 </svg>
-                                123 Anywhere Street, Anytown USA
+                                Lagos, Nigeria
                             </p>
                         </li>
                     </ul>
@@ -50,7 +50,7 @@
             <div class="cs_main_header_in">
                 <div class="cs_main_header_left">
                     <a class="cs_site_branding" href="{{ route('index') }}">
-                        <img src="/template/assets/images/logo.svg" alt="Logo">
+                        <img class="myLogo" src="/template/assets/images/logo.png" alt="Logo">
                     </a>
                 </div>
                 <div class="cs_main_header_right">
@@ -117,7 +117,7 @@
                     <div class="cs_nav_wrap">
                         <div class="cs_site_branding_wrap cs_mobile_show">
                             <a class="cs_site_branding" href="{{ route('index') }}">
-                                <img src="/template/assets/images/logo.svg" alt="Logo">
+                                <img class="myLogo" src="/template/assets/images/logo.png" alt="Logo">
                             </a>
                             <button class="cs_close_mobile_active">
                                 <i class="fa-regular fa-circle-xmark"></i>
@@ -128,55 +128,55 @@
                     <span class="cs_nav_category_btn cs_dropdown_btn">All Categories</span>
                     <ul class="cs_nav_category_list cs_dropdown_content">
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog.html">
                           <img src="/template/assets/images/nav-category/1.jpeg" alt="Product">
                           <span>New Arrivals</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v2.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v2.html">
                           <img src="/template/assets/images/nav-category/2.jpeg" alt="Product">
                           <span>Flash Sale</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v3.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v3.html">
                           <img src="/template/assets/images/nav-category/3.jpeg" alt="Product">
                           <span>Special Offer!</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog.html">
                           <img src="/template/assets/images/nav-category/4.jpeg" alt="Product">
                           <span>Skincare</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v2.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v2.html">
                           <img src="/template/assets/images/nav-category/5.jpeg" alt="Product">
                           <span>Body Care</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v3.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v3.html">
                           <img src="/template/assets/images/nav-category/6.jpeg" alt="Product">
                           <span>Haircare</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog.html">
                           <img src="/template/assets/images/nav-category/7.jpeg" alt="Product">
                           <span>Beauty Tools</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v2.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v2.html">
                           <img src="/template/assets/images/nav-category/10.jpeg" alt="Product">
                           <span>Makeup</span>
                         </a>
                       </li>
                       <li>
-                        <a href="https://html.laralink.com/glowify/shop-catalog-v3.html">
+                        <a href="https://html.laralink.com/RIYALLURE/shop-catalog-v3.html">
                           <img src="/template/assets/images/nav-category/9.jpeg" alt="Product">
                           <span>Face Care</span>
                         </a>
@@ -197,21 +197,21 @@
                             <h4>Shop Variation</h4>
                             <ul>
                               <li><a href="{{route('shop.show')}}">Shop V1 - Default</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-v2.html">Shop V2 - Classic</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-v3.html">Shop V3 - Modern</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-v2.html">Shop V2 - Classic</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-v3.html">Shop V3 - Modern</a></li>
                               <li>
                                 <h4>Shop Layout</h4>
                                 <ul>
-                                  <li><a href="https://html.laralink.com/glowify/shop-right-sidebar.html">With Right Sidebar</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-four-column.html">Four Column Product </a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-right-sidebar.html">With Right Sidebar</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-four-column.html">Four Column Product </a></li>
                                   <li><a href="shop-three-column.html">Three Column Product </a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-two-column.html">Two Column Product </a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-list-view-left-sidebar.html">List View Left Sidebar</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-list-view-right-sidebar.html">List View Right Sidebar</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-list-view.html">List View Fullwidth</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-without-banner.html">Shop Without Banner</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-with-banner.html">Shop With Banner</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-with-highlight-category.html">With Highlight Category</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-two-column.html">Two Column Product </a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-list-view-left-sidebar.html">List View Left Sidebar</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-list-view-right-sidebar.html">List View Right Sidebar</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-list-view.html">List View Fullwidth</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-without-banner.html">Shop Without Banner</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-with-banner.html">Shop With Banner</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-with-highlight-category.html">With Highlight Category</a></li>
                                 </ul>
                               </li>
                             </ul>
@@ -219,22 +219,22 @@
                           <li class="menu-item-has-children">
                             <h4>Shop Catalog</h4>
                             <ul>
-                              <li><a href="https://html.laralink.com/glowify/shop-catalog.html">Catalog - V1</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-catalog-v2.html">Catalog - V2</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-catalog-v3.html">Catalog - V3</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-catalog.html">Catalog - V1</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-catalog-v2.html">Catalog - V2</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-catalog-v3.html">Catalog - V3</a></li>
                               <li>
                                 <h4>Offer Catalog</h4>
                                 <ul>
-                                  <li><a href="https://html.laralink.com/glowify/shop-flash-sale-catalog.html">Flash Sale Catalog - V1</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-flash-sale-catalog-v2.html">Flash Sale Catalog - V2</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-flash-sale-catalog.html">Flash Sale Catalog - V1</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-flash-sale-catalog-v2.html">Flash Sale Catalog - V2</a></li>
                                 </ul>
                               </li>
                               <li>
                                 <h4>Filter Type</h4>
                                 <ul>
-                                  <li><a href="https://html.laralink.com/glowify/shop-v2.html">Filter Sidebar - V1</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-list-view-left-sidebar.html">Filter Sidebar - V2</a></li>
-                                  <li><a href="https://html.laralink.com/glowify/shop-v3.html">Filter Top</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-v2.html">Filter Sidebar - V1</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-list-view-left-sidebar.html">Filter Sidebar - V2</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/shop-v3.html">Filter Top</a></li>
                                   <li><a href="{{route('shop.show')}}">Drawer Filter</a></li>
                                 </ul>
                               </li>
@@ -244,12 +244,12 @@
                             <h4>Page Loading</h4>
                             <ul>
                               <li><a href="{{route('shop.show')}}">Pagination</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-load-more.html">Load More</a></li>
-                              <li><a href="https://html.laralink.com/glowify/shop-infinity-scroll.html">Infinity Scroll</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-load-more.html">Load More</a></li>
+                              <li><a href="https://html.laralink.com/RIYALLURE/shop-infinity-scroll.html">Infinity Scroll</a></li>
                               <li>
                                 <h4>Other Pages</h4>
                                 <ul>
-                                  <li><a href="https://html.laralink.com/glowify/{{ route('useraccount') }}">My Account</a></li>
+                                  <li><a href="https://html.laralink.com/RIYALLURE/{{ route('useraccount') }}">My Account</a></li>
                                   <li><a href="{{route('wishlist')}}">Wishlist</a></li>
                                   <li><a href="{{route('cart')}}">Cart</a></li>
                                   <li><a href="checkout.html">Checkout</a></li>
@@ -289,7 +289,7 @@
                     </div>
                 </div>
                 <div class="cs_bottom_header_right">
-                    <a href="#" class="cs_header_number_wrap">
+                    <a href="tel:09162820046" class="cs_header_number_wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"
                             stroke-linejoin="round" class="lucide lucide-headset">
@@ -297,7 +297,7 @@
                                 d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
                             <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
                         </svg>
-                        <span class="cs_accent_color cs_fs_24 cs_header_number">+99327456</span>
+                       <span class="cs_accent_color cs_fs_24 cs_header_number">09162820046</span>
                         <span class="cs_header_number_text">24/7 Support Center</span>
                     </a>
                 </div>

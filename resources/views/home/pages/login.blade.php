@@ -31,7 +31,7 @@
       <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="assets/images/login_banner.jpeg">
         <div>
           <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Member Login</h1>
-          <p class="mb-0 cs_fs_18">Access your Glowify account to continue your beauty journey.</p>
+          <p class="mb-0 cs_fs_18">Access your RIYALLURE account to continue your beauty journey.</p>
         </div>
       </div>
     </div>

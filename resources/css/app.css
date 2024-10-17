@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 :root{
-    --accent-strong: #0d0106;
+    --accent-strong: #4A3C2B;
     --accent: #ab8e66 ;
     --accent-light: #f1e0c5;
+}
+.myLogo{
+    width: 180px;
+
 }
 .logout{
     margin: 25px;

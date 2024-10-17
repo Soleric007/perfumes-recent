@@ -88,7 +88,7 @@
                         <span class="cs_primary_color">State:</span> Grand Avenue<br>
                         <span class="cs_primary_color">ZIP Code:</span> 203069<br>
                       </p>
-                      <a href="https://html.laralink.com/glowify/update-{{ route('address') }}" class="cs_btn cs_style_2 cs_medium cs_size_md">
+                      <a href="https://html.laralink.com/RIYALLURE/update-{{ route('address') }}" class="cs_btn cs_style_2 cs_medium cs_size_md">
                         <span>Update Address</span>
                       </a>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="cs_address_card cs_radius_5">
                       <h3 class="cs_fs_24 cs_semibold">Shipping address</h3>
                       <p>You have not set up this type of address yet.</p>
-                      <a href="https://html.laralink.com/glowify/add-{{ route('address') }}" class="cs_btn cs_style_2 cs_medium cs_size_md">
+                      <a href="https://html.laralink.com/RIYALLURE/add-{{ route('address') }}" class="cs_btn cs_style_2 cs_medium cs_size_md">
                         <span>Add Address</span>
                       </a>
                     </div>

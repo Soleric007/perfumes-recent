@@ -112,42 +112,42 @@
                                 <tbody>
                                     <tr>
                                         <td><a
-                                                href="https://html.laralink.com/glowify/order-details.html">#129818276</a>
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">#129818276</a>
                                         </td>
                                         <td>25/05/2024</td>
                                         <td class="cs_accent_color">Pending</td>
                                         <td>$724</td>
                                         <td class="text-end">
                                             <a class="cs_text_btn"
-                                                href="https://html.laralink.com/glowify/order-details.html">
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">
                                                 <span>View Details</span>
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><a
-                                                href="https://html.laralink.com/glowify/order-details.html">#676515234</a>
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">#676515234</a>
                                         </td>
                                         <td>19/05/2024</td>
                                         <td class="cs_accent_color">Pending</td>
                                         <td>$876</td>
                                         <td class="text-end">
                                             <a class="cs_text_btn"
-                                                href="https://html.laralink.com/glowify/order-details.html">
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">
                                                 <span>View Details</span>
                                             </a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><a
-                                                href="https://html.laralink.com/glowify/order-details.html">#091827653</a>
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">#091827653</a>
                                         </td>
                                         <td>14/05/2024</td>
                                         <td class="cs_accent_color">Pending</td>
                                         <td>$1002</td>
                                         <td class="text-end">
                                             <a class="cs_text_btn"
-                                                href="https://html.laralink.com/glowify/order-details.html">
+                                                href="https://html.laralink.com/RIYALLURE/order-details.html">
                                                 <span>View Details</span>
                                             </a>
                                         </td>

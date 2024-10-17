@@ -97,12 +97,12 @@
                 <div class="cs_share_links_wrap">
                   <div class="cs_height_25 cs_height_lg_25"></div>
                   <p class="cs_light cs_primary_color">Share</p>
-                  
+
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="cs_details cs_style_1">
-                  <p class="cs_product_category cs_fs_14 cs_light">GLOWIFY BEAUTY</p>
+                  <p class="cs_product_category cs_fs_14 cs_light">RIYALLURE BEAUTY</p>
                   <h2 class="mb-0 cs_product_title cs_fs_36 cs_medium cs_secondary_font">Rosewater Hydrating Mist</h2>
                   <div class="cs_height_16 cs_height_lg_16"></div>
                   <ul class="cs_details_list_1 cs_mp_0">
@@ -401,7 +401,7 @@
                     </div>
                     <div class="cs_product_review_date cs_fs_14">March 10, 2024</div>
                   </div>
-                  <div class="cs_product_review_text">I've tried numerous facial mists, but the Glowify Rosewater Hydrating Mist is on another level. It's incredibly soothing and gives my skin an instant boost of hydration. I love how it leaves my face feeling rejuvenated and refreshed. It's become a must-have for me, especially during the hot summer months.</div>
+                  <div class="cs_product_review_text">I've tried numerous facial mists, but the RIYALLURE Rosewater Hydrating Mist is on another level. It's incredibly soothing and gives my skin an instant boost of hydration. I love how it leaves my face feeling rejuvenated and refreshed. It's become a must-have for me, especially during the hot summer months.</div>
                 </div>
               </li>
               <li>
@@ -423,7 +423,7 @@
                     </div>
                     <div class="cs_product_review_date cs_fs_14">February 24, 2023</div>
                   </div>
-                  <div class="cs_product_review_text">I have sensitive skin, and finding a mist that doesn't irritate my skin has been a challenge. But the Glowify Rosewater Hydrating Mist is a game-changer! It's so gentle and calming, and it never causes any redness or irritation. I use it as a toner and throughout the day to keep my skin hydrated. It's a holy grail product for me!</div>
+                  <div class="cs_product_review_text">I have sensitive skin, and finding a mist that doesn't irritate my skin has been a challenge. But the RIYALLURE Rosewater Hydrating Mist is a game-changer! It's so gentle and calming, and it never causes any redness or irritation. I use it as a toner and throughout the day to keep my skin hydrated. It's a holy grail product for me!</div>
                 </div>
               </li>
             </ul>
