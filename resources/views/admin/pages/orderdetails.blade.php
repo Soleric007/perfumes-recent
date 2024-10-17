@@ -12,7 +12,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Riyallure</a></li>
                                     <li class="breadcrumb-item active">Order Details</li>
                                 </ol>
                             </div>
@@ -58,13 +58,13 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <h5 class="fs-15"><a href=""
                                                                         class="link-primary text-white text-sm uppercase">{{$item->product->title}}</a></h5>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td>${{$item->product->price}}</td>
                                                     <td>{{$item->quantity}}</td>
-                                                    
+
                                                     <td class="fw-medium text-end">
                                                         ${{$item->product->price * $item->quantity}}
                                                     </td>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <!--end col-->
                     <div class="col-xl-3">
@@ -136,7 +136,7 @@
                                         <h6 class="mb-0">{{$order->payment_method}}</h6>
                                     </div>
                                 </div>
-                                
+
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <p class="text-muted mb-0">Total Amount:</p>
@@ -162,11 +162,11 @@
                     <div class="col-sm-6">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> © Velzon.
+                        </script> © Riyallure.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            Design & Develop by Soleric
                         </div>
                     </div>
                 </div>

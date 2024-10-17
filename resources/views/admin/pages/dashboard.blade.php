@@ -15,7 +15,7 @@
                                             <h4 class="fs-16 mb-1">Good Morning, {{$user->name}}</h4>
                                             <p class="text-muted mb-0">Here's what's happening with your store today.</p>
                                         </div>
-                                        
+
                                     </div><!-- end card header -->
                                 </div>
                                 <!--end col-->
@@ -140,12 +140,12 @@
                                 </div><!-- end col -->
                             </div> <!-- end row-->
 
-                            
 
-                            
+
+
 
                             <div class="row">
-                                
+
 
                                 <div class="col-xl-8">
                                     <div class="card">
@@ -305,7 +305,7 @@
 
                     </div> <!-- end col -->
 
-                    
+
                 </div>
 
             </div>
@@ -317,11 +317,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> © Velzon.
+                        <script>document.write(new Date().getFullYear())</script> © Riyallure.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            Design & Develop by Soleric
                         </div>
                     </div>
                 </div>

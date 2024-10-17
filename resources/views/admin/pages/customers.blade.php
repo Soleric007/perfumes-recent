@@ -12,7 +12,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Riyallure</a></li>
                                     <li class="breadcrumb-item active">Customers</li>
                                 </ol>
                             </div>
@@ -257,11 +257,11 @@
                     <div class="col-sm-6">
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> © Velzon.
+                        </script> © Riyallure.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                            Design & Develop by Soleric
                         </div>
                     </div>
                 </div>
