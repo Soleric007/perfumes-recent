@@ -16,11 +16,16 @@ class Product extends Model
         'discount',
         'shippingfee',
         'stock',
-        'image'
+        'image',
+        'category_id'
     ];
 
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

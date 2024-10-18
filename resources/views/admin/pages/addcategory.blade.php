@@ -18,7 +18,7 @@
                 </div>
                 <!-- end page title -->
 
-                <form method="POST" action="{{ route('admin.add.category') }}" id="createproduct-form" autocomplete="off" class="needs-validation" novalidate enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.store.category') }}" id="createproduct-form" autocomplete="off" class="needs-validation" novalidate enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-8">

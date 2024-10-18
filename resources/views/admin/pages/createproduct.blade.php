@@ -34,6 +34,21 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
+                                        <label for="category" class="form-label">Category</label>
+                                        <select name="category_id" id="category" class="form-control">
+                                            <option value="">Select a Category</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}" {{ old('category_id', $product->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                                    {{ $category->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_id')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label class="form-label" for="product-description">Product Description</label>
                                         <textarea class="form-control" id="product-description" name="description" rows="4" required></textarea>
                                         <div class="invalid-feedback">Please enter a product description.</div>

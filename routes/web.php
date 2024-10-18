@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{order}', [OrderController::class, 'deleteOrder'])->name('order.delete');
     Route::get('/order/deliver/{order}', [OrderController::class, 'orderDelivered'])->name('deliver.order');
 
-    // PAYMENT ROUTE 
+    // PAYMENT ROUTE
     Route::controller(StripePaymentController::class)->group(function () {
 
         Route::get('stripe', 'stripe')->name('stripe');
@@ -47,6 +47,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/createproduct', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
     Route::get('/admin/deleteproduct/{product}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
     Route::get('/admin/deletecustomer/{customer}', [AdminController::class, 'deleteCustomer'])->name('admin.deleteCustomer');
+
+
+    Route::get('/admin/pages/categories', [AdminController::class, 'showCategories'])->name('admin.catgories');
+    Route::get('/admin/pages/addcategory', [AdminController::class, 'showAddCategory'])->name('admin.add.category');
+    Route::post('/admin/createcategory', [AdminController::class, 'storeCategory'])->name('admin.store.category');
+    Route::get('/admin/deletecategory/{id}', [AdminController::class, 'deleteCategory'])->name('admin.deleteCategory');
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/products', [AdminController::class, 'showproducts'])->name('admin.products');

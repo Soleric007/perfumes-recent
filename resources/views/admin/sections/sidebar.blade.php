@@ -37,9 +37,17 @@
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
                     </a>
+                    <a class="nav-link menu-link" href="{{ route('admin.add.category') }}"
+                        aria-controls="sidebarDashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Add Category</span>
+                    </a>
                     <a class="nav-link menu-link" href="{{ route('admin.createproduct') }}"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Create Product</span>
+                    </a>
+                    <a class="nav-link menu-link" href="{{ route('admin.catgories') }}"
+                        aria-controls="sidebarDashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Categories</span>
                     </a>
                     <a class="nav-link menu-link" href="{{ route('admin.products') }}"
                         aria-controls="sidebarDashboards">
@@ -53,7 +61,7 @@
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Orders</span>
                     </a>
-                    
+
                     <a class="nav-link menu-link" href="{{ route('admin.customers') }}"
                         aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Customers</span>

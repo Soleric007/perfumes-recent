@@ -108,6 +108,15 @@
                                                                             title="Sort column ascending"
                                                                             class="gridjs-sort gridjs-sort-neutral"></button>
                                                                     </th>
+                                                                    <th data-column-id="product"
+                                                                        class="gridjs-th gridjs-th-sort text-muted"
+                                                                        tabindex="0" style="width: 360px;">
+                                                                        <div class="gridjs-th-content">Category</div>
+                                                                        <button tabindex="-1"
+                                                                            aria-label="Sort column ascending"
+                                                                            title="Sort column ascending"
+                                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                                    </th>
                                                                     <th data-column-id="stock"
                                                                         class="gridjs-th gridjs-th-sort text-muted"
                                                                         tabindex="0" style="width: 94px;">
@@ -211,19 +220,22 @@
                                                                             </span>
                                                                         </td>
                                                                         <td data-column-id="stock" class="gridjs-td">
+                                                                            {{ $product->category->name ?? 'Nil' }}
+                                                                        </td>
+                                                                        <td data-column-id="stock" class="gridjs-td">
                                                                             {{ $product->stock }}
                                                                         </td>
                                                                         <td data-column-id="price" class="gridjs-td">
-                                                                            <span>${{ $product->price }}</span>
+                                                                            <span>N{{ $product->price }}</span>
                                                                         </td>
                                                                         <td data-column-id="price" class="gridjs-td">
-                                                                            <span>{{ $product->discount }}%</span>
+                                                                            <span>N{{ $product->discount }}</span>
                                                                         </td>
                                                                         <td data-column-id="price" class="gridjs-td">
-                                                                            <span>${{ $product->shippingfee }}</span>
+                                                                            <span>N{{ $product->shippingfee }}</span>
                                                                         </td>
                                                                         <td data-column-id="orders" class="gridjs-td">
-                                                                            45
+                                                                            {{$product->orders}}
                                                                         </td>
 
                                                                         <td data-column-id="published"
@@ -336,5 +348,5 @@
     </div>
     <!-- END layout-wrapper -->
 
-    
+
 </x-ad-layout>

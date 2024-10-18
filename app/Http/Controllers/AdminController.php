@@ -26,18 +26,20 @@ class AdminController extends Controller
     public function createproduct()
     {
         $user = Auth::user();
-        return view('admin.pages.createproduct', compact('user'));
+        $categories = Category::all();
+        return view('admin.pages.createproduct', compact('user', 'categories'));
     }
     public function storeProduct(Request $request){
         // Validate product data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|min:30',
-            'price' => 'required|string',
-            'discount' => 'string',
-            'shippingfee' => 'string',
+            'price' => 'required|numeric',
+            'discount' => 'numeric',
+            'shippingfee' => 'numeric',
             'stock' => 'required|string',
             'image' => 'required|file|mimes:jpg,png,jpeg,webp|max:2048',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         // Upload image
@@ -67,14 +69,14 @@ class AdminController extends Controller
         $product->delete();
         return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
-    
+
     public function showorder()
     {
         $orders = Order::with('items.product')->latest()->paginate(10);
         // dd($orders);
         return view('admin.pages.orders', compact('orders'));
     }
-    
+
     public function showcustomers()
     {
         $users = User::paginate('10');
@@ -95,5 +97,21 @@ class AdminController extends Controller
     {
         $categories = Category::all();
         return view('admin.pages.categories', compact('categories'));
+    }
+    public function storeCategory(Request $request){
+        // Validate product data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255|min:2',
+        ]);
+        // Create new product
+        $category = Category::create($validatedData);
+
+        return redirect()->route('admin.catgories')->with('message', 'Category Added Successfully');
+    }
+    public function deleteCategory($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('admin.catgories')->with('message', 'Category Removed Successfully');
     }
 }
