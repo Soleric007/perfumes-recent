@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
-    <title>RIYALLURE - Beauty E-Commerce</title>
+    <title>RIYALLURE - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/template/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">
@@ -37,7 +37,7 @@
 
                     <div class="panel-heading display-table">
 
-                        <h3 class="panel-title text-3xl my-4 font-bold">Payment Details</h3>
+                        <h3 class="my-4 text-3xl font-bold panel-title">Payment Details</h3>
 
                     </div>
 
@@ -46,7 +46,7 @@
 
 
                         @if (Session::has('success'))
-                            <div class="alert alert-success text-center">
+                            <div class="text-center alert alert-success">
 
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
 

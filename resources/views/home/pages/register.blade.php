@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -29,20 +29,20 @@
     <!-- Start Breadcamp -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-      <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="/template/assets/images/signup_banner.jpeg">
+        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread.jpg">
         <div>
-          <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Sign-Up for a Radiant <br>Experience</h1>
-          <p class="mb-0 cs_fs_18">Fill out the form below, and let's get started.</p>
+          <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Sign-Up for a Radiant <br>Experience</h1>
+          <p style="color: #fff" class="mb-0 cs_fs_18">Fill out the form below, and let's get started.</p>
         </div>
       </div>
     </div>
     <!-- End Breadcamp -->
     <div class="cs_height_80 cs_height_lg_80"></div>
     <div class="container">
-      <div class="cs_signup_card_wrap cs_gray_bg_4 cs_radius_10 cs_bg_filed" data-src="/template/assets/images/signup_img.jpeg">
+      <div class="cs_signup_card_wrap cs_gray_bg_4 cs_radius_10 cs_bg_filed" data-src="/template/assets/images/chanel.jpg">
         <div class="cs_signup_card">
           <h2 class="cs_fs_36 cs_medium">CREATE ACCOUNT</h2>
-          <p class="cs_light mb-0">Enter your credential to access your account</p>
+          <p class="mb-0 cs_light">Enter your credential to access your account</p>
           <div class="cs_height_30 cs_height_lg_20"></div>
           <form method="POST" action="{{ route('register') }}">
             @csrf

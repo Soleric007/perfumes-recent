@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -33,13 +33,12 @@
     <!-- Start Breadcamp -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
-            data-src="template/assets/images/breadcamp_bg_9.jpeg">
+        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread2.jpg">
             <div>
-                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Wish List</h1>
+                <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Wish List</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Wishlist</li>
+                    <li style="color: #fff" class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li style="color: #fff" class="breadcrumb-item active">Wishlist</li>
                 </ol>
             </div>
         </div>

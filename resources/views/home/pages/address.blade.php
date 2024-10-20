@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -40,7 +40,7 @@
         <div class="cs_account_wrap">
           <div class="cs_account_nav cs_radius_10">
             <div class="cs_account_avatar">
-              <img src="template/assets/images/avatar_1.jpeg" alt="">
+              
               <h3 class=""><span>Hello,</span> <br>{{$user->name}}</h3>
             </div>
             <ul class="cs_account_nav_list cs_mp_0">

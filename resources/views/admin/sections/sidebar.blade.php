@@ -7,7 +7,7 @@
                 <img src="/admin/assets/images/logo-sm.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="/admin/assets/images/logo-dark.png" alt="" height="17">
+                <img src="/admin/assets/images/mylogo.png" alt="" height="17">
             </span>
         </a>
         <!-- Light Logo-->
@@ -16,7 +16,7 @@
                 <img src="/admin/assets/images/logo-sm.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="/admin/assets/images/logo-light.png" alt="" height="17">
+                <img src="/admin/assets/images/mylogo.png" alt="" height="17">
             </span>
         </a>
         <button type="button" class="p-0 btn btn-sm fs-20 header-item float-end btn-vertical-sm-hover"

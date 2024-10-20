@@ -7,6 +7,15 @@
     --accent: #ab8e66 ;
     --accent-light: #f1e0c5;
 }
+.topPef{
+    width: 300px;
+}
+.cs_cta_img{
+    width: 470px;
+}
+#shopper{
+    background-color: #4A3C2B;
+}
 .myLogo{
     width: 180px;
 

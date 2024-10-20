@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -31,12 +31,12 @@
 
      <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-      <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/breadcamp_bg_7.jpeg">
+      <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread2.jpg">
         <div>
-          <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Contact Us</h1>
+          <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Contact Us</h1>
           <ol class="mb-0 breadcrumb cs_fs_18">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Contact</li>
+            <li class="breadcrumb-item"><a style="color: #fff" href="index.html">Home</a></li>
+            <li style="color: #fff" class="breadcrumb-item active">Contact</li>
           </ol>
         </div>
       </div>
@@ -80,7 +80,7 @@
           </div>
           <div class="col-xl-5 col-lg-6 offset-xl-1">
             <div class="cs_contact_info cs_radius_8 cs_accent_bg">
-              <img src="template/assets/images/contact_info_img.svg" alt="" class="cs_contact_info_img">
+              <img src="template/assets/images/contactinfo_img.svg" alt="" class="cs_contact_info_img">
               <h2 class="cs_normal cs_fs_36 cs_white_color cs_secondary_font">CONTACT INFORMATION</h2>
               <p class="cs_white_color cs_light">For immediate assistance, you can contact us directly:</p>
               <div class="cs_contact_info_item">

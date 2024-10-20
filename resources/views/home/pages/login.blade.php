@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -28,10 +28,10 @@
 
      <!-- End Header Section -->
     <div class="container">
-      <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="assets/images/login_banner.jpeg">
+        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread.jpg">
         <div>
-          <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Member Login</h1>
-          <p class="mb-0 cs_fs_18">Access your RIYALLURE account to continue your beauty journey.</p>
+          <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Member Login</h1>
+          <p style="color: #fff" class="mb-0 cs_fs_18">Access your RIYALLURE account to continue your fragrance journey.</p>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
       <div class="cs_login_card cs_gray_bg_4 cs_radius_10">
         <div class="row align-items-center cs_gap_y_40">
           <div class="col-xxl-5 col-xl-6 col-lg-7">
-            <img src="/template/assets/images/login_img.jpeg" alt="">
+            <img src="/template/assets/images/loginimg.jpg" alt="">
           </div>
           <div class="col-lg-5 offset-xl-1">
             <h2 class="cs_fs_36 cs_medium">WELCOME BACK!</h2>

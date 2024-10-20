@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -161,7 +161,7 @@
                                 <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font">{{$product->title}}
                                 </h2>
                                 <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">N{{$product->price}}</p>
-                                
+
                             </div>
                         </div>
                         <a href="{{ route('shop.product.detail', $product->id) }}" class="cs_product_link"></a>

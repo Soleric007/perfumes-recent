@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/favicon.png">
+    <link rel="icon" href="/template/assets/images/fave.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -33,8 +33,8 @@
         <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
             data-src="assets/images/breadcamp_bg_11.jpg">
             <div>
-                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Complete Your Beauty Order</h1>
-                <ol class="breadcrumb cs_fs_18 mb-0">
+                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Complete Your Perfume Order</h1>
+                <ol class="mb-0 breadcrumb cs_fs_18">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item active">Checkout</li>
                 </ol>
@@ -49,9 +49,9 @@
             <div class="row cs_gap_y_40">
                 <div class="col-lg-7">
 
-                    <h2 class="cs_fs_36 cs_secondary_font cs_medium mb-0">BILLING DETAILS</h2>
+                    <h2 class="mb-0 cs_fs_36 cs_secondary_font cs_medium">BILLING DETAILS</h2>
                     <div class="cs_height_16 cs_height_lg_16"></div>
-                    <p class="cs_light cs_primary_color mb-0">Please enter your billing details:</p>
+                    <p class="mb-0 cs_light cs_primary_color">Please enter your billing details:</p>
                     <div class="cs_height_35 cs_height_lg_30"></div>
                     <div class="row">
                         <div class="col-lg-6">
@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-xxl-4 col-lg-5 offset-xxl-1">
                     <div class="cs_order_card cs_accent_light_bg cs_radius_10">
-                        <h3 class="cs_fs_24 cs_medium cs_secondary_font mb-0">ORDER SUMMARY</h3>
+                        <h3 class="mb-0 cs_fs_24 cs_medium cs_secondary_font">ORDER SUMMARY</h3>
                         @php $subtotal = 0 @endphp
                         @php $total = 0 @endphp
                         @php $totaldiscount = 0 @endphp
@@ -124,7 +124,7 @@
                             @foreach ((array) session('cart') as $id => $details)
                                 <li>
                                     <div class="cs_order_summary_list_title">
-                                        <h3 class="mb-0 cs_secondary_font cs_semibold cs_fs_16 text-xl uppercase">
+                                        <h3 class="mb-0 text-xl uppercase cs_secondary_font cs_semibold cs_fs_16">
                                             {{ $details['name'] }}</h3>
                                         <h3 class="mb-0 cs_secondary_font cs_semibold cs_fs_16 cs_accent_color">
                                             ${{ $details['price'] }}</h3>
@@ -139,11 +139,11 @@
                         <ul class="cs_card_price_list cs_type_1 cs_mp_0">
                             <li>
                                 <span class="cs_light">Subtotal</span>
-                                <span class="cs_semibold cs_primary_color cs_semibold">${{ $total }}</span>
+                                <span class="cs_semibold cs_primary_color">${{ $total }}</span>
                             </li>
                             <li>
                                 <span class="cs_light">Shipping Fee</span>
-                                <span class="cs_semibold cs_primary_color cs_semibold">$4.99</span>
+                                <span class="cs_semibold cs_primary_color">$4.99</span>
                             </li>
                             <li class="cs_total_price">
                                 <span class="cs_fs_18 cs_primary_color">Total</span>
@@ -151,7 +151,7 @@
                             </li>
                         </ul>
                         <div class="cs_height_50 cs_height_lg_40"></div>
-                        <h3 class="cs_secondary_font cs_fs_24 cs_medium mb-0">PAYMENT METHOD</h3>
+                        <h3 class="mb-0 cs_secondary_font cs_fs_24 cs_medium">PAYMENT METHOD</h3>
                         <div class="cs_height_8 cs_height_lg_8"></div>
                         <p class="mb-0 cs_light">Choose your preferred payment method:</p>
                         <div class="cs_height_8 cs_height_lg_8"></div>
