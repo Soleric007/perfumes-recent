@@ -44,7 +44,7 @@ class HomeController extends Controller
 
     public function showShop()
     {
-        $products = Product::paginate(10);
+        $products = Product::latest()->paginate(10);
         return view('home.pages.shop', compact('products'));
     }
     public function showFaq()

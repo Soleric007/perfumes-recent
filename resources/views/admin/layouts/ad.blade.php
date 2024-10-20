@@ -28,12 +28,16 @@
     <!-- custom Css-->
     <link href="/admin/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
 
     <!-- Begin page -->
     <div id="layout-wrapper">
@@ -804,7 +808,7 @@
             </div>
 
         </div>
-        
+
     </div>
 
     <!-- JAVASCRIPT -->

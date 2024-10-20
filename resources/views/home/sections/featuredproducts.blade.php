@@ -47,8 +47,8 @@
                                         </div>
                                     </div>
                                     <div class="cs_product_info">
-                                        
-                                        <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font uppercase text-2xl">
+
+                                        <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
                                             {{ $product->title }}</h2>
                                             <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
                                                 ${{ $product->discount !== '0' ? $product->discount : $product->price }}
@@ -75,7 +75,7 @@
 
                 </div>
             </div>
-            <div class="cs_pagination cs_style_1 cs_mobile_show"></div>
+            {{-- <div class="cs_pagination cs_style_1 cs_mobile_show"></div>
             <div class="mt-8">{!! $products->withQueryString()->links('pagination::bootstrap-5') !!}</div>
             <div class="cs_slider_arrows cs_style_1 cs_mobile_hide">
                 <div class="cs_left_arrow cs_center">
@@ -94,7 +94,7 @@
                             fill="currentColor" />
                     </svg>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>

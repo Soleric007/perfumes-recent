@@ -18,10 +18,13 @@
     <link rel="stylesheet" href="/template/assets/css/style.css">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <!-- Start Header Section -->
     @include('home.sections.header')
 
@@ -29,11 +32,7 @@
     <!-- Cart Modal -->
 
     <!-- End Header Section -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+    
     <!-- Start Hero Section -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     @include('home.sections.herosection')
