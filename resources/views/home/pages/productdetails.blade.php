@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="/template/assets/css/style.css">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -53,7 +55,7 @@
             <div class="col-lg-6">
                 <div class="cs_details cs_style_1">
                     <div class="cs_product_category uppercase cs_fs_14 cs_light">
-                        <a href="{{ route('shop.show') }}">LUMINOUS COSMETICS</a>
+                        <a href="{{ route('shop.show') }}">{{$product->category->name ?? ''}}</a>
                     </div>
                     <h2 class="mb-0 cs_product_title cs_fs_36 cs_medium cs_secondary_font uppercase">
                         {{ $product->title }}</h2>
@@ -156,7 +158,7 @@
                             </div>
                             <div class="cs_product_info">
                                 <div class="cs_product_category text-uppercase cs_fs_14 cs_light">
-                                    <a href="{{ route('shop.show') }}">LUMINOUS COSMETICS</a>
+                                    <a href="{{ route('shop.show') }}">{{$product->category->name ?? ''}}</a>
                                 </div>
                                 <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font">{{$product->title}}
                                 </h2>

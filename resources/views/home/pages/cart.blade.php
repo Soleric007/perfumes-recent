@@ -18,10 +18,14 @@
     <link rel="stylesheet" href="/template/assets/css/style.css">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     <!-- Start Header Section -->
     @include('home.sections.header')
 

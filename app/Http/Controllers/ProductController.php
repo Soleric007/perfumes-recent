@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -47,6 +48,7 @@ class ProductController extends Controller
         }
 
         session()->put('cart', $cart);
+        Alert::success('Product Added Successfully', 'Product Added to Cart.');
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
@@ -67,7 +69,9 @@ class ProductController extends Controller
                 $cart[$request->id]["quantity"] = $request->quantity;
                 session()->put('cart', $cart);
                 session()->flash('success', 'Cart updated successfully');
+                Alert::success('Cart updated successfully', 'Cart item has been updated.');
             } else {
+                Alert::error('Product not found in cart.', 'Cart item not found.');
                 session()->flash('error', 'Product not found in cart.');
             }
         }
@@ -87,8 +91,10 @@ class ProductController extends Controller
             if (isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
+                Alert::success('Product Removed successfully', 'Product removed');
                 session()->flash('success', 'Product removed successfully');
             } else {
+                Alert::error('Product not found in cart.', 'Cart item not found.');
                 session()->flash('error', 'Product not found in cart.');
             }
         }
@@ -114,6 +120,7 @@ class ProductController extends Controller
         }
 
         session()->put('wishlist', $wishlist);
+        Alert::success('Product Added Successfully', 'Product Added to Wishlist.');
         return redirect()->back()->with('success', 'Product added to wishlist successfully!');
     }
     public function removeFromWishlist(Request $request)
@@ -124,8 +131,10 @@ class ProductController extends Controller
             if (isset($wishlist[$request->id])) {
                 unset($wishlist[$request->id]);
                 session()->put('wishlist', $wishlist);
+                Alert::success('Product Removed Successfully', 'Product Removed from Wishlist.');
                 session()->flash('success', 'Product removed from wishilist successfully');
             } else {
+                Alert::error('Product not found in wishlist.', 'Product not found.');
                 session()->flash('error', 'Product not found in wishlist.');
             }
         }

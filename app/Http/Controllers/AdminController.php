@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class AdminController extends Controller
 {
@@ -29,7 +31,8 @@ class AdminController extends Controller
         $categories = Category::all();
         return view('admin.pages.createproduct', compact('user', 'categories'));
     }
-    public function storeProduct(Request $request){
+    public function storeProduct(Request $request)
+    {
         // Validate product data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -50,6 +53,7 @@ class AdminController extends Controller
         // Create new product
         $product = Product::create($validatedData);
 
+        Alert::success('Product Added Successfully', 'Product Added.');
         return redirect()->route('admin.products')->with('message', 'Product Added Successfully');
     }
 
@@ -67,6 +71,7 @@ class AdminController extends Controller
     {
         $product = Product::find($product);
         $product->delete();
+        Alert::success('Product Deleted Successfully', 'Product Removed.');
         return redirect()->route('admin.products')->with('message', 'Product Removed Successfully');
     }
 
@@ -86,6 +91,7 @@ class AdminController extends Controller
     {
         $user = User::find($customer);
         $user->delete();
+        Alert::success('Customer Removed Successfully', 'User Removed.');
         return redirect()->route('admin.customers')->with('message', 'Customer Removed Successfully');
     }
 
@@ -98,13 +104,15 @@ class AdminController extends Controller
         $categories = Category::all();
         return view('admin.pages.categories', compact('categories'));
     }
-    public function storeCategory(Request $request){
+    public function storeCategory(Request $request)
+    {
         // Validate product data
         $validatedData = $request->validate([
             'name' => 'required|string|max:255|min:2',
         ]);
         // Create new product
         $category = Category::create($validatedData);
+        Alert::success('Category Added Successfully', 'Category Added.');
 
         return redirect()->route('admin.catgories')->with('message', 'Category Added Successfully');
     }
@@ -112,6 +120,7 @@ class AdminController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        Alert::success('Category Deleted Successfully', 'Category Removed.');
         return redirect()->route('admin.catgories')->with('message', 'Category Removed Successfully');
     }
 }

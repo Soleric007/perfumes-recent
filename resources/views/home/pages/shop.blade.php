@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="/template/assets/css/slick.min.css">
     <link rel="stylesheet" href="/template/assets/css/select2.min.css">
     <link rel="stylesheet" href="/template/assets/css/style.css">
+
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     <!-- Start Header Section -->
     @include('home.sections.header')
 
@@ -33,8 +37,13 @@
             <div>
                 <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Discover Our Perfume Collections</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
+<<<<<<< HEAD
                     <li class="breadcrumb-item"><a style="color: #fff" href="{{route('index')}}">Home</a></li>
                     <li style="color: #fff" class="breadcrumb-item active">Products</li>
+=======
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item active">Products</li>
+>>>>>>> be2b7d0708d272fc10d5c0c9405ba5148aabac00
                 </ol>
             </div>
         </div>
@@ -45,19 +54,10 @@
     <div class="cs_height_80 cs_height_lg_70"></div>
     <div class="container">
         <div class="cs_filter_heading cs_style_1">
-            <div class="cs_filter_heading_left">
-                <h3>Sort by</h3>
-                <select class="cs_custom_select">
-                    <option value="1">Default sorting</option>
-                    <option value="1">Sort by popularity</option>
-                    <option value="2">Sort by latest</option>
-                    <option value="3">Low to high price</option>
-                    <option value="4">High to low price</option>
-                </select>
-            </div>
+
             <div class="cs_filter_heading_right cs_light">
                 <div class="cs_view_box">
-                    <span>Showing 1 - 16 of 98 results</span>
+                    <span>Showing 1 - 10 of {{count($products)}} results</span>
                     <div class="cs_view_box_in">
                         <button type="button" class="cs_list_view">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -100,13 +100,15 @@
                     <div class="cs_product_card cs_style_1 cs_radius_12">
                         <div class="cs_product_card_in">
                             <div class="cs_product_thumb cs_center">
-                                <img src="/storage/{{$product->image}}" alt="Product">
+                                <img src="/storage/{{ $product->image }}" alt="Product">
                                 <div class="cs_products_btns">
-                                    <a href="{{route('addtocart', $product->id)}}" class="cs_btn cs_style_1 cs_medium cs_size_md">
+                                    <a href="{{ route('addtocart', $product->id) }}"
+                                        class="cs_btn cs_style_1 cs_medium cs_size_md">
                                         <img src="/template/assets/images/icons/cart_white.svg" alt="">
                                         <span>Add To Bag</span>
                                     </a>
-                                    <a href="{{route('addToWishlist', $product->id)}}" class="cs_like_btn cs_center cs_accent_color">
+                                    <a href="{{ route('addToWishlist', $product->id) }}"
+                                        class="cs_like_btn cs_center cs_accent_color">
                                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -124,8 +126,10 @@
                             </div>
                             <div class="cs_product_info">
 
-                                <h2 class="text-3xl cs_product_title cs_fs_18 cs_normal cs_secondary_font">{{$product->title}}</h2>
-                                <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">N{{$product->price}}</p>
+                                <h2 class="text-3xl cs_product_title cs_fs_18 cs_normal cs_secondary_font">
+                                    {{ $product->title }}</h2>
+                                <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">N{{ $product->price }}
+                                </p>
                                 <div class="cs_product_ratings">
                                     <div class="cs_rating" data-rating="4.5">
                                         <div class="cs_rating_percentage"></div>
@@ -137,7 +141,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
+                        <a href="{{ route('shop.product.detail', $product->id) }}" class="cs_product_link"></a>
                     </div>
                 </div>
             @endforeach
@@ -147,17 +151,20 @@
         </div>
         <div class="cs_height_150 cs_height_lg_80"></div>
         <!-- End All Products  -->
+        <div class="mt-8">{!! $products->withQueryString()->links('pagination::bootstrap-5') !!}</div>
 
-        <!-- Start Footer Section -->
+    </div>
 
-        @include('home.sections.footer')
+    <!-- Start Footer Section -->
 
-        <!-- End Footer Section -->
-        <!-- Script -->
-        <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
-        <script src="/template/assets/js/jquery.slick.min.js"></script>
-        <script src="/template/assets/js/select2.min.js"></script>
-        <script src="/template/assets/js/main.js"></script>
+    @include('home.sections.footer')
+
+    <!-- End Footer Section -->
+    <!-- Script -->
+    <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/template/assets/js/jquery.slick.min.js"></script>
+    <script src="/template/assets/js/select2.min.js"></script>
+    <script src="/template/assets/js/main.js"></script>
 </body>
 
 </html>

@@ -33,10 +33,10 @@ class HomeController extends Controller
             return redirect()->route('index')->with('error', 'Product not found.');
         }
 
-        // Fetch related products based on similar titles, excluding the current product
-        $relatedProducts = Product::where('title', 'like', '%' . $product->title . '%')
+        // Fetch related products based on the same category, excluding the current product
+        $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id) // Exclude the current product
-            ->limit(5) // Limit the number of related products
+            ->limit(4) // Limit the number of related products
             ->get();
 
         return view('home.pages.productdetails', compact('product', 'relatedProducts'));
@@ -44,7 +44,7 @@ class HomeController extends Controller
 
     public function showShop()
     {
-        $products = Product::paginate(10);
+        $products = Product::latest()->paginate(10);
         return view('home.pages.shop', compact('products'));
     }
     public function showFaq()
