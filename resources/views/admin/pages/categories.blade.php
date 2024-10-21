@@ -70,7 +70,7 @@
                                                                     data-bs-trigger="hover" data-bs-placement="top"
                                                                     title="Remove">
                                                                     <a class="text-danger d-inline-block remove-item-btn btn btn-danger text-white"
-                                                                        onclick="return confirm('Are you sure you want to delete this user?')"
+                                                                        onclick='return confirm("Are you sure you want to delete this category?")'
                                                                         href="{{ route('admin.deleteCategory', $category->id) }}">
                                                                         Delete
                                                                     </a>
@@ -88,7 +88,7 @@
                                                         trigger="loop" colors="primary:#405189,secondary:#0ab39c"
                                                         style="width:75px;height:75px"></lord-icon>
                                                     <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                    <p class="text-muted">No product yet.</p>
+                                                    <p class="text-muted">No category yet.</p>
                                                 </div>
                                             </div>
                                         @endif
@@ -127,8 +127,8 @@
                                                 <div class="mb-3">
                                                     <label for="customername-field" class="form-label">Customer
                                                         Name</label>
-                                                    <input type="text" id="customername-field"
-                                                        class="form-control" placeholder="Enter name" required />
+                                                    <input type="text" id="customername-field" class="form-control"
+                                                        placeholder="Enter name" required />
                                                     <div class="invalid-feedback">Please enter a customer name.
                                                     </div>
                                                 </div>
@@ -180,36 +180,7 @@
                                 </div>
                             </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" id="deleteRecord-close"
-                                                data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="mt-2 text-center">
-                                                <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                                    colors="primary:#f7b84b,secondary:#f06548"
-                                                    style="width:100px;height:100px"></lord-icon>
-                                                <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                    <h4>Are you sure ?</h4>
-                                                    <p class="text-muted mx-4 mb-0">Are you sure you want to remove
-                                                        this record ?</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                                <button type="button" class="btn w-sm btn-light"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn w-sm btn-danger"
-                                                    id="delete-record">Yes, Delete It!</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end modal -->
+
                         </div>
                     </div>
 
@@ -240,4 +211,21 @@
         </div>
     </footer>
     </div>
+    <script type="text/javascript">
+        function confirmation(e) {
+            var urlToredirect = e.currentTarget.getAttribute('href');
+            swal({
+                    title: "Are you sure to remove this category",
+                    text: "You will not be able to revert this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willcancel) => {
+                    if (willcancel) {
+                        window.location.href = urlToredirect;
+                    }
+                });
+        }
+    </script>
 </x-ad-layout>

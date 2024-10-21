@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,7 +48,7 @@ class ProfileController extends Controller
         $user->save();
 
 
-
+        Alert::success('Profile Updated Successfully', '');
         return redirect()->back()->with('success', 'Profile updated successfully!');
     }
 
@@ -72,6 +73,7 @@ class ProfileController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        Alert::info('Logged Out', '');
 
         return Redirect::to('/');
     }

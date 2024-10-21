@@ -91,13 +91,14 @@ class ProductController extends Controller
             if (isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
-                Alert::success('Product Removed successfully', 'Product removed');
                 session()->flash('success', 'Product removed successfully');
             } else {
-                Alert::error('Product not found in cart.', 'Cart item not found.');
+                // Alert::error('Product not found in cart.', 'Cart item not found.');
                 session()->flash('error', 'Product not found in cart.');
             }
         }
+        Alert::success('Product Removed successfully', 'Product removed');
+        return redirect()->back();
     }
 
     public function addToWishlist($id)
@@ -131,12 +132,14 @@ class ProductController extends Controller
             if (isset($wishlist[$request->id])) {
                 unset($wishlist[$request->id]);
                 session()->put('wishlist', $wishlist);
-                Alert::success('Product Removed Successfully', 'Product Removed from Wishlist.');
                 session()->flash('success', 'Product removed from wishilist successfully');
             } else {
-                Alert::error('Product not found in wishlist.', 'Product not found.');
+                // Alert::error('Product not found in wishlist.', 'Product not found.');
                 session()->flash('error', 'Product not found in wishlist.');
             }
         }
+
+        Alert::success('Product Removed Successfully', 'Product Removed from Wishlist.');
+        return redirect()->back();
     }
 }

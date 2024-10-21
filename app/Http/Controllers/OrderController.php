@@ -6,6 +6,11 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\OrderPlaced;
+
+use PDF;
 
 class OrderController extends Controller
 {
@@ -38,7 +43,7 @@ class OrderController extends Controller
         // Create new order
         $order = new Order();
 
-        if($validatedData['payment_method'] === 'card'){
+        if ($validatedData['payment_method'] === 'card') {
             return redirect()->route('stripe');
         }
 
@@ -74,6 +79,10 @@ class OrderController extends Controller
             }
         }
 
+        // Send notification email to admin
+        $adminEmail = 'astauchiha234@example.com'; // Replace with the admin's email address
+        Mail::to($adminEmail)->send(new OrderPlaced($order));
+
         // Clear the cart session
         session()->forget('cart');
 
@@ -98,5 +107,18 @@ class OrderController extends Controller
     {
         $order = Order::find($order);
         return view('admin.pages.orderdetails', compact('order'));
+    }
+
+
+    public function downloadPDF($id)
+    {
+        // Fetch the order details using the order ID
+        $order = Order::with('items.product')->findOrFail($id); // Assuming you have an 'orderItems' relationship
+
+        // Load a view file and pass the order data to it
+        $pdf = PDF::loadView('orders.pdf', compact('order'));
+
+        // Download the PDF file with a custom filename
+        return $pdf->download('order-' . $order->id . '.pdf');
     }
 }

@@ -33,12 +33,14 @@
     <!-- Start Breadcamp -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread3.jpg">
+        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
+            data-src="template/assets/images/bread3.jpg">
             <div>
-                <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Discover Our Perfume Collections</h1>
+                <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Discover Our Perfume Collections
+                </h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
 
-                    <li class="breadcrumb-item"><a style="color: #fff" href="{{route('index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a style="color: #fff" href="{{ route('index') }}">Home</a></li>
                     <li style="color: #fff" class="breadcrumb-item active">Products</li>
 
 
@@ -55,7 +57,7 @@
 
             <div class="cs_filter_heading_right cs_light">
                 <div class="cs_view_box">
-                    <span>Showing 1 - 10 of {{count($products)}} results</span>
+                    <span>Showing 1 - 10 of {{ count($products) }} results</span>
                     <div class="cs_view_box_in">
                         <button type="button" class="cs_list_view">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -91,6 +93,17 @@
             </div>
         </div>
         <div class="cs_height_50 cs_height_lg_50"></div>
+        @if ($searchText && count($products) !== 0)
+            <div class="my-4 text-3xl">
+                <h1 class="font-bold">Search Results for "{{ $searchText }}"</h1>
+            </div>
+        @endif
+        @if (count($products) === 0)
+            <div class="my-4 text-3xl text-center">
+                <h1 class="font-bold">No results found for "{{ $searchText }}"</h1>
+            </div>
+        @else
+        @endif
         <div class="cs_grid_5_column cs_products_view cs_style_1">
 
             @foreach ($products as $product)
@@ -132,7 +145,7 @@
                                     <div class="cs_rating" data-rating="4.5">
                                         <div class="cs_rating_percentage"></div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -157,6 +170,18 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>

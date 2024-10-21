@@ -40,11 +40,13 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="d-flex justify-content-sm-end">
-                                                <div class="search-box ms-2">
-                                                    <input type="text" class="form-control" id="searchProductList"
-                                                        placeholder="Search Products...">
-                                                    <i class="ri-search-line search-icon"></i>
-                                                </div>
+                                                <form action="{{ route('admin.product.search') }}" method="get">
+                                                    @csrf
+                                                    <div class="search-box ms-2">
+                                                        <input type="search" name="search" lass="form-control"
+                                                            id="searchProductList" placeholder="Search Products...">
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -79,6 +81,17 @@
                                 </div>
                                 <!-- end card header -->
                                 <div class="card-body">
+                                    @if ($searchText && count($products) !== 0)
+                                        <div class="my-4 text-3xl">
+                                            <h1 class="font-bold">Search Results for "{{ $searchText }}"</h1>
+                                        </div>
+                                    @endif
+                                    @if (count($products) === 0)
+                                        <div class="my-4 text-3xl text-center">
+                                            <h1 class="font-bold">No results found for "{{ $searchText }}"</h1>
+                                        </div>
+                                    @else
+                                    @endif
 
                                     <div class="tab-content text-muted">
                                         <div class="tab-pane active" id="productnav-all" role="tabpanel">
@@ -235,7 +248,7 @@
                                                                             <span>N{{ $product->shippingfee }}</span>
                                                                         </td>
                                                                         <td data-column-id="orders" class="gridjs-td">
-                                                                            {{$product->orders}}
+                                                                            {{ $product->orders }}
                                                                         </td>
 
                                                                         <td data-column-id="published"

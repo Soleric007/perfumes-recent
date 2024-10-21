@@ -19,8 +19,8 @@
 
 
 
-
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -37,7 +37,8 @@
     <!-- Start Breadcamp -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread2.jpg">
+        <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
+            data-src="template/assets/images/bread2.jpg">
             <div>
                 <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Wish List</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
@@ -52,11 +53,6 @@
     <div class="container">
         <h2 class="mb-0 cs_fs_36 cs_medium">MY WISHLIST <span
                 class="cs_accent_color">({{ session('wishlist') ? count(session('wishlist')) : 0 }})</span></h2>
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="cs_height_50 cs_height_lg_40"></div>
         <ul class="cs_grid_5_column">
             @if (session('wishlist'))
@@ -84,7 +80,7 @@
                             </div>
                             <a href="{{ route('shop.product.detail', $id) }}" class="cs_product_link"></a>
                         </div>
-                        <button class="cs_card_remove_btn w-100 remove-from-wishlist">
+                        <a onclick="confirmation(event)" href="{{route('remove.from.wishlist', $id)}}" class="cs_card_remove_btn w-100 remove-from-wishlist">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -101,11 +97,13 @@
                                     fill="currentColor" />
                             </svg>
                             REMOVE
-                        </button>
+                        </a>
                     </li>
                 @endforeach
             @else
-               <a href="{{ route('shop.show') }}"><p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your wishlist. Start shopping now.</p></a>
+                <a href="{{ route('shop.show') }}">
+                    <p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your wishlist. Start shopping now.</p>
+                </a>
             @endif
 
         </ul>
@@ -119,29 +117,56 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>
     <script type="text/javascript">
-        $(".remove-from-wishlist").click(function(e) {
-            e.preventDefault();
+        function confirmation(e){
+            var urlToredirect = e.currentTarget.getAttribute('href');
+            swal({
+                title: "Are you sure to remove this product",
+                text: "You will not be able to revert this!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willcancel) => {
+                if (willcancel) {
+                    window.location.href = urlToredirect;
+                }
+            });
+        }
+        // $(".remove-from-wishlist").click(function(e) {
+        //     e.preventDefault();
 
-            var ele = $(this);
+        //     var ele = $(this);
 
-            if (confirm("Are you sure want to remove?")) {
-                $.ajax({
-                    url: '{{ url('wishlist/remove') }}/' + ele.parents("li").attr(
-                        "data-id"), // Appending the id to the route
-                    method: "DELETE",
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                    },
-                    success: function(response) {
-                        window.location.reload();
-                    }
-                });
-            }
-        });
+        //     if (confirmation(e)) {
+        //         $.ajax({
+        //             url: '{{ url('wishlist/remove') }}/' + ele.parents("li").attr(
+        //                 "data-id"), // Appending the id to the route
+        //             method: "DELETE",
+        //             data: {
+        //                 _token: '{{ csrf_token() }}',
+        //             },
+        //             success: function(response) {
+        //                 window.location.reload();
+        //             }
+        //         });
+        //     }
+        // });
     </script>
 </body>
 

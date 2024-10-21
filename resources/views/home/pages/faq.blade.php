@@ -229,6 +229,18 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>

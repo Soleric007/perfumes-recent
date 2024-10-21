@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,5 +80,13 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         return view('home.pages.useraccount', compact('user'));
+    }
+
+    public function product_search(Request $request)
+    {
+        $searchText = $request->search;
+        $products = Product::where('title', 'LIKE', '%' . $searchText . '%')->paginate(10);
+
+        return view('home.pages.shop', compact('products', 'searchText'));
     }
 }

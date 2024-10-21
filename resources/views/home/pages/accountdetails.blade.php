@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <!-- Start Header Section -->
     @include('home.sections.header')
 
@@ -73,12 +74,7 @@
                     <div class="cs_account_card_head cs_type_1">
                         <h3 class="mb-0 cs_fs_18">Account Details</h3>
                     </div>
-                    @if (session()->has('success'))
-                        <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                            {{ session()->get('success') }}
-                        </div>
-                    @endif
+                    
                     <div class="cs_plr_25">
                         <hr>
 
@@ -109,12 +105,7 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('phone')" />
 
                                 </div>
-                                <div class="col-lg-12">
-                                    <label class="cs_medium">Profile Picture</label>
-                                    <input type="file" name="image" class="cs_form_field">
-                                    <x-input-error class="mt-2" :messages="$errors->get('image')" />
-
-                                </div>
+                                
                                 <div>
                                     <button class="cs_btn cs_style_1 cs_type_1"><span>Save Changes</span></button>
                                 </div>
@@ -182,6 +173,18 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>

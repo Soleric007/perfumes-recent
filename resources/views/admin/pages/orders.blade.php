@@ -39,33 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body border border-dashed border-end-0 border-start-0">
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-xxl-5 col-sm-6">
-                                            <div class="search-box">
-                                                <input type="text" class="form-control search"
-                                                    placeholder="Search for order ID, customer, order status or something...">
-                                                <i class="ri-search-line search-icon"></i>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="col-xxl-1 col-sm-4">
-                                            <div>
-                                                <button type="button" class="btn btn-primary w-100"
-                                                    onclick="SearchData();"> <i
-                                                        class="ri-equalizer-fill me-1 align-bottom"></i>
-                                                    Filters
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!--end col-->
-                                    </div>
-                                    <!--end row-->
-                                </form>
-                            </div>
+                            
                             <div class="card-body pt-0">
                                 <div>
                                     <ul class="nav nav-tabs nav-tabs-custom nav-success mb-3" role="tablist">
@@ -134,6 +108,15 @@
 
                                                                         class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
                                                                         Delivered
+                                                                    </a>
+                                                                </li>
+                                                                <li class="list-inline-item edit"
+                                                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                    data-bs-placement="top" title="Edit">
+                                                                    <a href="{{route('orders.download', $order->id)}}"
+
+                                                                        class="btn bg-indigo-600 text-white text-primary d-inline-block edit-item-btn">
+                                                                        Download PDF
                                                                     </a>
                                                                 </li>
                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"

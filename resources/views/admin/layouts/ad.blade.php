@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
+    data-sidebar-image="none" data-preloader="disable">
 
 <head>
 
@@ -29,8 +30,9 @@
     <link href="/admin/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
 </head>
@@ -42,7 +44,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-    @include('admin.sections.header')
+        @include('admin.sections.header')
 
         <!-- ========== App Menu ========== -->
         @include('admin.sections.sidebar')
@@ -54,7 +56,7 @@
         <!-- Start right Content here -->
         <!-- ============================================================== -->
 
-        {{$slot}}
+        {{ $slot }}
         <!-- end main content-->
 
     </div>
@@ -78,7 +80,8 @@
     </div>
 
     <div class="customizer-setting d-none d-md-block">
-        <div class="p-2 shadow-lg btn-info rounded-pill btn btn-icon btn-lg" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+        <div class="p-2 shadow-lg btn-info rounded-pill btn btn-icon btn-lg" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
@@ -88,7 +91,8 @@
         <div class="p-3 d-flex align-items-center bg-primary bg-gradient offcanvas-header">
             <h5 class="m-0 text-white me-2">Theme Customizer</h5>
 
-            <button type="button" class="btn-close btn-close-white ms-auto" id="customizerclose-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-white ms-auto" id="customizerclose-btn"
+                data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="p-0 offcanvas-body">
             <div data-simplebar class="h-100">
@@ -99,7 +103,8 @@
                     <div class="row gy-3">
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input id="customizer-layout01" name="data-layout" type="radio" value="vertical" class="form-check-input">
+                                <input id="customizer-layout01" name="data-layout" type="radio" value="vertical"
+                                    class="form-check-input">
                                 <label class="p-0 form-check-label avatar-md w-100" for="customizer-layout01">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0">
@@ -123,7 +128,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input id="customizer-layout02" name="data-layout" type="radio" value="horizontal" class="form-check-input">
+                                <input id="customizer-layout02" name="data-layout" type="radio" value="horizontal"
+                                    class="form-check-input">
                                 <label class="p-0 form-check-label avatar-md w-100" for="customizer-layout02">
                                     <span class="gap-1 d-flex h-100 flex-column">
                                         <span class="gap-1 p-1 bg-light d-flex align-items-center">
@@ -140,7 +146,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input id="customizer-layout03" name="data-layout" type="radio" value="twocolumn" class="form-check-input">
+                                <input id="customizer-layout03" name="data-layout" type="radio" value="twocolumn"
+                                    class="form-check-input">
                                 <label class="p-0 form-check-label avatar-md w-100" for="customizer-layout03">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0">
@@ -174,7 +181,8 @@
 
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input id="customizer-layout04" name="data-layout" type="radio" value="semibox" class="form-check-input">
+                                <input id="customizer-layout04" name="data-layout" type="radio" value="semibox"
+                                    class="form-check-input">
                                 <label class="p-0 form-check-label avatar-md w-100" for="customizer-layout04">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0 p-1">
@@ -206,12 +214,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check card-radio">
-                                    <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-mode-light" value="light">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-mode-light" value="light">
                                     <label class="p-0 form-check-label avatar-md w-100" for="layout-mode-light">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -231,12 +241,16 @@
 
                             <div class="col-4">
                                 <div class="form-check card-radio dark">
-                                    <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-mode-dark" value="dark">
-                                    <label class="p-0 form-check-label avatar-md w-100 bg-dark" for="layout-mode-dark">
+                                    <input class="form-check-input" type="radio" name="data-bs-theme"
+                                        id="layout-mode-dark" value="dark">
+                                    <label class="p-0 form-check-label avatar-md w-100 bg-dark"
+                                        for="layout-mode-dark">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
-                                                <span class="gap-1 p-1 bg-white bg-opacity-10 d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
+                                                <span
+                                                    class="gap-1 p-1 bg-white bg-opacity-10 d-flex h-100 flex-column">
+                                                    <span
+                                                        class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
@@ -263,12 +277,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility" id="sidebar-visibility-show" value="show">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility"
+                                        id="sidebar-visibility-show" value="show">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-visibility-show">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0 p-1">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -287,8 +303,10 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility" id="sidebar-visibility-hidden" value="hidden">
-                                    <label class="p-0 px-2 form-check-label avatar-md w-100" for="sidebar-visibility-hidden">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-visibility"
+                                        id="sidebar-visibility-hidden" value="hidden">
+                                    <label class="p-0 px-2 form-check-label avatar-md w-100"
+                                        for="sidebar-visibility-hidden">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-grow-1">
                                                 <span class="px-2 pt-1 d-flex h-100 flex-column">
@@ -311,12 +329,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check card-radio">
-                                    <input class="form-check-input" type="radio" name="data-layout-width" id="layout-width-fluid" value="fluid">
+                                    <input class="form-check-input" type="radio" name="data-layout-width"
+                                        id="layout-width-fluid" value="fluid">
                                     <label class="p-0 form-check-label avatar-md w-100" for="layout-width-fluid">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -335,12 +355,14 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check card-radio">
-                                    <input class="form-check-input" type="radio" name="data-layout-width" id="layout-width-boxed" value="boxed">
+                                    <input class="form-check-input" type="radio" name="data-layout-width"
+                                        id="layout-width-boxed" value="boxed">
                                     <label class="p-0 px-2 form-check-label avatar-md w-100" for="layout-width-boxed">
                                         <span class="gap-1 d-flex h-100 border-start border-end">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -365,10 +387,12 @@
                         <p class="text-muted">Choose Fixed or Scrollable Layout Position.</p>
 
                         <div class="btn-group radio" role="group">
-                            <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                            <input type="radio" class="btn-check" name="data-layout-position"
+                                id="layout-position-fixed" value="fixed">
                             <label class="btn btn-light w-sm" for="layout-position-fixed">Fixed</label>
 
-                            <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                            <input type="radio" class="btn-check" name="data-layout-position"
+                                id="layout-position-scrollable" value="scrollable">
                             <label class="btn btn-light w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
                         </div>
                     </div>
@@ -378,7 +402,8 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input class="form-check-input" type="radio" name="data-topbar" id="topbar-color-light" value="light">
+                                <input class="form-check-input" type="radio" name="data-topbar"
+                                    id="topbar-color-light" value="light">
                                 <label class="p-0 form-check-label avatar-md w-100" for="topbar-color-light">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0">
@@ -402,7 +427,8 @@
                         </div>
                         <div class="col-4">
                             <div class="form-check card-radio">
-                                <input class="form-check-input" type="radio" name="data-topbar" id="topbar-color-dark" value="dark">
+                                <input class="form-check-input" type="radio" name="data-topbar"
+                                    id="topbar-color-dark" value="dark">
                                 <label class="p-0 form-check-label avatar-md w-100" for="topbar-color-dark">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0">
@@ -433,12 +459,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-default" value="lg">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size"
+                                        id="sidebar-size-default" value="lg">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-size-default">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -458,7 +486,8 @@
 
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-compact" value="md">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size"
+                                        id="sidebar-size-compact" value="md">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-size-compact">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
@@ -483,7 +512,8 @@
 
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-small" value="sm">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size"
+                                        id="sidebar-size-small" value="sm">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-size-small">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
@@ -508,8 +538,10 @@
 
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar-size" id="sidebar-size-small-hover" value="sm-hover">
-                                    <label class="p-0 form-check-label avatar-md w-100" for="sidebar-size-small-hover">
+                                    <input class="form-check-input" type="radio" name="data-sidebar-size"
+                                        id="sidebar-size-small-hover" value="sm-hover">
+                                    <label class="p-0 form-check-label avatar-md w-100"
+                                        for="sidebar-size-small-hover">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 bg-light d-flex h-100 flex-column">
@@ -540,12 +572,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-layout-style" id="sidebar-view-default" value="default">
+                                    <input class="form-check-input" type="radio" name="data-layout-style"
+                                        id="sidebar-view-default" value="default">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-view-default">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -564,7 +598,8 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-layout-style" id="sidebar-view-detached" value="detached">
+                                    <input class="form-check-input" type="radio" name="data-layout-style"
+                                        id="sidebar-view-detached" value="detached">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-view-detached">
                                         <span class="d-flex h-100 flex-column">
                                             <span class="gap-1 p-1 px-2 bg-light d-flex align-items-center">
@@ -595,13 +630,16 @@
 
                         <div class="row">
                             <div class="col-4">
-                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient.show">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-light" value="light">
+                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseBgGradient.show">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-light" value="light">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-color-light">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-white border-end d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -619,13 +657,16 @@
                                 <h5 class="mt-2 text-center fs-13">Light</h5>
                             </div>
                             <div class="col-4">
-                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient.show">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-dark" value="dark">
+                                <div class="form-check sidebar-setting card-radio" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseBgGradient.show">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-dark" value="dark">
                                     <label class="p-0 form-check-label avatar-md w-100" for="sidebar-color-dark">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-primary d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                     <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
@@ -643,11 +684,14 @@
                                 <h5 class="mt-2 text-center fs-13">Dark</h5>
                             </div>
                             <div class="col-4">
-                                <button class="p-0 overflow-hidden border btn btn-link avatar-md w-100 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient" aria-expanded="false" aria-controls="collapseBgGradient">
+                                <button class="p-0 overflow-hidden border btn btn-link avatar-md w-100 collapsed"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseBgGradient"
+                                    aria-expanded="false" aria-controls="collapseBgGradient">
                                     <span class="gap-1 d-flex h-100">
                                         <span class="flex-shrink-0">
                                             <span class="gap-1 p-1 bg-vertical-gradient d-flex h-100 flex-column">
-                                                <span class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
+                                                <span
+                                                    class="p-1 px-2 mb-2 bg-white rounded d-block bg-opacity-10"></span>
                                                 <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                 <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
                                                 <span class="p-1 px-2 pb-0 bg-white d-block bg-opacity-10"></span>
@@ -670,26 +714,34 @@
                             <div class="flex-wrap gap-2 p-2 px-3 rounded d-flex img-switch bg-light">
 
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient" value="gradient">
-                                    <label class="p-0 form-check-label avatar-xs rounded-circle" for="sidebar-color-gradient">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-gradient" value="gradient">
+                                    <label class="p-0 form-check-label avatar-xs rounded-circle"
+                                        for="sidebar-color-gradient">
                                         <span class="avatar-title rounded-circle bg-vertical-gradient"></span>
                                     </label>
                                 </div>
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-2" value="gradient-2">
-                                    <label class="p-0 form-check-label avatar-xs rounded-circle" for="sidebar-color-gradient-2">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-gradient-2" value="gradient-2">
+                                    <label class="p-0 form-check-label avatar-xs rounded-circle"
+                                        for="sidebar-color-gradient-2">
                                         <span class="avatar-title rounded-circle bg-vertical-gradient-2"></span>
                                     </label>
                                 </div>
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-3" value="gradient-3">
-                                    <label class="p-0 form-check-label avatar-xs rounded-circle" for="sidebar-color-gradient-3">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-gradient-3" value="gradient-3">
+                                    <label class="p-0 form-check-label avatar-xs rounded-circle"
+                                        for="sidebar-color-gradient-3">
                                         <span class="avatar-title rounded-circle bg-vertical-gradient-3"></span>
                                     </label>
                                 </div>
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-sidebar" id="sidebar-color-gradient-4" value="gradient-4">
-                                    <label class="p-0 form-check-label avatar-xs rounded-circle" for="sidebar-color-gradient-4">
+                                    <input class="form-check-input" type="radio" name="data-sidebar"
+                                        id="sidebar-color-gradient-4" value="gradient-4">
+                                    <label class="p-0 form-check-label avatar-xs rounded-circle"
+                                        for="sidebar-color-gradient-4">
                                         <span class="avatar-title rounded-circle bg-vertical-gradient-4"></span>
                                     </label>
                                 </div>
@@ -703,37 +755,47 @@
 
                         <div class="flex-wrap gap-2 d-flex img-switch">
                             <div class="form-check sidebar-setting card-radio">
-                                <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-none" value="none">
+                                <input class="form-check-input" type="radio" name="data-sidebar-image"
+                                    id="sidebarimg-none" value="none">
                                 <label class="h-auto p-0 form-check-label avatar-sm" for="sidebarimg-none">
-                                    <span class="w-auto avatar-md bg-light d-flex align-items-center justify-content-center">
+                                    <span
+                                        class="w-auto avatar-md bg-light d-flex align-items-center justify-content-center">
                                         <i class="ri-close-fill fs-20"></i>
                                     </span>
                                 </label>
                             </div>
 
                             <div class="form-check sidebar-setting card-radio">
-                                <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-01" value="img-1">
+                                <input class="form-check-input" type="radio" name="data-sidebar-image"
+                                    id="sidebarimg-01" value="img-1">
                                 <label class="h-auto p-0 form-check-label avatar-sm" for="sidebarimg-01">
-                                    <img src="/admin/assets/images/sidebar/img-1.jpg" alt="" class="w-auto avatar-md object-fit-cover">
+                                    <img src="/admin/assets/images/sidebar/img-1.jpg" alt=""
+                                        class="w-auto avatar-md object-fit-cover">
                                 </label>
                             </div>
 
                             <div class="form-check sidebar-setting card-radio">
-                                <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-02" value="img-2">
+                                <input class="form-check-input" type="radio" name="data-sidebar-image"
+                                    id="sidebarimg-02" value="img-2">
                                 <label class="h-auto p-0 form-check-label avatar-sm" for="sidebarimg-02">
-                                    <img src="/admin/assets/images/sidebar/img-2.jpg" alt="" class="w-auto avatar-md object-fit-cover">
+                                    <img src="/admin/assets/images/sidebar/img-2.jpg" alt=""
+                                        class="w-auto avatar-md object-fit-cover">
                                 </label>
                             </div>
                             <div class="form-check sidebar-setting card-radio">
-                                <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-03" value="img-3">
+                                <input class="form-check-input" type="radio" name="data-sidebar-image"
+                                    id="sidebarimg-03" value="img-3">
                                 <label class="h-auto p-0 form-check-label avatar-sm" for="sidebarimg-03">
-                                    <img src="/admin/assets/images/sidebar/img-3.jpg" alt="" class="w-auto avatar-md object-fit-cover">
+                                    <img src="/admin/assets/images/sidebar/img-3.jpg" alt=""
+                                        class="w-auto avatar-md object-fit-cover">
                                 </label>
                             </div>
                             <div class="form-check sidebar-setting card-radio">
-                                <input class="form-check-input" type="radio" name="data-sidebar-image" id="sidebarimg-04" value="img-4">
+                                <input class="form-check-input" type="radio" name="data-sidebar-image"
+                                    id="sidebarimg-04" value="img-4">
                                 <label class="h-auto p-0 form-check-label avatar-sm" for="sidebarimg-04">
-                                    <img src="/admin/assets/images/sidebar/img-4.jpg" alt="" class="w-auto avatar-md object-fit-cover">
+                                    <img src="/admin/assets/images/sidebar/img-4.jpg" alt=""
+                                        class="w-auto avatar-md object-fit-cover">
                                 </label>
                             </div>
                         </div>
@@ -746,12 +808,14 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-preloader" id="preloader-view-custom" value="enable">
+                                    <input class="form-check-input" type="radio" name="data-preloader"
+                                        id="preloader-view-custom" value="enable">
                                     <label class="p-0 form-check-label avatar-md w-100" for="preloader-view-custom">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -777,12 +841,14 @@
                             </div>
                             <div class="col-4">
                                 <div class="form-check sidebar-setting card-radio">
-                                    <input class="form-check-input" type="radio" name="data-preloader" id="preloader-view-none" value="disable">
+                                    <input class="form-check-input" type="radio" name="data-preloader"
+                                        id="preloader-view-none" value="disable">
                                     <label class="p-0 form-check-label avatar-md w-100" for="preloader-view-none">
                                         <span class="gap-1 d-flex h-100">
                                             <span class="flex-shrink-0">
                                                 <span class="gap-1 p-1 bg-light d-flex h-100 flex-column">
-                                                    <span class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
+                                                    <span
+                                                        class="p-1 px-2 mb-2 rounded d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
                                                     <span class="p-1 px-2 pb-0 d-block bg-primary-subtle"></span>
@@ -834,6 +900,23 @@
 
     <!-- App js -->
     <script src="/admin/assets/js/app.js"></script>
+    <script type="text/javascript">
+        function confirmation(e) {
+            var urlToredirect = e.currentTarget.getAttribute('href');
+            swal({
+                    title: "Are you sure to remove this product",
+                    text: "You will not be able to revert this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willcancel) => {
+                    if (willcancel) {
+                        window.location.href = urlToredirect;
+                    }
+                });
+        }
+    </script>
 </body>
 
 </html>

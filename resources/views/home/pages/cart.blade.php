@@ -19,8 +19,11 @@
 
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -39,7 +42,7 @@
             data-src="template/assets/images/bread3.jpg">
             <div>
                 <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Cart</h1>
-                <ol  class="mb-0 breadcrumb cs_fs_18">
+                <ol class="mb-0 breadcrumb cs_fs_18">
                     <li style="color: #fff" class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li style="color: #fff" class="breadcrumb-item active">Cart</li>
                 </ol>
@@ -98,11 +101,12 @@
                                                 <span class="cs_fs_24 cs_medium cs_primary_color">Subtotal:</span>
                                                 <span
                                                     class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] . ' x ' . $details['price'] }}
-                                                    = ${{ $details['price'] * $details['quantity'] }}</span>
+                                                    = N{{ $details['price'] * $details['quantity'] }}</span>
                                             </h3>
                                         </div>
 
-                                        <button class="cs_product_card_close remove-from-cart">
+                                        <a onclick="confirmation(event)" href="{{ route('remove.from.cart', $id) }}"
+                                            class="cs_product_card_close remove-from-cart">
                                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -112,18 +116,20 @@
                                                     d="M19.9744 21C19.8397 21.0002 19.7063 20.9737 19.5818 20.9222C19.4574 20.8707 19.3444 20.7951 19.2492 20.6998L0.300364 1.75067C0.108044 1.55835 0 1.2975 0 1.02552C0 0.753534 0.108044 0.49269 0.300364 0.300367C0.492684 0.108045 0.753525 0 1.02551 0C1.29749 0 1.55833 0.108045 1.75065 0.300367L20.6995 19.2495C20.843 19.3929 20.9406 19.5756 20.9802 19.7745C21.0198 19.9734 20.9995 20.1796 20.9219 20.367C20.8442 20.5544 20.7128 20.7146 20.5441 20.8272C20.3755 20.9399 20.1772 21 19.9744 21Z"
                                                     fill="currentColor" />
                                             </svg>
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </li>
                         @endforeach
                     </ul>
                 @else
-                <a href="{{ route('shop.show') }}"><p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your cart. Start shopping now.</p></a>
+                    <a href="{{ route('shop.show') }}">
+                        <p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your cart. Start shopping now.</p>
+                    </a>
                 @endif
             </div>
             <div class="col-xxl-4 col-lg-5 offset-xxl-1">
-                <form action="{{route('checkout')}}" class="cs_order_card cs_accent_light_bg cs_radius_10">
+                <form action="{{ route('checkout') }}" class="cs_order_card cs_accent_light_bg cs_radius_10">
                     <h3 class="cs_order_card_title cs_fs_24 cs_medium cs_secondary_font">YOUR ORDER</h3>
 
                     <ul class="cs_card_price_list cs_mp_0">
@@ -133,7 +139,7 @@
                         </li>
                         <li>
                             <span class="cs_light">Subtotal</span>
-                            <span class="cs_semibold cs_primary_color">${{ $subtotal }}</span>
+                            <span class="cs_semibold cs_primary_color">N{{ $subtotal }}</span>
                         </li>
 
                         <li>
@@ -146,7 +152,7 @@
                         </li>
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>
-                            <span class="cs_medium cs_fs_24 cs_primary_color">${{ $total }}</span>
+                            <span class="cs_medium cs_fs_24 cs_primary_color">N{{ $total }}</span>
                         </li>
                     </ul>
 
@@ -167,9 +173,38 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>
+    <script type="text/javascript">
+        function confirmation(e) {
+            var urlToredirect = e.currentTarget.getAttribute('href');
+            swal({
+                    title: "Are you sure to remove this product",
+                    text: "You will not be able to revert this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willcancel) => {
+                    if (willcancel) {
+                        window.location.href = urlToredirect;
+                    }
+                });
+        }
+    </script>
     <script type="text/javascript">
         $(".update-cart").change(function(e) {
             e.preventDefault();
@@ -190,25 +225,25 @@
             });
         });
 
-        $(".remove-from-cart").click(function(e) {
-            e.preventDefault();
+        // $(".remove-from-cart").click(function(e) {
+        //     e.preventDefault();
 
-            var ele = $(this);
+        //     var ele = $(this);
 
-            if (confirm("Are you sure want to remove?")) {
-                $.ajax({
-                    url: '{{ url('cart/remove') }}/' + ele.parents("li").attr(
-                        "data-id"), // Appending the id to the route
-                    method: "DELETE",
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                    },
-                    success: function(response) {
-                        window.location.reload();
-                    }
-                });
-            }
-        });
+        //     if (confirm("Are you sure want to remove?")) {
+        //         $.ajax({
+        //             url: '{{ url('cart/remove') }}/' + ele.parents("li").attr(
+        //                 "data-id"), // Appending the id to the route
+        //             method: "DELETE",
+        //             data: {
+        //                 _token: '{{ csrf_token() }}',
+        //             },
+        //             success: function(response) {
+        //                 window.location.reload();
+        //             }
+        //         });
+        //     }
+        // });
     </script>
 </body>
 

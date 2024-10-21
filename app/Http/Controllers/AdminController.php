@@ -123,4 +123,12 @@ class AdminController extends Controller
         Alert::success('Category Deleted Successfully', 'Category Removed.');
         return redirect()->route('admin.catgories')->with('message', 'Category Removed Successfully');
     }
+
+
+    public function product_search(Request $request) {
+        $searchText = $request->search;
+        $products = Product::where('title', 'LIKE', '%'.$searchText.'%')->paginate(10);
+
+        return view('admin.pages.products', compact('products','searchText'));
+    }
 }

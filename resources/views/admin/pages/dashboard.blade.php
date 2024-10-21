@@ -181,7 +181,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td>
+                                                                <td class="uppercase">
                                                                     @foreach ($order->items as $item)
                                                                         {{ $item->product->title }} <br>
                                                                     @endforeach

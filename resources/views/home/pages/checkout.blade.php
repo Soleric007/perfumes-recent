@@ -20,7 +20,7 @@
 
 
 
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             data-src="template/assets/images/bread.jpg">
             <div>
                 <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Complete Your Perfume Order</h1>
-                <ol  class="mb-0 breadcrumb cs_fs_18">
+                <ol class="mb-0 breadcrumb cs_fs_18">
                     <li style="color: #fff" class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li style="color: #fff" class="breadcrumb-item active">Checkout</li>
                 </ol>
@@ -46,7 +46,7 @@
     <!-- End Breadcamp -->
     <div class="cs_height_120 cs_height_lg_70"></div>
     <div class="container">
-        <form action="{{route('order.store')}}" method="POST">
+        <form action="{{ route('order.store') }}" method="POST">
             @csrf
             <div class="row cs_gap_y_40">
                 <div class="col-lg-7">
@@ -129,7 +129,7 @@
                                         <h3 class="mb-0 text-xl uppercase cs_secondary_font cs_semibold cs_fs_16">
                                             {{ $details['name'] }}</h3>
                                         <h3 class="mb-0 cs_secondary_font cs_semibold cs_fs_16 cs_accent_color">
-                                            ${{ $details['price'] }}</h3>
+                                            N{{ $details['price'] }}</h3>
                                     </div>
                                     <p>Quantity: {{ $details['quantity'] }}</p>
                                     <p>Discount: {{ $details['discount'] }}%</p>
@@ -141,15 +141,15 @@
                         <ul class="cs_card_price_list cs_type_1 cs_mp_0">
                             <li>
                                 <span class="cs_light">Subtotal</span>
-                                <span class="cs_semibold cs_primary_color">${{ $total }}</span>
+                                <span class="cs_semibold cs_primary_color">N{{ $total }}</span>
                             </li>
                             <li>
                                 <span class="cs_light">Shipping Fee</span>
-                                <span class="cs_semibold cs_primary_color">$4.99</span>
+                                <span class="cs_semibold cs_primary_color">N4.99</span>
                             </li>
                             <li class="cs_total_price">
                                 <span class="cs_fs_18 cs_primary_color">Total</span>
-                                <span class="cs_fs_18 cs_primary_color">${{ $total }}</span>
+                                <span class="cs_fs_18 cs_primary_color">N{{ $total }}</span>
                             </li>
                         </ul>
                         <div class="cs_height_50 cs_height_lg_40"></div>
@@ -190,6 +190,18 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrolllpos = localStorage.getItem('scrollpos');
+            if (scrolllpos) {
+                window.scrollTo(0, scrolllpos);
+            }
+        });
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('scrollpos', window.scrollY);
+        });
+    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>

@@ -6,9 +6,11 @@
                     <ul class="cs_top_header_list cs_mp_0">
                         <li>
                             <div class="cs_header_social">
-                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i
+                                        class="fa-brands fa-tiktok"></i></a>
                                 <a href="wa.me/message/JUK236VPQJAAA1"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://www.instagram.com/riyallure_fragrances/"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/riyallure_fragrances/"><i
+                                        class="fa-brands fa-instagram"></i></a>
 
                             </div>
                         </li>
@@ -29,7 +31,7 @@
                 <div class="cs_top_header_rihgt">
                     <ul class="cs_top_header_list cs_mp_0 cs_top_header_info_list">
                         <li>
-                            <a href="{{route('faq')}}" class="cs_header_icon_box">
+                            <a href="{{ route('faq') }}" class="cs_header_icon_box">
                                 <svg width="15" height="17" viewBox="0 0 15 17" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -55,10 +57,11 @@
                 </div>
                 <div class="cs_main_header_right">
                     <div class="cs_header_search_form_wrap">
-                        <form action="#" class="cs_header_search_form">
-                            <input type="text" placeholder="Search for products and brands"
+                        <form action="{{ route('product.search') }}" method="GET" class="cs_header_search_form">
+                            @csrf
+                            <input type="text" name="search" placeholder="Search for products and brands"
                                 class="cs_header_search_field">
-                            <button class="cs_header_submit_btn">
+                            <button type="submit" class="cs_header_submit_btn">
                                 <img src="/template/assets/images/icons/search.svg" alt="">
                             </button>
                         </form>
@@ -71,25 +74,25 @@
                             @auth
                                 <li>
                                     <div class="cs_header_credential_btns">
-                                        <a href="{{ route('useraccount') }}"><img src="/template/assets/images/icons/user.svg"
-                                                alt=""></a>
+                                        <a href="{{ route('useraccount') }}"><img
+                                                src="/template/assets/images/icons/user.svg" alt=""></a>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <button class="cs_login_btn bg-none" type="submit" >
+                                            <button class="cs_login_btn bg-none" type="submit">
                                                 Log Out
                                             </button>
                                         </form>
 
                                         <!-- <span>
-                                  <a href="{{ route('login') }}">Log in</a> / <a href="{{ route('register') }}">Sign Up</a>
-                                </span> -->
+                                          <a href="{{ route('login') }}">Log in</a> / <a href="{{ route('register') }}">Sign Up</a>
+                                        </span> -->
                                     </div>
                                 </li>
                             @else
                                 <li>
                                     <div class="cs_header_credential_btns">
-                                        <a href="{{ route('useraccount') }}"><img src="/template/assets/images/icons/user.svg"
-                                                alt=""></a>
+                                        <a href="{{ route('useraccount') }}"><img
+                                                src="/template/assets/images/icons/user.svg" alt=""></a>
                                         <span>
                                             <a href="{{ route('login') }}">Log in</a> / <a
                                                 href="{{ route('register') }}">Sign Up</a>
@@ -99,9 +102,10 @@
                             @endauth
                         @endif
                         <li>
-                            <a href="{{route('cart')}}" type="button" class="cs_cart_btn">
+                            <a href="{{ route('cart') }}" type="button" class="cs_cart_btn">
                                 <img src="/template/assets/images/icons/bag.svg" alt="">
-                                <span class="cs_cart_label cs_accent_bg cs_white_color">{{session('cart') ? count(session('cart')) : 0}}</span>
+                                <span
+                                    class="cs_cart_label cs_accent_bg cs_white_color">{{ session('cart') ? count(session('cart')) : 0 }}</span>
                                 <span>Cart </span>
                             </a>
                         </li>
@@ -196,7 +200,7 @@
                           <li class="menu-item-has-children">
                             <h4>Shop Variation</h4>
                             <ul>
-                              <li><a href="{{route('shop.show')}}">Shop V1 - Default</a></li>
+                              <li><a href="{{ route('shop.show') }}">Shop V1 - Default</a></li>
                               <li><a href="https://html.laralink.com/RIYALLURE/shop-v2.html">Shop V2 - Classic</a></li>
                               <li><a href="https://html.laralink.com/RIYALLURE/shop-v3.html">Shop V3 - Modern</a></li>
                               <li>
@@ -235,7 +239,7 @@
                                   <li><a href="https://html.laralink.com/RIYALLURE/shop-v2.html">Filter Sidebar - V1</a></li>
                                   <li><a href="https://html.laralink.com/RIYALLURE/shop-list-view-left-sidebar.html">Filter Sidebar - V2</a></li>
                                   <li><a href="https://html.laralink.com/RIYALLURE/shop-v3.html">Filter Top</a></li>
-                                  <li><a href="{{route('shop.show')}}">Drawer Filter</a></li>
+                                  <li><a href="{{ route('shop.show') }}">Drawer Filter</a></li>
                                 </ul>
                               </li>
                             </ul>
@@ -243,22 +247,22 @@
                           <li class="menu-item-has-children">
                             <h4>Page Loading</h4>
                             <ul>
-                              <li><a href="{{route('shop.show')}}">Pagination</a></li>
+                              <li><a href="{{ route('shop.show') }}">Pagination</a></li>
                               <li><a href="https://html.laralink.com/RIYALLURE/shop-load-more.html">Load More</a></li>
                               <li><a href="https://html.laralink.com/RIYALLURE/shop-infinity-scroll.html">Infinity Scroll</a></li>
                               <li>
                                 <h4>Other Pages</h4>
                                 <ul>
                                   <li><a href="https://html.laralink.com/RIYALLURE/{{ route('useraccount') }}">My Account</a></li>
-                                  <li><a href="{{route('wishlist')}}">Wishlist</a></li>
-                                  <li><a href="{{route('cart')}}">Cart</a></li>
+                                  <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                  <li><a href="{{ route('cart') }}">Cart</a></li>
                                   <li><a href="checkout.html">Checkout</a></li>
                                 </ul>
                               </li>
                             </ul>
                           </li>
                           <li class="menu-item-has-children">
-                            <a href="{{route('shop.show')}}" class="overflow-hidden cs_banner cs_style_5 cs_accent_light_bg cs_radius_10 position-relative cs_bg_filed" data-src="/template/assets/images/offer.jpeg">
+                            <a href="{{ route('shop.show') }}" class="overflow-hidden cs_banner cs_style_5 cs_accent_light_bg cs_radius_10 position-relative cs_bg_filed" data-src="/template/assets/images/offer.jpeg">
                               <div class="cs_banner_text">
                                 <p class="cs_fs_24 cs_white_color cs_medium">SUMMER SALE</p>
                                 <h2 class="cs_fs_54 cs_white_color cs_normal cs_secondary_font">Save 20%</h2>
@@ -269,24 +273,37 @@
                         </ul> -->
                                     </li>
                                     <li class="">
-                                        <a href="{{route('aboutUs')}}">About</a>
+                                        <a href="{{ route('aboutUs') }}">About</a>
                                     </li>
 
                                     <li class="">
-                                        <a href="{{route('faq')}}">FAQ</a>
+                                        <a href="{{ route('faq') }}">FAQ</a>
 
                                     </li>
-                                    <li><a href="{{route('wishlist')}}">Wishlist</a></li>
-                                    <li><a href="{{route('contact')}}">Contact</a></li>
-                                    <li><a href="{{route('login')}}">Login</a></li>
+                                    <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                                    {{-- <li><a href="{{ route('login') }}">Login</a></li> --}}
+                                    @if (Route::has('login'))
+                                        @auth
+                                            <li>
+
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="{{ route('login') }}">Log in</a>
+                                            </li>
+                                        @endauth
+                                    @endif
                                     {{-- <li><a href="{{route('register')}}">Signup</a></li> --}}
 
                                 </ul>
                             </nav>
                             <div class="cs_header_social cs_mobile_show">
-                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i class="fa-brands fa-tiktok"></i></a>
+                                <a href="https://www.tiktok.com/@riyallure_fragrance"><i
+                                        class="fa-brands fa-tiktok"></i></a>
                                 <a href="wa.me/message/JUK236VPQJAAA1"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://www.instagram.com/riyallure_fragrances/"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/riyallure_fragrances/"><i
+                                        class="fa-brands fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -300,7 +317,7 @@
                                 d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
                             <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
                         </svg>
-                       <span class="cs_accent_color cs_fs_24 cs_header_number">09162820046</span>
+                        <span class="cs_accent_color cs_fs_24 cs_header_number">09162820046</span>
                         <span class="cs_header_number_text">24/7 Support Center</span>
                     </a>
                 </div>
