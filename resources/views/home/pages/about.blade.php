@@ -92,7 +92,7 @@
                     <div class="cs_slider_wrapper">
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
-                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/value_icon_1.svg"
+                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/value_icon_1.png"
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
-                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/value_icon_1.svg"
+                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/feature_icon_2.png"
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Customer Satisfaction</h2>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
-                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/value_icon_1.svg"
+                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/feature_icon_3.png"
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Trust and Reliability</h2>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
-                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/value_icon_1.svg"
+                                <div class="cs_value_box_icon"><img src="/template/assets/images/icons/feature_icon_4.png"
                                         alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
@@ -131,7 +131,7 @@
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
                                 <div class="cs_value_box_icon"><img
-                                        src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
+                                        src="/template/assets/images/icons/feature_icon_2.png" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Quality Assurance</h2>
                                 <p class="mb-0 cs_value_box_subtitle">We prioritize quality assurance, ensuring every fragrance meets our high standards for your satisfaction.</p>
@@ -140,7 +140,7 @@
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
                                 <div class="cs_value_box_icon"><img
-                                        src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
+                                        src="/template/assets/images/icons/value_icon_1.png" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Customer Satisfaction</h2>
                                 <p class="mb-0 cs_value_box_subtitle">Your happiness is our success. We prioritize your
@@ -160,7 +160,7 @@
                         <div class="cs_slider">
                             <div class="cs_value_box cs_radius_8">
                                 <div class="cs_value_box_icon"><img
-                                        src="/template/assets/images/icons/value_icon_1.svg" alt="Icon"></div>
+                                        src="/template/assets/images/icons/value_icon_1.png" alt="Icon"></div>
                                 <h2 class="cs_value_box_title cs_secondary_font cs_fs_24 cs_medium cs_secondary_color">
                                     Personalization</h2>
                                 <p class="mb-0 cs_value_box_subtitle">Beauty is personal. We believe in tailoring our perfume offerings to meet your unique scent preferences and desires.</p>
