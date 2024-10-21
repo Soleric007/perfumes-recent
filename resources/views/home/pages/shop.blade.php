@@ -37,13 +37,11 @@
             <div>
                 <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Discover Our Perfume Collections</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
-<<<<<<< HEAD
+
                     <li class="breadcrumb-item"><a style="color: #fff" href="{{route('index')}}">Home</a></li>
                     <li style="color: #fff" class="breadcrumb-item active">Products</li>
-=======
-                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                    <li class="breadcrumb-item active">Products</li>
->>>>>>> be2b7d0708d272fc10d5c0c9405ba5148aabac00
+
+
                 </ol>
             </div>
         </div>
@@ -134,10 +132,7 @@
                                     <div class="cs_rating" data-rating="4.5">
                                         <div class="cs_rating_percentage"></div>
                                     </div>
-                                    <div class="cs_rating_number cs_ternary_color cs_fs_14 cs_light">
-                                        <span>(4.5/5)</span>
-                                        <span> | 143 Reviews</span>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

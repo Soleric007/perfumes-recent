@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Favicon Icon -->
-    <link rel="icon" href="/template/assets/images/fave.png">
+    <link rel="icon" href="/template/assets/images/favicon.png">
     <!-- Site Title -->
     <title>Riyallure - Perfumes</title>
     <link rel="stylesheet" href="/template/assets/css/bootstrap.min.css">
@@ -33,25 +33,15 @@
 
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
-<<<<<<< HEAD
-      <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8" data-src="template/assets/images/bread2.jpg">
-        <div>
-          <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Contact Us</h1>
-          <ol class="mb-0 breadcrumb cs_fs_18">
-            <li class="breadcrumb-item"><a style="color: #fff" href="index.html">Home</a></li>
-            <li style="color: #fff" class="breadcrumb-item active">Contact</li>
-          </ol>
-=======
         <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
-            data-src="template/assets/images/breadcamp_bg_7.jpeg">
+            data-src="template/assets/images/bread4.jpg">
             <div>
-                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Contact Us</h1>
+                <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Contact Us</h1>
                 <ol class="mb-0 breadcrumb cs_fs_18">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Contact</li>
+                    <li style="color: #fff" class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li style="color: #fff" class="breadcrumb-item active">Contact</li>
                 </ol>
             </div>
->>>>>>> be2b7d0708d272fc10d5c0c9405ba5148aabac00
         </div>
     </div>
     <div class="cs_height_120 cs_height_lg_70"></div>
@@ -105,12 +95,11 @@
                         <h2 class="cs_normal cs_fs_36 cs_white_color cs_secondary_font">CONTACT INFORMATION</h2>
                         <p class="cs_white_color cs_light">For immediate assistance, you can contact us directly:</p>
                         <div class="cs_contact_info_item">
-                            <div class="cs_contact_info_icon"><img src="template/assets/images/icons/contact_icon_1.svg"
-                                    alt="Icon"></div>
+
                             <div class="cs_contact_info_right">
                                 <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Customer Support</h4>
-                                <a href="mailto:support@RIYALLURE.com"
-                                    class="cs_light cs_white_color">support@RIYALLURE.com</a>
+                                <a href="mailto:riyallure@gmail.com"
+                                    class="cs_light cs_white_color">riyallure@gmail.com</a>
                             </div>
                         </div>
                         <div class="cs_contact_info_item">
@@ -118,8 +107,8 @@
                                     alt="Icon"></div>
                             <div class="cs_contact_info_right">
                                 <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Sales Inquiries</h4>
-                                <a href="mailto:sales@RIYALLURE.com"
-                                    class="cs_light cs_white_color">sales@RIYALLURE.com</a>
+                                <a href="mailto:riyallure@gmail.com"
+                                    class="cs_light cs_white_color">riyallure@gmail.com</a>
                             </div>
                         </div>
                         <div class="cs_contact_info_item">
@@ -133,38 +122,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-          </div>
-          <div class="col-xl-5 col-lg-6 offset-xl-1">
-            <div class="cs_contact_info cs_radius_8 cs_accent_bg">
-              <img src="template/assets/images/contactinfo_img.svg" alt="" class="cs_contact_info_img">
-              <h2 class="cs_normal cs_fs_36 cs_white_color cs_secondary_font">CONTACT INFORMATION</h2>
-              <p class="cs_white_color cs_light">For immediate assistance, you can contact us directly:</p>
-              <div class="cs_contact_info_item">
-                <div class="cs_contact_info_icon"><img src="template/assets/images/icons/contact_icon_1.svg" alt="Icon"></div>
-                <div class="cs_contact_info_right">
-                  <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Customer Support</h4>
-                  <a href="mailto:support@RIYALLURE.com" class="cs_light cs_white_color">support@RIYALLURE.com</a>
-                </div>
-              </div>
-              <div class="cs_contact_info_item">
-                <div class="cs_contact_info_icon"><img src="template/assets/images/icons/contact_icon_2.svg" alt="Icon"></div>
-                <div class="cs_contact_info_right">
-                  <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Sales Inquiries</h4>
-                  <a href="mailto:sales@RIYALLURE.com" class="cs_light cs_white_color">sales@RIYALLURE.com</a>
-                </div>
-              </div>
-              <div class="cs_contact_info_item">
-                <div class="cs_contact_info_icon"><img src="template/assets/images/icons/contact_icon_3.svg" alt="Icon"></div>
-                <div class="cs_contact_info_right">
-                  <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Phone</h4>
-                  <a href="tel:09162820046" class="cs_light cs_white_color">09162820046</a>
-                </div>
-              </div>
-            </div>
-          </div>
-=======
->>>>>>> be2b7d0708d272fc10d5c0c9405ba5148aabac00
         </div>
         <div class="cs_height_120 cs_height_lg_70"></div>
         <!-- Start Google Map -->

@@ -36,12 +36,12 @@
     <div class="cs_height_40 cs_height_lg_30"></div>
     <div class="container">
         <div class="cs_breadcamp_wrap cs_style_1 cs_accent_light_bg cs_bg_filed cs_radius_8"
-            data-src="template/assets/images/breadcamp_bg_10.jpeg">
+            data-src="template/assets/images/bread3.jpg">
             <div>
-                <h1 class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Cart</h1>
-                <ol class="mb-0 breadcrumb cs_fs_18">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Cart</li>
+                <h1 style="color: #fff" class="cs_breadcamp_title cs_fs_54 cs_semibold">Your RIYALLURE Cart</h1>
+                <ol  class="mb-0 breadcrumb cs_fs_18">
+                    <li style="color: #fff" class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li style="color: #fff" class="breadcrumb-item active">Cart</li>
                 </ol>
             </div>
         </div>
@@ -119,7 +119,7 @@
                         @endforeach
                     </ul>
                 @else
-                    <p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your cart. Start shopping now.</p>
+                <a href="{{ route('shop.show') }}"><p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your cart. Start shopping now.</p></a>
                 @endif
             </div>
             <div class="col-xxl-4 col-lg-5 offset-xxl-1">

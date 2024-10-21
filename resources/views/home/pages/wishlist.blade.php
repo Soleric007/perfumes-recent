@@ -105,7 +105,7 @@
                     </li>
                 @endforeach
             @else
-                <p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your wishlist. Start shopping now.</p>
+               <a href="{{ route('shop.show') }}"><p class="cs_empty_cart_text cs_fs_18 cs_medium">No items in your wishlist. Start shopping now.</p></a>
             @endif
 
         </ul>

@@ -32,7 +32,7 @@
     <!-- Cart Modal -->
 
     <!-- End Header Section -->
-    
+
     <!-- Start Hero Section -->
     <div class="cs_height_40 cs_height_lg_30"></div>
     @include('home.sections.herosection')
@@ -41,7 +41,7 @@
     @include('home.sections.category')
     <!-- End Category Section -->
     <!-- Start Flash Sale Section -->
-    @include('home.sections.flashsection')
+    {{-- @include('home.sections.flashsection') --}}
     <!-- End Flash Sale Section -->
     <!-- Start Featured Products Section -->
     @include('home.sections.featuredproducts')

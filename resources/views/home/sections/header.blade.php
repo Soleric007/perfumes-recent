@@ -276,6 +276,7 @@
                                         <a href="{{route('faq')}}">FAQ</a>
 
                                     </li>
+                                    <li><a href="{{route('wishlist')}}">Wishlist</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                     <li><a href="{{route('login')}}">Login</a></li>
                                     {{-- <li><a href="{{route('register')}}">Signup</a></li> --}}
