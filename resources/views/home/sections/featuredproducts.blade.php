@@ -51,9 +51,9 @@
                                         <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
                                             {{ $product->title }}</h2>
                                             <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
-                                                ${{ $product->discount !== '0' ? $product->discount : $product->price }}
+                                                N{{ $product->discount !== '0' ? $product->discount : $product->price }}
 
-                                                <small>${{ $product->discount == '0' ? '' : $product->price }}</small>
+                                                <small>N{{ $product->discount == '0' ? '' : $product->price }}</small>
                                             </p>
                                             <div class="cs_product_ratings">
                                                 <div class="cs_rating" data-rating="4.5">
@@ -67,7 +67,7 @@
                                             <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: {{$product->stock}}</p>
                                     </div>
                                 </div>
-                                <a href="{{route('shop.product.detail', $product->id)}}" class="cs_product_link"></a>
+                                <a href="{{route('shop.product.detail', $product->slug)}}" class="cs_product_link"></a>
                             </div>
                         </div>
                     @endforeach

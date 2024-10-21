@@ -37,7 +37,7 @@
                                             <div class="d-flex align-items-end justify-content-between mt-4">
                                                 <div>
                                                     <h4 class="fs-22 fw-semibold ff-secondary mb-4">N<span
-                                                            class="counter-value" data-target="{{$totalEarnings}}">0</span>k </h4>
+                                                            class="counter-value" data-target="{{$totalEarnings}}">0</span> </h4>
                                                 </div>
                                                 <div class="avatar-sm flex-shrink-0">
                                                     <span class="avatar-title bg-success-subtle rounded fs-3">

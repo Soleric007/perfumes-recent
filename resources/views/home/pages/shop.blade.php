@@ -137,7 +137,7 @@
                             </div>
                             <div class="cs_product_info">
 
-                                <h2 class="text-3xl cs_product_title cs_fs_18 cs_normal cs_secondary_font">
+                                <h2 class="text-2xl cs_product_title cs_fs_18 cs_normal cs_secondary_font first-letter:uppercase">
                                     {{ $product->title }}</h2>
                                 <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">N{{ $product->price }}
                                 </p>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{ route('shop.product.detail', $product->id) }}" class="cs_product_link"></a>
+                        <a href="{{ route('shop.product.detail', $product->slug) }}" class="cs_product_link"></a>
                     </div>
                 </div>
             @endforeach

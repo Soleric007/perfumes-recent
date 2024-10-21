@@ -115,11 +115,10 @@
                         @php $totaldiscount = 0 @endphp
                         @php $totalshippingfee = 0 @endphp
                         @foreach ((array) session('cart') as $id => $details)
-                            @php $subtotal += $details['price'] * $details['quantity'] @endphp
-                            @php $totaldiscount += $details['discount'] @endphp
-                            {{-- @php $totalshippingfee += $details['shippingfee'] @endphp --}}
+                            @php $subtotal += (($details["discount"] !== '0') ? $details["discount"] : $details["price"]) * $details['quantity'] @endphp
+                            @php $totalshippingfee += $details['shippingfee'] @endphp
                         @endforeach
-                        @php $total = $subtotal - ($subtotal * ($totaldiscount / 100)) @endphp
+                        @php $total = $subtotal + $totalshippingfee @endphp
 
                         <div class="cs_height_8 cs_height_lg_8"></div>
                         <ul class="cs_mp_0 cs_order_summary">
@@ -129,10 +128,10 @@
                                         <h3 class="mb-0 text-xl uppercase cs_secondary_font cs_semibold cs_fs_16">
                                             {{ $details['name'] }}</h3>
                                         <h3 class="mb-0 cs_secondary_font cs_semibold cs_fs_16 cs_accent_color">
-                                            N{{ $details['price'] }}</h3>
+                                            N{{ $details['quantity'] * ($details['discount'] !== '0' ? $details['discount'] : $details['price']) }}
+                                        </h3>
                                     </div>
                                     <p>Quantity: {{ $details['quantity'] }}</p>
-                                    <p>Discount: {{ $details['discount'] }}%</p>
                                 </li>
                             @endforeach
 
@@ -141,11 +140,11 @@
                         <ul class="cs_card_price_list cs_type_1 cs_mp_0">
                             <li>
                                 <span class="cs_light">Subtotal</span>
-                                <span class="cs_semibold cs_primary_color">N{{ $total }}</span>
+                                <span class="cs_semibold cs_primary_color">N{{ $subtotal }}</span>
                             </li>
                             <li>
                                 <span class="cs_light">Shipping Fee</span>
-                                <span class="cs_semibold cs_primary_color">N4.99</span>
+                                <span class="cs_semibold cs_primary_color">N{{ $totalshippingfee }}</span>
                             </li>
                             <li class="cs_total_price">
                                 <span class="cs_fs_18 cs_primary_color">Total</span>

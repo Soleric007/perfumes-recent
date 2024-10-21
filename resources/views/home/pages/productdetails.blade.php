@@ -160,13 +160,13 @@
                                 <div class="cs_product_category text-uppercase cs_fs_14 cs_light">
                                     <a href="{{ route('shop.show') }}">{{$product->category->name ?? ''}}</a>
                                 </div>
-                                <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font">{{$product->title}}
+                                <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font first-letter:uppercase">{{$product->title}}
                                 </h2>
                                 <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">N{{$product->price}}</p>
 
                             </div>
                         </div>
-                        <a href="{{ route('shop.product.detail', $product->id) }}" class="cs_product_link"></a>
+                        <a href="{{ route('shop.product.detail', $product->slug) }}" class="cs_product_link"></a>
                     </div>
                 </div>
             @endforeach

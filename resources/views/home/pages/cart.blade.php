@@ -68,11 +68,10 @@
                 @php $totaldiscount = 0 @endphp
                 @php $totalshippingfee = 0 @endphp
                 @foreach ((array) session('cart') as $id => $details)
-                    @php $subtotal += $details['price'] * $details['quantity'] @endphp
-                    @php $totaldiscount += $details['discount'] @endphp
-                    {{-- @php $totalshippingfee += $details['shippingfee'] @endphp --}}
+                    @php $subtotal += (($details["discount"] !== '0') ? $details["discount"] : $details["price"]) * $details['quantity'] @endphp
+                    @php $totalshippingfee += $details['shippingfee'] @endphp
                 @endforeach
-                @php $total = $subtotal - ($subtotal * ($totaldiscount / 100)) @endphp
+                @php $total = $subtotal + $totalshippingfee @endphp
 
                 @if (session('cart'))
 
@@ -89,7 +88,7 @@
                                             <a href="">{{ $details['name'] }}</a>
                                         </h2>
                                         <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium cs_accent_color">
-                                            N{{ $details['price'] }}
+                                            N{{ $details['discount'] !== '0' ? $details['discount'] : $details['price'] }}
                                         </p>
                                         <div class="flex flex-col gap-2">
                                             <label for="quantity" class="text-xl">Quantity:</label>
@@ -100,8 +99,9 @@
                                             <h3>
                                                 <span class="cs_fs_24 cs_medium cs_primary_color">Subtotal:</span>
                                                 <span
-                                                    class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] . ' x ' . $details['price'] }}
-                                                    = N{{ $details['price'] * $details['quantity'] }}</span>
+                                                    class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] . ' x ' . ($details['discount'] !== '0' ? $details['discount'] : $details['price']) }}
+                                                    =
+                                                    N{{ $details['quantity'] * ($details['discount'] !== '0' ? $details['discount'] : $details['price']) }}</span>
                                             </h3>
                                         </div>
 
@@ -141,14 +141,9 @@
                             <span class="cs_light">Subtotal</span>
                             <span class="cs_semibold cs_primary_color">N{{ $subtotal }}</span>
                         </li>
-
-                        <li>
-                            <span class="cs_light">Total Discount</span>
-                            <span class="cs_semibold cs_primary_color">{{ $totaldiscount }}%</span>
-                        </li>
                         <li>
                             <span class="cs_light">Shipping Fee</span>
-                            {{-- <span class="cs_semibold cs_primary_color">N{{$totalshippingfee}}</span> --}}
+                            <span class="cs_semibold cs_primary_color">N{{ $totalshippingfee }}</span>
                         </li>
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>
@@ -174,7 +169,7 @@
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
 
-<script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             var scrolllpos = localStorage.getItem('scrollpos');
             if (scrolllpos) {

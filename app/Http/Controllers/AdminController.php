@@ -62,9 +62,9 @@ class AdminController extends Controller
         $products = Product::latest()->paginate(10);
         return view('admin.pages.products', compact('products'));
     }
-    public function showproductdetails($product)
+    public function showproductdetails($slug)
     {
-        $product = Product::find($product);
+        $product = Product::where('slug', $slug)->firstOrFail();
         return view('admin.pages.productdetails', compact('product'));
     }
     public function deleteProduct($product)

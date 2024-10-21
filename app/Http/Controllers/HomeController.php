@@ -25,9 +25,9 @@ class HomeController extends Controller
     {
         return view('home.pages.about');
     }
-    public function showProductDetails($product)
+    public function showProductDetails($slug)
     {
-        $product = Product::find($product);
+        $product = Product::where('slug', $slug)->firstOrFail();
 
         if (!$product) {
             // Handle the case where the product is not found
@@ -46,7 +46,8 @@ class HomeController extends Controller
     public function showShop()
     {
         $products = Product::latest()->paginate(10);
-        return view('home.pages.shop', compact('products'));
+        $searchText = '';
+        return view('home.pages.shop', compact('products', 'searchText'));
     }
     public function showFaq()
     {

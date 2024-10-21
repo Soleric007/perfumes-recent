@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
     Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/order/{order}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
-    Route::get('/orders/{order}', [OrderController::class, 'deleteOrder'])->name('order.delete');
-    Route::get('/order/deliver/{order}', [OrderController::class, 'orderDelivered'])->name('deliver.order');
+    Route::get('/order/{slug}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
+    Route::get('/orders/{slug}', [OrderController::class, 'deleteOrder'])->name('order.delete');
+    Route::get('/order/deliver/{slug}', [OrderController::class, 'orderDelivered'])->name('deliver.order');
 
     // PAYMENT ROUTE
     Route::controller(StripePaymentController::class)->group(function () {
@@ -68,7 +68,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {});
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/orders', [AdminController::class, 'showorder'])->name('admin.orders');
-    Route::get('/orders/{id}/download', [OrderController::class, 'downloadPDF'])->name('orders.download');
+    Route::get('/orders/{slug}/download', [OrderController::class, 'downloadPDF'])->name('orders.download');
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pages/customers', [AdminController::class, 'showcustomers'])->name('admin.customers');
@@ -81,7 +81,7 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
 
 Route::get('/shop', [HomeController::class, 'showShop'])->name('shop.show');
 Route::get('/product_search', [HomeController::class, 'product_search'])->name('product.search');
-Route::get('/productdetails/{product}', [HomeController::class, 'showProductDetails'])->name('shop.product.detail');
+Route::get('/productdetails/{slug}', [HomeController::class, 'showProductDetails'])->name('shop.product.detail');
 Route::get('/about', [HomeController::class, 'showAboutUs'])->name('aboutUs');
 Route::get('/faq', [HomeController::class, 'showFaq'])->name('faq');
 Route::get('/contact', [HomeController::class, 'showContact'])->name('contact');
@@ -93,10 +93,10 @@ Route::get('/accountdetails', [HomeController::class, 'showAccountdetails'])->na
 
 Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart');
 Route::patch('/updatecart', [ProductController::class, 'update'])->name('updatecart');
-Route::get('/cart/remove/{id}', [ProductController::class, 'remove'])->name('remove.from.cart');
+Route::get('/cart/remove/{slug}', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 Route::get('/wishlist/{id}', [ProductController::class, 'addToWishList'])->name('addToWishlist');
-Route::get('/wishlist/remove/{id}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
+Route::get('/wishlist/remove/{slug}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
 
 
 require __DIR__ . '/auth.php';

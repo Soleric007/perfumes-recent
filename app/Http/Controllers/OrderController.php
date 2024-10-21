@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 use App\Mail\OrderPlaced;
 
@@ -80,11 +82,15 @@ class OrderController extends Controller
         }
 
         // Send notification email to admin
-        $adminEmail = 'astauchiha234@example.com'; // Replace with the admin's email address
+        $adminEmail = 'riyallure4@gmail.com'; // Replace with the admin's email address
         Mail::to($adminEmail)->send(new OrderPlaced($order));
+        // Send notification email to user
+        $userEmail = $order->email; // Replace with the user's email address
+        Mail::to($userEmail)->send(new OrderPlaced($order));
 
         // Clear the cart session
         session()->forget('cart');
+        Alert::success('Your Order is on its way!', "An email confirmation has been sent to you.");
 
         return redirect()->route('index')->with('success', 'Order placed successfully, An email will be sent you once your order has been confirmed!');
     }
@@ -97,15 +103,15 @@ class OrderController extends Controller
         // dd($orders);
         return redirect()->back()->with('message', 'Order Delivered successfully!');
     }
-    public function deleteOrder($order)
+    public function deleteOrder($slug)
     {
-        $order = Order::find($order);
+        $order = Order::where('slug', $slug)->firstOrFail();
         $order->delete();
         return redirect()->back()->with('message', 'Order Removed Successfully');
     }
-    public function showorderdetails($order)
+    public function showorderdetails($slug)
     {
-        $order = Order::find($order);
+        $order = Order::where('slug', $slug)->firstOrFail();
         return view('admin.pages.orderdetails', compact('order'));
     }
 
