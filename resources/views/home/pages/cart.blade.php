@@ -63,15 +63,21 @@
                     </div>
                 @endif
 
-                @php $subtotal = 0 @endphp
-                @php $total = 0 @endphp
-                @php $totaldiscount = 0 @endphp
-                @php $totalshippingfee = 0 @endphp
-                @foreach ((array) session('cart') as $id => $details)
-                    @php $subtotal += (($details["discount"] !== '0') ? $details["discount"] : $details["price"]) * $details['quantity'] @endphp
-                    @php $totalshippingfee += $details['shippingfee'] @endphp
-                @endforeach
-                @php $total = $subtotal + $totalshippingfee @endphp
+                @php
+                    $subtotal = 0;
+                    $totalshippingfee = 0;
+                    foreach ((array) session('cart') as $id => $details) {
+                        $discount = floatval($details['discount']);
+                        $price = floatval($details['price']);
+                        $quantity = intval($details['quantity']);
+                        $shippingFee = floatval($details['shippingfee']);
+
+                        $subtotal += ($discount !== 0 ? $discount : $price) * $quantity;
+                        $totalshippingfee += $shippingFee;
+                    }
+                    $total = $subtotal + $totalshippingfee;
+                @endphp
+
 
                 @if (session('cart'))
 

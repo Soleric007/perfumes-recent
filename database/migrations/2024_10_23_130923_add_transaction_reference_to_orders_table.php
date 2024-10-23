@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('slug')->unique()->after('title'); // Add slug column after the title
+        Schema::table('orders', function (Blueprint $table) {
+            $table->string('transaction_reference')->nullable()->unique()->after('payment_status');
         });
     }
 
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('slug');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('transaction_reference');
         });
     }
 };

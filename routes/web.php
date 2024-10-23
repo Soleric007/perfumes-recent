@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
     Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+    
+    Route::get('/payment/callback', [OrderController::class, 'paymentCallback'])->name('payment.callback');
+
     Route::get('/order/{slug}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
     Route::get('/orders/{slug}', [OrderController::class, 'deleteOrder'])->name('order.delete');
     Route::get('/order/deliver/{slug}', [OrderController::class, 'orderDelivered'])->name('deliver.order');

@@ -15,7 +15,7 @@ class Order extends Model
         parent::boot();
 
         static::creating(function ($order) {
-            $order->slug = Str::slug($order->id . '-' . $order->first_name);
+            $order->slug = Str::slug(uniqid('orderr_'));
         });
     }
 
