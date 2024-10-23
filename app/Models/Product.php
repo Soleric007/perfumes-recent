@@ -34,11 +34,11 @@ class Product extends Model
         parent::boot();
 
         static::creating(function ($product) {
-            $product->slug = Str::slug($product->title);
+            $product->slug = Str::slug(uniqid('product_'));
         });
 
         static::updating(function ($product) {
-            $product->slug = Str::slug($product->title);
+            $product->slug = Str::slug(uniqid('product_'));
         });
     }
 }
