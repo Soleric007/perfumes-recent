@@ -59,8 +59,9 @@ class AdminController extends Controller
 
     public function showproducts()
     {
+        $searchText = '';
         $products = Product::latest()->paginate(10);
-        return view('admin.pages.products', compact('products'));
+        return view('admin.pages.products', compact('products', 'searchText'));
     }
     public function showproductdetails($slug)
     {
