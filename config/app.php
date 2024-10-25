@@ -105,6 +105,9 @@ return [
         ),
     ],
 
+    'App\Exceptions\Handler' => App\Exceptions\Handler::class,
+
+
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver
