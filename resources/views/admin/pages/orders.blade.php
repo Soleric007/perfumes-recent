@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="card-body pt-0">
                                 <div>
                                     <ul class="nav nav-tabs nav-tabs-custom nav-success mb-3" role="tablist">
@@ -108,6 +108,15 @@
 
                                                                         class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
                                                                         Delivered
+                                                                    </a>
+                                                                </li>
+                                                                <li class="list-inline-item edit"
+                                                                    data-bs-toggle="tooltip" data-bs-trigger="hover"
+                                                                    data-bs-placement="top" title="Edit">
+                                                                    <a aria-disabled="{{$order->payment_status === "paid" ? true : false}}" href="{{route('admin.orders.confirmPayment', $order->id)}}"
+
+                                                                        class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
+                                                                        Confirm Payment
                                                                     </a>
                                                                 </li>
                                                                 <li class="list-inline-item edit"

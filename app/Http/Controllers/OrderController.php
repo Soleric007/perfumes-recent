@@ -13,6 +13,8 @@ use Illuminate\Support\Str;
 
 use App\Mail\OrderPlaced;
 use App\Mail\CustomerOrderNotification;
+use App\Mail\PaymentConfirmed;
+use App\Mail\AdminPaymentConfirmation;
 
 use PDF;
 
@@ -48,7 +50,7 @@ class OrderController extends Controller
             'state'        => 'required|string|max:100',
             'zip'          => 'required|string|max:10',
             'country'      => 'required|string|max:100',
-            'payment_method' => 'required|in:cash_on_delivery,card',
+            'payment_method' => 'required|in:cash_on_delivery,card,transfer', // Add 'transfer' as a payment method
         ]);
 
         // Create new order
@@ -70,7 +72,26 @@ class OrderController extends Controller
         $order->total_amount = $totalAmount;
         $order->save();
 
-        if ($validatedData['payment_method'] === 'card') {
+        // Update product stock and orders count
+        foreach ($cart as $id => $details) {
+            $product = Product::find($id);
+            if ($product) {
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $product->id,
+                    'quantity' => $details['quantity'],
+                    'price' => $product->price, // Save the price at the time of order
+                ]);
+                $product->stock -= $details['quantity'];  // Reduce stock
+                $product->orders += 1;  // Increment orders count
+                $product->save();
+            }
+        }
+
+        if ($validatedData['payment_method'] === 'transfer') {
+            // Redirect to the transfer payment page
+            return redirect()->route('payment.transfer', $order->id);
+        } elseif ($validatedData['payment_method'] === 'card') {
             // Redirect to Paystack for payment
             return $this->initiatePaystackPayment($order);
         } else {
@@ -81,6 +102,13 @@ class OrderController extends Controller
             return redirect()->route('index')->with('success', 'Order placed successfully, An email will be sent you once your order has been confirmed!');
         }
     }
+
+    public function showTransferPage(Order $order)
+    {
+        // Display the bank details and instructions to the user
+        return view('home.pages.transfer', compact('order'));
+    }
+
 
     public function initiatePaystackPayment($order)
     {
@@ -165,6 +193,26 @@ class OrderController extends Controller
         // dd($orders);
         return redirect()->back()->with('message', 'Order Delivered successfully!');
     }
+
+    public function confirmPayment(Request $request, Order $order)
+    {
+        $order->payment_status = 'paid';
+        $order->save();
+
+        // Notify the customer via email
+        Mail::to($order->email)->send(new PaymentConfirmed($order));
+
+        // Notify the admin if needed
+        $adminEmail = 'riyallure4@gmail.com';
+        Mail::to($adminEmail)->send(new AdminPaymentConfirmation($order));
+
+        Mail::to($adminEmail)->send(new OrderPlaced($order));
+        Mail::to($order->email)->send(new CustomerOrderNotification($order));
+
+        return redirect()->back()->with('success', 'Payment has been confirmed successfully.');
+    }
+
+
     public function deleteOrder($slug)
     {
         $order = Order::where('slug', $slug)->firstOrFail();
