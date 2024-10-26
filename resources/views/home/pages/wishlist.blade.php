@@ -19,7 +19,9 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -80,7 +82,8 @@
                             </div>
                             <a href="{{ route('shop.product.detail', $id) }}" class="cs_product_link"></a>
                         </div>
-                        <a onclick="confirmation(event)" href="{{route('remove.from.wishlist', $id)}}" class="cs_card_remove_btn w-100 remove-from-wishlist">
+                        <button
+                            class="cs_card_remove_btn w-100 remove-from-cart">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -97,7 +100,7 @@
                                     fill="currentColor" />
                             </svg>
                             REMOVE
-                        </a>
+                        </button>
                     </li>
                 @endforeach
             @else
@@ -118,7 +121,7 @@
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
 
-<script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             var scrolllpos = localStorage.getItem('scrollpos');
             if (scrolllpos) {
@@ -133,40 +136,51 @@
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>
     <script type="text/javascript">
-        function confirmation(e){
+        function confirmation(e) {
             var urlToredirect = e.currentTarget.getAttribute('href');
             swal({
-                title: "Are you sure to remove this product",
+                    title: "Are you sure to remove this product",
+                    text: "You will not be able to revert this!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willcancel) => {
+                    if (willcancel) {
+                        window.location.href = urlToredirect;
+                    }
+                });
+        }
+        $(".remove-from-cart").click(function(e) {
+            e.preventDefault();
+
+            var ele = $(this);
+
+            swal({
+                title: "Are you sure want to remove?",
                 text: "You will not be able to revert this!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
-            })
-            .then((willcancel) => {
-                if (willcancel) {
-                    window.location.href = urlToredirect;
+            }).then((willRemove) => {
+                if (willRemove) {
+                    $.ajax({
+                        url: '{{ url('wishlist/remove') }}/' + ele.parents("li").attr("data-id"),
+                        method: "GET",
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                        },
+                        success: function(response) {
+                            window.location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                            alert("Failed to remove item from wishlist.");
+                            console.log(xhr.responseText);
+                        }
+                    });
                 }
             });
-        }
-        // $(".remove-from-wishlist").click(function(e) {
-        //     e.preventDefault();
-
-        //     var ele = $(this);
-
-        //     if (confirmation(e)) {
-        //         $.ajax({
-        //             url: '{{ url('wishlist/remove') }}/' + ele.parents("li").attr(
-        //                 "data-id"), // Appending the id to the route
-        //             method: "DELETE",
-        //             data: {
-        //                 _token: '{{ csrf_token() }}',
-        //             },
-        //             success: function(response) {
-        //                 window.location.reload();
-        //             }
-        //         });
-        //     }
-        // });
+        });
     </script>
 </body>
 

@@ -30,12 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
     Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
-    
+
+    Route::get('/payment/transfer/{order}', [OrderController::class, 'showTransferPage'])->name('payment.transfer');
+
     Route::get('/payment/callback', [OrderController::class, 'paymentCallback'])->name('payment.callback');
 
     Route::get('/order/{slug}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
     Route::get('/orders/{slug}', [OrderController::class, 'deleteOrder'])->name('order.delete');
     Route::get('/order/deliver/{slug}', [OrderController::class, 'orderDelivered'])->name('deliver.order');
+    Route::get('/admin/orders/{order}/confirm-payment', [OrderController::class, 'confirmPayment'])->name('admin.orders.confirmPayment');
+
 
     // PAYMENT ROUTE
     Route::controller(StripePaymentController::class)->group(function () {
@@ -96,10 +100,10 @@ Route::get('/accountdetails', [HomeController::class, 'showAccountdetails'])->na
 
 Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart');
 Route::patch('/updatecart', [ProductController::class, 'update'])->name('updatecart');
-Route::get('/cart/remove/{slug}', [ProductController::class, 'remove'])->name('remove.from.cart');
+Route::get('/cart/remove/{id}', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 Route::get('/wishlist/{id}', [ProductController::class, 'addToWishList'])->name('addToWishlist');
-Route::get('/wishlist/remove/{slug}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
+Route::get('/wishlist/remove/{id}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
 
 
 require __DIR__ . '/auth.php';

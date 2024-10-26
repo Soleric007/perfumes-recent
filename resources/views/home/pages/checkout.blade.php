@@ -166,6 +166,12 @@
                         <ul class="cs_payment_method_list cs_mp_0">
                             <li>
                                 <div class="cs_custom_checkbox cs_style_1 cs_light">
+                                    <input required name="payment_method" type="radio" value="transfer">
+                                    <span>Pay with Transfer</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cs_custom_checkbox cs_style_1 cs_light">
                                     <input required name="payment_method" type="radio" value="card">
                                     <span>Debit Card</span>
                                 </div>

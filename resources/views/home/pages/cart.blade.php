@@ -57,11 +57,7 @@
                 <h2 class="mb-0 cs_fs_36 cs_secondary_font cs_medium">MY CART
                     ({{ session('cart') ? count(session('cart')) : 0 }})</h2>
                 <div class="cs_height_40 cs_height_lg_40"></div>
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+
 
                 @php
                     $subtotal = 0;
@@ -111,8 +107,7 @@
                                             </h3>
                                         </div>
 
-                                        <a onclick="confirmation(event)" href="{{ route('remove.from.cart', $id) }}"
-                                            class="cs_product_card_close remove-from-cart">
+                                        <button class="cs_product_card_close remove-from-cart">
                                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -122,7 +117,7 @@
                                                     d="M19.9744 21C19.8397 21.0002 19.7063 20.9737 19.5818 20.9222C19.4574 20.8707 19.3444 20.7951 19.2492 20.6998L0.300364 1.75067C0.108044 1.55835 0 1.2975 0 1.02552C0 0.753534 0.108044 0.49269 0.300364 0.300367C0.492684 0.108045 0.753525 0 1.02551 0C1.29749 0 1.55833 0.108045 1.75065 0.300367L20.6995 19.2495C20.843 19.3929 20.9406 19.5756 20.9802 19.7745C21.0198 19.9734 20.9995 20.1796 20.9219 20.367C20.8442 20.5544 20.7128 20.7146 20.5441 20.8272C20.3755 20.9399 20.1772 21 19.9744 21Z"
                                                     fill="currentColor" />
                                             </svg>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </li>
@@ -174,18 +169,6 @@
     <!-- End Footer Section -->
     <!-- Script -->
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var scrolllpos = localStorage.getItem('scrollpos');
-            if (scrolllpos) {
-                window.scrollTo(0, scrolllpos);
-            }
-        });
-        window.addEventListener('beforeunload', function() {
-            localStorage.setItem('scrollpos', window.scrollY);
-        });
-    </script>
     <script src="/template/assets/js/jquery.slick.min.js"></script>
     <script src="/template/assets/js/select2.min.js"></script>
     <script src="/template/assets/js/main.js"></script>
@@ -226,25 +209,36 @@
             });
         });
 
-        // $(".remove-from-cart").click(function(e) {
-        //     e.preventDefault();
+        $(".remove-from-cart").click(function(e) {
+            e.preventDefault();
 
-        //     var ele = $(this);
+            var ele = $(this);
 
-        //     if (confirm("Are you sure want to remove?")) {
-        //         $.ajax({
-        //             url: '{{ url('cart/remove') }}/' + ele.parents("li").attr(
-        //                 "data-id"), // Appending the id to the route
-        //             method: "DELETE",
-        //             data: {
-        //                 _token: '{{ csrf_token() }}',
-        //             },
-        //             success: function(response) {
-        //                 window.location.reload();
-        //             }
-        //         });
-        //     }
-        // });
+            swal({
+                title: "Are you sure want to remove?",
+                text: "You will not be able to revert this!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willRemove) => {
+                if (willRemove) {
+                    $.ajax({
+                        url: '{{ url('cart/remove') }}/' + ele.parents("li").attr("data-id"),
+                        method: "GET",
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                        },
+                        success: function(response) {
+                            window.location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                            alert("Failed to remove item from cart.");
+                            console.log(xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 
