@@ -31,8 +31,8 @@
             following bank account:</p>
         <ul>
             <li><strong>Bank Name:</strong> Access Bank</li>
-            <li><strong>Account Number:</strong>1848449170</li>
-            <li><strong>Account Name:</strong> Zankpa zynariya blessing</li>
+            <li><strong>Account Number:</strong> 1848449170</li>
+            <li><strong>Account Name:</strong> Zankpa Zynariya Blessing</li>
         </ul>
         <p>After completing the transfer, click the button below to notify us.</p>
 

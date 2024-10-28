@@ -170,19 +170,6 @@
                                     <span>Pay with Transfer</span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="cs_custom_checkbox cs_style_1 cs_light">
-                                    <input required name="payment_method" type="radio" value="card">
-                                    <span>Debit Card</span>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="cs_custom_checkbox cs_style_1 cs_light">
-                                    <input required name="payment_method" type="radio" value="cash_on_delivery">
-                                    <span>Cash on Delevery</span>
-                                </div>
-                            </li>
                         </ul>
                         <div class="cs_height_40 cs_height_lg_30"></div>
                         <button type="submit" class="cs_btn cs_style_1 cs_fs_18 w-100"><span>PLACE
