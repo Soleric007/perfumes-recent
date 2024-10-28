@@ -30,13 +30,13 @@
         <p>Please transfer the total amount of <strong>{{ number_format($order->total_amount, 2) }}</strong> to the
             following bank account:</p>
         <ul>
-            <li><strong>Bank Name:</strong> Opay</li>
-            <li><strong>Account Number:</strong> 9053016545</li>
-            <li><strong>Account Name:</strong> Favour Chinaza Okuefuna</li>
+            <li><strong>Bank Name:</strong> Access Bank</li>
+            <li><strong>Account Number:</strong>1848449170</li>
+            <li><strong>Account Name:</strong> Zankpa zynariya blessing</li>
         </ul>
         <p>After completing the transfer, click the button below to notify us.</p>
 
-        <a target="_blank" href="https://wa.me/9021381455?text=I%27ve%20sent%20the%20payment%20for%20Order%20ID%3A%20{{ $order->transaction_reference }}%20with%20Amount%3A%20{{ number_format($order->total_amount, 2) }}"
+        <a target="_blank" href="https://wa.me/9162820046?text=I%27ve%20sent%20the%20payment%20for%20Order%20ID%3A%20{{ $order->transaction_reference }}%20with%20Amount%3A%20{{ number_format($order->total_amount, 2) }}"
             class="btn btn-success py-2 px-4">I've Sent the Money</a>
     </div>
 
