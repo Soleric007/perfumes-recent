@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <!-- end card header -->
-                                <div class="card-body">
+                                <div class="card-body overflow-x-scroll">
                                     @if ($searchText && count($products) !== 0)
                                         <div class="my-4 text-3xl">
                                             <h1 class="font-bold">Search Results for "{{ $searchText }}"</h1>
@@ -99,7 +99,7 @@
                                                 <div role="complementary" class="gridjs gridjs-container"
                                                     style="width: 100%;">
                                                     <div class="gridjs-wrapper" style="height: auto;">
-                                                        <table role="grid" class="gridjs-table"
+                                                        <table role="grid" class="gridjs-table overflow-x-scroll"
                                                             style="height: auto;">
                                                             <thead class="gridjs-thead">
                                                                 <tr class="gridjs-tr">
@@ -266,7 +266,7 @@
                                                                                     <ul
                                                                                         class="dropdown-menu dropdown-menu-end">
                                                                                         <li><a class="dropdown-item"
-                                                                                                href="{{ route('admin.productdetails', $product->id) }}"><i
+                                                                                                href="{{ route('admin.productdetails', $product->slug) }}"><i
                                                                                                     class="align-bottom ri-eye-fill me-2 text-muted"></i>
                                                                                                 View</a></li>
 

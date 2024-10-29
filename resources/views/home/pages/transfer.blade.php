@@ -25,8 +25,8 @@
 
     <div class="cs_site_header_height_40"></div>
 
-    <div class="container mt-[20rem] text-lg text-center space-y-10">
-        <h2 class="text-xl font-bold lg:text-5xl">Complete Your Payment</h2>
+    <div class="container mt-[8rem] lg:mt-[20rem] text-lg text-center space-y-10">
+        <h2 class="text-3xl font-bold lg:text-5xl">Complete Your Payment</h2>
         <p>Please transfer the total amount of <strong>{{ number_format($order->total_amount, 2) }}</strong> to the
             following bank account:</p>
         <ul>

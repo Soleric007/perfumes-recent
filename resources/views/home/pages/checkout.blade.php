@@ -87,10 +87,50 @@
                             <div class="cs_height_30 cs_height_lg_20"></div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="cs_semibold">State/Province<span>*</span></label>
-                            <input type="text" name="state" required class="cs_form_field">
+                            <label class="cs_semibold">State<span>*</span></label>
+                            <select name="state" id="stateSelect" required class="cs_form_field">
+                                <option value="">Select a State</option>
+                                <option value="Abia">Abia</option>
+                                <option value="Adamawa">Adamawa</option>
+                                <option value="Akwa Ibom">Akwa Ibom</option>
+                                <option value="Anambra">Anambra</option>
+                                <option value="Bauchi">Bauchi</option>
+                                <option value="Bayelsa">Bayelsa</option>
+                                <option value="Benue">Benue</option>
+                                <option value="Borno">Borno</option>
+                                <option value="Cross River">Cross River</option>
+                                <option value="Delta">Delta</option>
+                                <option value="Ebonyi">Ebonyi</option>
+                                <option value="Edo">Edo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Enugu">Enugu</option>
+                                <option value="Gombe">Gombe</option>
+                                <option value="Imo">Imo</option>
+                                <option value="Jigawa">Jigawa</option>
+                                <option value="Kaduna">Kaduna</option>
+                                <option value="Kano">Kano</option>
+                                <option value="Katsina">Katsina</option>
+                                <option value="Kebbi">Kebbi</option>
+                                <option value="Kogi">Kogi</option>
+                                <option value="Kwara">Kwara</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Nasarawa">Nasarawa</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Plateau">Plateau</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="Sokoto">Sokoto</option>
+                                <option value="Taraba">Taraba</option>
+                                <option value="Yobe">Yobe</option>
+                                <option value="Zamfara">Zamfara</option>
+                                <option value="FCT">Federal Capital Territory</option>
+                            </select>
                             <div class="cs_height_30 cs_height_lg_20"></div>
                         </div>
+
                         <div class="col-lg-6">
                             <label class="cs_semibold">ZIP/Postal Code<span>*</span></label>
                             <input type="text" name="zip" required class="cs_form_field">
@@ -114,13 +154,11 @@
                             $subtotal = 0;
                             $totalshippingfee = 0;
                             foreach ((array) session('cart') as $id => $details) {
-                                $discount = floatval($details['discount']);
+                                $discount = $details['discount'];
                                 $price = floatval($details['price']);
                                 $quantity = intval($details['quantity']);
-                                $shippingFee = floatval($details['shippingfee']);
 
-                                $subtotal += ($discount !== 0 ? $discount : $price) * $quantity;
-                                $totalshippingfee += $shippingFee;
+                                $subtotal += ($discount !== '0' ? $discount : $price) * $quantity;
                             }
                             $total = $subtotal + $totalshippingfee;
                         @endphp
@@ -150,11 +188,12 @@
                             </li>
                             <li>
                                 <span class="cs_light">Shipping Fee</span>
-                                <span class="cs_semibold cs_primary_color">N{{ $totalshippingfee }}</span>
+                                <span id="shippingFee"
+                                    class="cs_semibold cs_primary_color">N{{ $totalshippingfee }}</span>
                             </li>
                             <li class="cs_total_price">
                                 <span class="cs_fs_18 cs_primary_color">Total</span>
-                                <span class="cs_fs_18 cs_primary_color">N{{ $total }}</span>
+                                <span id="totalAmount" class="cs_fs_18 cs_primary_color">N{{ $total }}</span>
                             </li>
                         </ul>
                         <div class="cs_height_50 cs_height_lg_40"></div>
@@ -187,7 +226,74 @@
 
     <!-- End Footer Section -->
     <!-- Script -->
+
     <script src="/template/assets/js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stateSelect = document.getElementById('stateSelect');
+            const shippingFeeElement = document.getElementById('shippingFee');
+            const totalAmountElement = document.getElementById('totalAmount');
+
+            // Define the shipping fees for each state
+            const shippingFees = {
+                'Adamawa': 7000,
+                'Bauchi': 7000,
+                'Borno': 7000,
+                'Gombe': 7000,
+                'Taraba': 7000,
+                'Yobe': 7000,
+                'Jigawa': 7000,
+                'Kaduna': 7000,
+                'Kano': 7000,
+                'Katsina': 7000,
+                'Kebbi': 7000,
+                'Sokoto': 7000,
+                'Zamfara': 7000,
+                'Benue': 7000,
+                'Kogi': 7000,
+                'Kwara': 7000,
+                'Nasarawa': 7000,
+                'Niger': 7000,
+                'Plateau': 7000,
+                'FCT': 7000,
+                'Abia': 6000,
+                'Anambra': 6000,
+                'Ebonyi': 6000,
+                'Enugu': 6000,
+                'Imo': 6000,
+                'Akwa Ibom': 7000,
+                'Bayelsa': 7000,
+                'Cross River': 7000,
+                'Delta': 7000,
+                'Edo': 7000,
+                'Rivers': 7000,
+                'Ekiti': 5000,
+                'Ogun': 5000,
+                'Ondo': 5000,
+                'Osun': 5000,
+                'Oyo': 5000,
+                'Lagos': 4000
+            };
+
+
+            let subtotal = {{ $subtotal }}; // Replace with actual subtotal value from server-side
+            let defaultShippingFee = {{ $totalshippingfee }}; // Replace with initial shipping fee
+
+            stateSelect.addEventListener('change', function() {
+                let selectedState = stateSelect.value;
+                let shippingFee = shippingFees[selectedState] || defaultShippingFee;
+
+                // Update the shipping fee in the DOM
+                shippingFeeElement.textContent = `N${shippingFee}`;
+
+                // Calculate and update the total
+                let total = subtotal + shippingFee;
+                totalAmountElement.textContent = `N${total}`;
+            });
+        });
+    </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

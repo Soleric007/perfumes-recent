@@ -80,7 +80,7 @@
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-1 text-muted">Price :</p>
-                                                                <h5 class="mb-0">${{ $product->price }}</h5>
+                                                                <h5 class="mb-0">N{{ $product->price }}</h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -97,7 +97,7 @@
                                                             </div>
                                                             <div class="flex-grow-1">
                                                                 <p class="mb-1 text-muted">No. of Orders :</p>
-                                                                <h5 class="mb-0">2,234</h5>
+                                                                <h5 class="mb-0">{{$product->orders}}</h5>
                                                             </div>
                                                         </div>
                                                     </div>

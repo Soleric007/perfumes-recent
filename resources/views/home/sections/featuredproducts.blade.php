@@ -24,13 +24,15 @@
                                 <div class="cs_product_card_in">
 
                                     <div class="cs_product_thumb cs_center">
-                                        <img src="/storage/{{$product->image}}" alt="Product">
+                                        <img src="/storage/{{ $product->image }}" alt="Product">
                                         <div class="cs_products_btns">
-                                            <a href="{{route('addtocart', $product->id)}}" class="cs_btn cs_style_1 cs_medium cs_size_md">
+                                            <a href="{{ route('addtocart', $product->id) }}"
+                                                class="cs_btn cs_style_1 cs_medium cs_size_md">
                                                 <img src="/template/assets/images/icons/cart_white.svg" alt="">
                                                 <span>Add To Bag</span>
                                             </a>
-                                            <a href="{{route('addToWishlist', $product->id)}}" class="cs_like_btn cs_center cs_accent_color">
+                                            <a href="{{ route('addToWishlist', $product->id) }}"
+                                                class="cs_like_btn cs_center cs_accent_color">
                                                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -48,26 +50,26 @@
                                     </div>
                                     <div class="cs_product_info">
 
-                                        <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
+                                        <h2
+                                            class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
                                             {{ $product->title }}</h2>
-                                            <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
-                                                N{{ $product->discount !== '0' ? $product->discount : $product->price }}
-
-                                                <small>N{{ $product->discount == '0' ? '' : $product->price }}</small>
-                                            </p>
-                                            <div class="cs_product_ratings">
-                                                <div class="cs_rating" data-rating="4.5">
-                                                    <div class="cs_rating_percentage"></div>
-                                                </div>
-
+                                        <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
+                                            N{{ $product->discount !== '0' ? $product->discount : $product->price }}
+                                            @if ($product->discount != '0')
+                                                <small>N{{ $product->price }}</small>
+                                            @endif
+                                        </p>
+                                        <div class="cs_product_ratings">
+                                            <div class="cs_rating" data-rating="4.5">
+                                                <div class="cs_rating_percentage"></div>
                                             </div>
-                                            <div class="cs_progress" data-progress="{{($product->stock/200) * 100}}">
-                                                <div class="cs_progress_in"></div>
-                                            </div>
-                                            <p class="mb-0 cs_product_stock cs_fs_14 cs_light">Stock: {{$product->stock}}</p>
+
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <a href="{{route('shop.product.detail', $product->slug)}}" class="cs_product_link"></a>
+                                <a href="{{ route('shop.product.detail', $product->slug) }}"
+                                    class="cs_product_link"></a>
                             </div>
                         </div>
                     @endforeach

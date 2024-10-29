@@ -63,15 +63,13 @@
                     $subtotal = 0;
                     $totalshippingfee = 0;
                     foreach ((array) session('cart') as $id => $details) {
-                        $discount = floatval($details['discount']);
+                        $discount = $details['discount'];
                         $price = floatval($details['price']);
                         $quantity = intval($details['quantity']);
-                        $shippingFee = floatval($details['shippingfee']);
 
-                        $subtotal += ($discount !== 0 ? $discount : $price) * $quantity;
-                        $totalshippingfee += $shippingFee;
+                        $subtotal += ($discount !== '0' ? $discount : $price) * $quantity;
                     }
-                    $total = $subtotal + $totalshippingfee;
+                    $total = $subtotal;
                 @endphp
 
 
@@ -141,10 +139,6 @@
                         <li>
                             <span class="cs_light">Subtotal</span>
                             <span class="cs_semibold cs_primary_color">N{{ $subtotal }}</span>
-                        </li>
-                        <li>
-                            <span class="cs_light">Shipping Fee</span>
-                            <span class="cs_semibold cs_primary_color">N{{ $totalshippingfee }}</span>
                         </li>
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>

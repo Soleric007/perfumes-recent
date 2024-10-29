@@ -24,19 +24,63 @@ class OrderController extends Controller
     {
         $cart = session()->get('cart', []);
 
+        // Shipping fees based on Nigerian states
+        $shippingFeesByState = [
+            'Adamawa' => 7000,
+            'Bauchi' => 7000,
+            'Borno' => 7000,
+            'Gombe' => 7000,
+            'Taraba' => 7000,
+            'Yobe' => 7000,
+            'Jigawa' => 7000,
+            'Kaduna' => 7000,
+            'Kano' => 7000,
+            'Katsina' => 7000,
+            'Kebbi' => 7000,
+            'Sokoto' => 7000,
+            'Zamfara' => 7000,
+            'Benue' => 7000,
+            'Kogi' => 7000,
+            'Kwara' => 7000,
+            'Nasarawa' => 7000,
+            'Niger' => 7000,
+            'Plateau' => 7000,
+            'FCT' => 7000,
+            'Abia' => 6000,
+            'Anambra' => 6000,
+            'Ebonyi' => 6000,
+            'Enugu' => 6000,
+            'Imo' => 6000,
+            'Akwa Ibom' => 7000,
+            'Bayelsa' => 7000,
+            'Cross River' => 7000,
+            'Delta' => 7000,
+            'Edo' => 7000,
+            'Rivers' => 7000,
+            'Ekiti' => 5000,
+            'Ogun' => 5000,
+            'Ondo' => 5000,
+            'Osun' => 5000,
+            'Oyo' => 5000,
+            'Lagos' => 4000
+        ];
+
+
+
         // Calculate total amount
         $subtotal = 0;
         $totalshippingfee = 0;
         foreach ((array) session('cart') as $id => $details) {
-            $discount = floatval($details["discount"]);
+            $discount = $details["discount"];
             $price = floatval($details["price"]);
             $quantity = intval($details['quantity']);
-            $shippingFee = floatval($details['shippingfee']);
 
-            $subtotal += (($discount !== 0) ? $discount : $price) * $quantity;
-            $totalshippingfee += $shippingFee;
+            $subtotal += (($discount !== '0') ? $discount : $price) * $quantity;
         }
 
+        $userState = $request->input('state');
+        $stateShippingFee = $shippingFeesByState[$userState] ?? 0;
+        $totalshippingfee = $stateShippingFee;
         $totalAmount = $subtotal + $totalshippingfee;
 
         // Save order details
@@ -177,7 +221,7 @@ class OrderController extends Controller
         }
 
         // Send notification emails
-        $adminEmail = 'riyallure4@gmail.com';
+        $adminEmail = 'riyallure@gmail.com';
         Mail::to($adminEmail)->send(new OrderPlaced($order));
         Mail::to($order->email)->send(new CustomerOrderNotification($order));
     }
@@ -203,7 +247,7 @@ class OrderController extends Controller
         Mail::to($order->email)->send(new PaymentConfirmed($order));
 
         // Notify the admin if needed
-        $adminEmail = 'riyallure4@gmail.com';
+        $adminEmail = 'riyallure@gmail.com';
         Mail::to($adminEmail)->send(new AdminPaymentConfirmation($order));
 
         Mail::to($adminEmail)->send(new OrderPlaced($order));
