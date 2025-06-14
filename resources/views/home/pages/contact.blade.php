@@ -116,7 +116,7 @@
                                     src="template/assets/images/icons/contact_icon_3.svg" alt="Icon"></div>
                             <div class="cs_contact_info_right">
                                 <h4 class="cs_fs_16 cs_semibold cs_white_color cs_secondary_font">Phone</h4>
-                                <a href="tel:09162820046" class="cs_light cs_white_color">09162820046</a>
+                                <a href="tel:08121538384" class="cs_light cs_white_color">08121538384</a>
                             </div>
                         </div>
                     </div>

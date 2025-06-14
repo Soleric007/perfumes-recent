@@ -11,7 +11,7 @@
                             <h4 class="mb-sm-0">Orders</h4>
 
                             <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
+                                <ol class="m-0 breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Riyallure</a></li>
                                     <li class="breadcrumb-item active">Orders</li>
                                 </ol>
@@ -25,35 +25,35 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card" id="orderList">
-                            <div class="card-header border-0">
+                            <div class="border-0 card-header">
                                 <div class="row align-items-center gy-3">
                                     <div class="col-sm">
-                                        <h5 class="card-title mb-0">Order History</h5>
+                                        <h5 class="mb-0 card-title">Order History</h5>
                                     </div>
                                     <div class="col-sm-auto">
-                                        {{-- <div class="d-flex gap-1 flex-wrap">
-                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Create Order</button>
-                                            <button type="button" class="btn btn-info"><i class="ri-file-download-line align-bottom me-1"></i> Import</button>
+                                        {{-- <div class="flex-wrap gap-1 d-flex">
+                                            <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="align-bottom ri-add-line me-1"></i> Create Order</button>
+                                            <button type="button" class="btn btn-info"><i class="align-bottom ri-file-download-line me-1"></i> Import</button>
                                             <button class="btn btn-soft-danger" id="remove-actions" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
                                         </div> --}}
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="card-body pt-0">
+                            <div class="pt-0 card-body">
                                 <div>
-                                    <ul class="nav nav-tabs nav-tabs-custom nav-success mb-3" role="tablist">
+                                    <ul class="mb-3 nav nav-tabs nav-tabs-custom nav-success" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active All py-3" data-bs-toggle="tab" id="All"
+                                            <a class="py-3 nav-link active All" data-bs-toggle="tab" id="All"
                                                 href="#home1" role="tab" aria-selected="true">
-                                                <i class="ri-store-2-fill me-1 align-bottom"></i> All Orders
+                                                <i class="align-bottom ri-store-2-fill me-1"></i> All Orders
                                             </a>
                                         </li>
 
                                     </ul>
 
-                                    <div class="table-responsive table-card mb-1">
-                                        <table class="table table-nowrap align-middle" id="orderTable">
+                                    <div class="mb-1 table-responsive table-card">
+                                        <table class="table align-middle table-nowrap" id="orderTable">
                                             <thead class="text-muted table-light">
                                                 <tr class="text-uppercase">
                                                     <th class="sort" data-sort="id">Order ID</th>
@@ -83,7 +83,7 @@
                                                         </td>
                                                         </td>
                                                         <td class="date">{{ $order->created_at }}</td>
-                                                        <td class="amount">${{ $order->total_amount }}</td>
+                                                        <td class="amount">N{{ $order->total_amount }}</td>
                                                         <td class="payment">{{ $order->payment_method }}</td>
                                                         <td class="status"><span
                                                                 class="badge {{$order->payment_status === 'paid' ? 'bg-success-subtle text-white' : 'bg-warning-subtle text-warning'}} text-warning text-uppercase">{{ $order->payment_status }}</span>
@@ -92,12 +92,12 @@
                                                                 class="badge {{$order->delivery_status === 'delivered' ? 'bg-success-subtle text-white' : 'bg-warning-subtle text-warning'}} text-uppercase">{{ $order->delivery_status }}</span>
                                                         </td>
                                                         <td>
-                                                            <ul class="list-inline hstack gap-2 mb-0">
+                                                            <ul class="gap-2 mb-0 list-inline hstack">
                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"
                                                                     title="View">
                                                                     <a href="{{ route('admin.orderdetails', $order->id) }}"
-                                                                        class="btn btn-primary text-white text-primary d-inline-block">
+                                                                        class="text-white btn btn-primary text-primary d-inline-block">
                                                                         View
                                                                     </a>
                                                                 </li>
@@ -106,7 +106,7 @@
                                                                     data-bs-placement="top" title="Edit">
                                                                     <a aria-disabled="{{$order->delivery_status === "delivered" ? true : false}}" href="{{route('deliver.order', $order->id)}}"
 
-                                                                        class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
+                                                                        class="text-white btn btn-success text-primary d-inline-block edit-item-btn">
                                                                         Delivered
                                                                     </a>
                                                                 </li>
@@ -115,7 +115,7 @@
                                                                     data-bs-placement="top" title="Edit">
                                                                     <a aria-disabled="{{$order->payment_status === "paid" ? true : false}}" href="{{route('admin.orders.confirmPayment', $order->id)}}"
 
-                                                                        class="btn btn-success text-white text-primary d-inline-block edit-item-btn">
+                                                                        class="text-white btn btn-success text-primary d-inline-block edit-item-btn">
                                                                         Confirm Payment
                                                                     </a>
                                                                 </li>
@@ -124,14 +124,14 @@
                                                                     data-bs-placement="top" title="Edit">
                                                                     <a href="{{route('orders.download', $order->id)}}"
 
-                                                                        class="btn bg-indigo-600 text-white text-primary d-inline-block edit-item-btn">
+                                                                        class="text-white bg-indigo-600 btn text-primary d-inline-block edit-item-btn">
                                                                         Download PDF
                                                                     </a>
                                                                 </li>
                                                                 <li class="list-inline-item" data-bs-toggle="tooltip"
                                                                     data-bs-trigger="hover" data-bs-placement="top"
                                                                     title="Remove">
-                                                                    <a class="btn btn-danger text-white d-inline-block remove-item-btn"
+                                                                    <a class="text-white btn btn-danger d-inline-block remove-item-btn"
                                                                         onclick="return confirm('Are you sure you want to delete this order?')"
                                                                         href="{{ route('order.delete', $order->id) }}">
                                                                         Delete
@@ -156,7 +156,7 @@
                                         @endif
                                     </div>
                                     <div class="d-flex justify-content-end">
-                                        <div class="pagination-wrap hstack gap-2">
+                                        <div class="gap-2 pagination-wrap hstack">
                                             <div class="gridjs-pagination">
                                                 {!! $orders->withQueryString()->links('pagination::bootstrap-5') !!}
 

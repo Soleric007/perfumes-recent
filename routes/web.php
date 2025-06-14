@@ -12,10 +12,6 @@ use App\Http\Controllers\MailController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::post('send-mail', [MailController::class, 'index'])->name('send-mail');
 

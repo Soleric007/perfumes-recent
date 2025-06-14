@@ -8,12 +8,12 @@
                     <div class="col">
 
                         <div class="h-100">
-                            <div class="row mb-3 pb-1">
+                            <div class="pb-1 mb-3 row">
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                         <div class="flex-grow-1">
-                                            <h4 class="fs-16 mb-1">Good Morning, {{ $user->name }}</h4>
-                                            <p class="text-muted mb-0">Here's what's happening with your store today.
+                                            <h4 class="mb-1 fs-16">Good Morning, {{ $user->name }}</h4>
+                                            <p class="mb-0 text-muted">Here's what's happening with your store today.
                                             </p>
                                         </div>
 
@@ -29,18 +29,18 @@
                                     <div class="card card-animate">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                <div class="overflow-hidden flex-grow-1">
+                                                    <p class="mb-0 text-uppercase fw-medium text-muted text-truncate">
                                                         Total Earnings</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div class="mt-4 d-flex align-items-end justify-content-between">
                                                 <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">N<span
+                                                    <h4 class="mb-4 fs-22 fw-semibold ff-secondary">N<span
                                                             class="counter-value" data-target="{{$totalEarnings}}">0</span> </h4>
                                                 </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-success-subtle rounded fs-3">
+                                                <div class="flex-shrink-0 avatar-sm">
+                                                    <span class="rounded avatar-title bg-success-subtle fs-3">
                                                         <i class="bx bx-dollar-circle text-success"></i>
                                                     </span>
                                                 </div>
@@ -54,21 +54,21 @@
                                     <div class="card card-animate">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                <div class="overflow-hidden flex-grow-1">
+                                                    <p class="mb-0 text-uppercase fw-medium text-muted text-truncate">
                                                         Orders</p>
                                                 </div>
 
                                             </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div class="mt-4 d-flex align-items-end justify-content-between">
                                                 <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span
+                                                    <h4 class="mb-4 fs-22 fw-semibold ff-secondary"><span
                                                             class="counter-value" data-target="{{count($orders)}}">0</span></h4>
                                                     <a href="{{route('orders')}}" class="text-decoration-underline">View all
                                                         orders</a>
                                                 </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-info-subtle rounded fs-3">
+                                                <div class="flex-shrink-0 avatar-sm">
+                                                    <span class="rounded avatar-title bg-info-subtle fs-3">
                                                         <i class="bx bx-shopping-bag text-info"></i>
                                                     </span>
                                                 </div>
@@ -82,19 +82,19 @@
                                     <div class="card card-animate">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                <div class="overflow-hidden flex-grow-1">
+                                                    <p class="mb-0 text-uppercase fw-medium text-muted text-truncate">
                                                         Customers</p>
                                                 </div>
                                             </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div class="mt-4 d-flex align-items-end justify-content-between">
                                                 <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span
+                                                    <h4 class="mb-4 fs-22 fw-semibold ff-secondary"><span
                                                             class="counter-value" data-target="{{$totalCustomers}}">0</span> </h4>
                                                     <a href="{{route('admin.customers')}}" class="text-decoration-underline">See details</a>
                                                 </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-warning-subtle rounded fs-3">
+                                                <div class="flex-shrink-0 avatar-sm">
+                                                    <span class="rounded avatar-title bg-warning-subtle fs-3">
                                                         <i class="bx bx-user-circle text-warning"></i>
                                                     </span>
                                                 </div>
@@ -108,20 +108,20 @@
                                     <div class="card card-animate">
                                         <div class="card-body">
                                             <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                                <div class="overflow-hidden flex-grow-1">
+                                                    <p class="mb-0 text-uppercase fw-medium text-muted text-truncate">
                                                         My Products</p>
                                                 </div>
 
                                             </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                            <div class="mt-4 d-flex align-items-end justify-content-between">
                                                 <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span
+                                                    <h4 class="mb-4 fs-22 fw-semibold ff-secondary"><span
                                                             class="counter-value" data-target="{{$totalProducts}}">0</span> </h4>
                                                     <a href="{{route('admin.products')}}" class="text-decoration-underline">View Products</a>
                                                 </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-primary-subtle rounded fs-3">
+                                                <div class="flex-shrink-0 avatar-sm">
+                                                    <span class="rounded avatar-title bg-primary-subtle fs-3">
                                                         <i class="bx bx-wallet text-primary"></i>
                                                     </span>
                                                 </div>
@@ -141,10 +141,10 @@
                                 <div class="col-xl-8">
                                     <div class="card">
                                         <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Recent Orders</h4>
+                                            <h4 class="mb-0 card-title flex-grow-1">Recent Orders</h4>
                                             <div class="flex-shrink-0">
                                                 <button type="button" class="btn btn-soft-info btn-sm">
-                                                    <i class="ri-file-list-3-line align-middle"></i> Generate Report
+                                                    <i class="align-middle ri-file-list-3-line"></i> Generate Report
                                                 </button>
                                             </div>
                                         </div><!-- end card header -->
@@ -152,7 +152,7 @@
                                         <div class="card-body">
                                             <div class="table-responsive table-card">
                                                 <table
-                                                    class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                    class="table mb-0 align-middle table-borderless table-centered table-nowrap">
                                                     <thead class="text-muted table-light">
                                                         <tr>
                                                             <th scope="col">Order ID</th>
@@ -188,7 +188,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <span
-                                                                        class="text-success">${{ $order->total_amount }}</span>
+                                                                        class="text-success">N{{ $order->total_amount }}</span>
                                                                 </td>
                                                                 <td>
                                                                     <span
@@ -212,7 +212,7 @@
                                                     </div>
                                                 @endif
                                                 <div class="d-flex justify-content-end">
-                                                    <div class="pagination-wrap hstack gap-2">
+                                                    <div class="gap-2 pagination-wrap hstack">
                                                         <div class="gridjs-pagination">
                                                             {!! $orders->withQueryString()->links('pagination::bootstrap-5') !!}
 
