@@ -53,7 +53,7 @@
               <h2 class="mb-0 cs_fs_54 cs_accent_color cs_semibold">Exclusive <br>Discounts!</h2>
               <p class="mb-0 cs_fs_24 cs_primary_color"></p>
             </div>
-            <img src="/template/assets/images/banner/bannerPef.png" alt="Banner" class="cs_banner_img">
+            <img src="/template/assets/images/banner/bannerdiscount.png" alt="Banner" class="cs_banner_img">
             <div class="cs_banner_shape cs_accent_light_color">
               <svg width="457" height="390" viewBox="0 0 457 390" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_81_109" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="457" height="390">

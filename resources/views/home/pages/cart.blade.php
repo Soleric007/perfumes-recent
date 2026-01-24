@@ -61,13 +61,15 @@
 
                 @php
                     $subtotal = 0;
-                    $totalshippingfee = 0;
+
                     foreach ((array) session('cart') as $id => $details) {
-                        $discount = $details['discount'];
+                        // Convert to float to handle both string and numeric values
+                        $discount = floatval($details['discount']);
                         $price = floatval($details['price']);
                         $quantity = intval($details['quantity']);
 
-                        $subtotal += ($discount !== '0' ? $discount : $price) * $quantity;
+                        // Use discount if it's greater than 0, otherwise use price
+                        $subtotal += ($discount > 0 ? $discount : $price) * $quantity;
                     }
                     $total = $subtotal;
                 @endphp
@@ -77,31 +79,66 @@
 
                     <ul class="cs_cart_list cs_mp_0">
                         @foreach (session('cart') as $id => $details)
+                            @php
+                                $discount = floatval($details['discount']);
+                                $price = floatval($details['price']);
+                                $itemPrice = $discount > 0 ? $discount : $price;
+                                $stock = $details['stock'] ?? 0;
+                                $isLowStock = $stock <= 5 && $stock > 0;
+                                $isOutOfStock = $stock <= 0;
+                            @endphp
                             <li data-id="{{ $id }}">
                                 <div class="cs_product_card cs_style_11 cs_radius_10">
                                     <a href="" class="cs_product_thumb">
                                         <img src="/storage/{{ $details['image'] }}" alt="Product">
                                     </a>
                                     <div class="cs_product_card_right">
-
                                         <h2 class="cs_product_title cs_fs_24 cs_medium cs_secondary_font">
                                             <a href="">{{ $details['name'] }}</a>
                                         </h2>
+
+                                        {{-- Show variant info if present --}}
+                                        @if (isset($details['variant_type']) && isset($details['variant_size']))
+                                            <p class="mb-2 text-muted">
+                                                <small>
+                                                    <strong>Type:</strong> {{ ucfirst($details['variant_type']) }} |
+                                                    <strong>Size:</strong> {{ $details['variant_size'] }}
+                                                </small>
+                                            </p>
+                                        @endif
+
+                                        {{-- Stock warning --}}
+                                        @if ($isOutOfStock)
+                                            <div class="alert alert-danger py-2 mb-2" style="font-size: 13px;">
+                                                <i class="fas fa-exclamation-circle"></i> <strong>Out of Stock!</strong>
+                                                Please remove this item.
+                                            </div>
+                                        @elseif($isLowStock)
+                                            <div class="alert alert-warning py-2 mb-2" style="font-size: 13px;">
+                                                <i class="fas fa-exclamation-triangle"></i> Only {{ $stock }}
+                                                left in stock!
+                                            </div>
+                                        @endif
+
                                         <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium cs_accent_color">
-                                            N{{ $details['discount'] !== '0' ? $details['discount'] : $details['price'] }}
+                                            N{{ number_format($itemPrice, 2) }}
                                         </p>
                                         <div class="flex flex-col gap-2">
                                             <label for="quantity" class="text-xl">Quantity:</label>
                                             <input type="number" value="{{ $details['quantity'] }}"
-                                                class="form-control quantity update-cart" />
+                                                max="{{ $stock }}" class="form-control quantity update-cart"
+                                                {{ $isOutOfStock ? 'disabled' : '' }} />
+                                            @if ($stock > 0)
+                                                <small class="text-muted">Max: {{ $stock }}</small>
+                                            @endif
                                         </div>
                                         <div>
                                             <h3>
                                                 <span class="cs_fs_24 cs_medium cs_primary_color">Subtotal:</span>
                                                 <span
-                                                    class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] . ' x ' . ($details['discount'] !== '0' ? $details['discount'] : $details['price']) }}
-                                                    =
-                                                    N{{ $details['quantity'] * ($details['discount'] !== '0' ? $details['discount'] : $details['price']) }}</span>
+                                                    class="cs_fs_24 cs_medium cs_primary_color">{{ $details['quantity'] }}
+                                                    x {{ number_format($itemPrice, 2) }}
+                                                    = N{{ number_format($details['quantity'] * $itemPrice, 2) }}</span>
                                             </h3>
                                         </div>
 
@@ -138,11 +175,12 @@
                         </li>
                         <li>
                             <span class="cs_light">Subtotal</span>
-                            <span class="cs_semibold cs_primary_color">N{{ $subtotal }}</span>
+                            <span class="cs_semibold cs_primary_color">N{{ number_format($subtotal, 2) }}</span>
                         </li>
+
                         <li class="cs_total_price">
                             <span class="cs_medium cs_fs_24 cs_primary_color">Total</span>
-                            <span class="cs_medium cs_fs_24 cs_primary_color">N{{ $total }}</span>
+                            <span class="cs_medium cs_fs_24 cs_primary_color">N{{ number_format($total, 2) }}</span>
                         </li>
                     </ul>
 

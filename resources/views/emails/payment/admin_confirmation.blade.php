@@ -3,7 +3,7 @@
 
     A payment has been successfully received for the following order:
 
-    - **Order Reference:** {{ $order->transaction_reference }}
+    - **Order Reference:** {{ $order->id }}
     - **Customer Name:** {{ $order->first_name }} {{ $order->last_name }}
     - **Email:** {{ $order->email }}
     - **Phone:** {{ $order->phone }}

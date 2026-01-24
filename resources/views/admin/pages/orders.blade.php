@@ -78,8 +78,9 @@
                                                         <!-- Loop through items for each order -->
                                                         <td class="product_name">
                                                             @foreach ($order->items as $item)
-                                                                {{ $item->product->title }} <br>
+                                                                {{ $item->product?->title ?? 'Deleted Product' }} <br>
                                                             @endforeach
+
                                                         </td>
                                                         </td>
                                                         <td class="date">{{ $order->created_at }}</td>

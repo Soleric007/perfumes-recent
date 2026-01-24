@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <!-- end card header -->
-                                <div class="card-body overflow-x-scroll">
+                                <div class="overflow-x-scroll card-body">
                                     @if ($searchText && count($products) !== 0)
                                         <div class="my-4 text-3xl">
                                             <h1 class="font-bold">Search Results for "{{ $searchText }}"</h1>
@@ -99,7 +99,7 @@
                                                 <div role="complementary" class="gridjs gridjs-container"
                                                     style="width: 100%;">
                                                     <div class="gridjs-wrapper" style="height: auto;">
-                                                        <table role="grid" class="gridjs-table overflow-x-scroll"
+                                                        <table role="grid" class="gridjs-table"
                                                             style="height: auto;">
                                                             <thead class="gridjs-thead">
                                                                 <tr class="gridjs-tr">
@@ -125,6 +125,15 @@
                                                                         class="gridjs-th gridjs-th-sort text-muted"
                                                                         tabindex="0" style="width: 360px;">
                                                                         <div class="gridjs-th-content">Category</div>
+                                                                        <button tabindex="-1"
+                                                                            aria-label="Sort column ascending"
+                                                                            title="Sort column ascending"
+                                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                                    </th>
+                                                                    <th data-column-id="product"
+                                                                        class="gridjs-th gridjs-th-sort text-muted"
+                                                                        tabindex="0">
+                                                                        <div class="gridjs-th-content">Scent</div>
                                                                         <button tabindex="-1"
                                                                             aria-label="Sort column ascending"
                                                                             title="Sort column ascending"
@@ -224,7 +233,7 @@
                                                                                     </div>
                                                                                     <div class="flex-grow-1">
                                                                                         <h5 class="mb-1 fs-14"><a
-                                                                                                href="{{ route('admin.productdetails', $product->id) }}"
+                                                                                                href="{{ route('admin.productdetails', $product->slug) }}"
                                                                                                 class="text-body">{{ $product->title }}</a>
                                                                                         </h5>
 
@@ -234,6 +243,9 @@
                                                                         </td>
                                                                         <td data-column-id="stock" class="gridjs-td">
                                                                             {{ $product->category->name ?? 'Nil' }}
+                                                                        </td>
+                                                                        <td data-column-id="scent" class="gridjs-td">
+                                                                            {{ $product->scent->name ?? 'N/A' }}
                                                                         </td>
                                                                         <td data-column-id="stock" class="gridjs-td">
                                                                             {{ $product->stock }}
@@ -269,6 +281,10 @@
                                                                                                 href="{{ route('admin.productdetails', $product->slug) }}"><i
                                                                                                     class="align-bottom ri-eye-fill me-2 text-muted"></i>
                                                                                                 View</a></li>
+                                                                                        <li><a class="dropdown-item"
+                                                                                                href="{{ route('admin.editproduct', $product->id) }}"><i
+                                                                                                    class="align-bottom ri-edit-fill me-2 text-muted"></i>
+                                                                                                Edit</a></li>
 
                                                                                         <li><a class="dropdown-item remove-list"
                                                                                                 href="{{ route('admin.deleteProduct', $product->id) }}"

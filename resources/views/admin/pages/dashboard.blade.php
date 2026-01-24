@@ -182,10 +182,11 @@
                                                                     </div>
                                                                 </td>
                                                                 <td class="uppercase">
-                                                                    @foreach ($order->items as $item)
-                                                                        {{ $item->product->title }} <br>
-                                                                    @endforeach
-                                                                </td>
+    @foreach ($order->items as $item)
+        {{ $item->product?->title ?? 'Deleted Product' }} <br>
+    @endforeach
+</td>
+
                                                                 <td>
                                                                     <span
                                                                         class="text-success">N{{ $order->total_amount }}</span>

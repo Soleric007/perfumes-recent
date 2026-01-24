@@ -10,7 +10,24 @@ use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
+
+Route::get('/clear-cache', function () {
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    return "Cache cleared!";
+});
+
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::post('send-mail', [MailController::class, 'index'])->name('send-mail');
@@ -23,13 +40,6 @@ Route::middleware('auth')->group(function () {
     // Route::patch('/profile', [ProfileController::class, 'updatePhoneImage'])->name('profile.update.phone.image');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/useraccount', [HomeController::class, 'showUserAccount'])->name('useraccount');
-    Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
-    Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
-    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
-
-    Route::get('/payment/transfer/{order}', [OrderController::class, 'showTransferPage'])->name('payment.transfer');
-
-    Route::get('/payment/callback', [OrderController::class, 'paymentCallback'])->name('payment.callback');
 
     Route::get('/order/{slug}', [OrderController::class, 'showorderdetails'])->name('admin.orderdetails');
     Route::get('/orders/{slug}', [OrderController::class, 'deleteOrder'])->name('order.delete');
@@ -54,8 +64,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/createproduct', [AdminController::class, 'storeProduct'])->name('admin.storeProduct');
     Route::get('/admin/deleteproduct/{product}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct');
     Route::get('/admin/deletecustomer/{customer}', [AdminController::class, 'deleteCustomer'])->name('admin.deleteCustomer');
-
-
+    Route::get('/admin/pages/scents', [AdminController::class, 'showScents'])->name('admin.scents');
+    Route::get('/admin/pages/addscent', [AdminController::class, 'showAddScent'])->name('admin.add.scent');
+    Route::post('/admin/createscent', [AdminController::class, 'storeScent'])->name('admin.store.scent');
+    Route::get('/admin/deletescent/{id}', [AdminController::class, 'deleteScent'])->name('admin.deleteScent');
+    Route::get('/admin/pages/editproduct/{product}', [AdminController::class, 'editProduct'])->name('admin.editproduct');
+Route::post('/admin/updateproduct/{product}', [AdminController::class, 'updateProduct'])->name('admin.updateProduct');
     Route::get('/admin/pages/categories', [AdminController::class, 'showCategories'])->name('admin.catgories');
     Route::get('/admin/pages/addcategory', [AdminController::class, 'showAddCategory'])->name('admin.add.category');
     Route::post('/admin/createcategory', [AdminController::class, 'storeCategory'])->name('admin.store.category');
@@ -81,8 +95,15 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::get('/agent/dashboard', [AgentController::class, 'dashboard'])->name('agent.dashboard');
 });
 
-
+Route::get('/cart', [ProductController::class, 'viewCart'])->name('cart');
+Route::get('/checkout', [ProductController::class, 'viewCheckout'])->name('checkout');
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/payment/transfer/{order}', [OrderController::class, 'showTransferPage'])->name('payment.transfer');
+Route::get('/payment/callback', [OrderController::class, 'paymentCallback'])->name('payment.callback');
+Route::post('/payment/transfer/{order}/notify', [OrderController::class, 'notifyTransferPayment'])->name('payment.transfer.notify'); // NEW
 Route::get('/shop', [HomeController::class, 'showShop'])->name('shop.show');
+Route::get('/scents', [HomeController::class, 'showAllScents'])->name('scents');
+Route::get('/scents/{slug}', [HomeController::class, 'showShop'])->name('scents.show');
 Route::get('/product_search', [HomeController::class, 'product_search'])->name('product.search');
 Route::get('/productdetails/{slug}', [HomeController::class, 'showProductDetails'])->name('shop.product.detail');
 Route::get('/about', [HomeController::class, 'showAboutUs'])->name('aboutUs');
@@ -97,7 +118,7 @@ Route::get('/accountdetails', [HomeController::class, 'showAccountdetails'])->na
 Route::get('/addtocart/{product}', [ProductController::class, 'addToCart'])->name('addtocart');
 Route::patch('/updatecart', [ProductController::class, 'update'])->name('updatecart');
 Route::get('/cart/remove/{id}', [ProductController::class, 'remove'])->name('remove.from.cart');
-
+Route::get('/buynow/{product}', [ProductController::class, 'buyNow'])->name('buynow');
 Route::get('/wishlist/{id}', [ProductController::class, 'addToWishList'])->name('addToWishlist');
 Route::get('/wishlist/remove/{id}', [ProductController::class, 'removeFromWishlist'])->name('remove.from.wishlist');
 

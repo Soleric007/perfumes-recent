@@ -5,8 +5,8 @@
 
     We have received your payment for the following order:
 
-    - **Order Reference:** {{ $order->transaction_reference }}
-    - **Total Amount:** ${{ number_format($order->total_amount, 2) }}
+    - **Order Reference:** {{ $order->id }}
+    - **Total Amount:** ₦{{ number_format($order->total_amount, 2) }}
     - **Payment Status:** Paid
 
     Your order is now being processed. We will notify you once it is shipped.

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Scent;
 
 
 class HomeController extends Controller
@@ -27,27 +28,54 @@ class HomeController extends Controller
     }
     public function showProductDetails($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::with('variants')->where('slug', $slug)->firstOrFail();
 
         if (!$product) {
-            // Handle the case where the product is not found
             return redirect()->route('index')->with('error', 'Product not found.');
         }
 
+        $sprayVariants = $product->variants()->where('type', 'spray')->get();
+        $oilVariants = $product->variants()->where('type', 'oil')->get();
+
+
         // Fetch related products based on the same category, excluding the current product
         $relatedProducts = Product::where('category_id', $product->category_id)
-            ->where('id', '!=', $product->id) // Exclude the current product
+            ->where('id',  '!=', $product->id) // Exclude the current product
             ->limit(4) // Limit the number of related products
             ->get();
 
-        return view('home.pages.productdetails', compact('product', 'relatedProducts'));
-    }
+         return view('home.pages.productdetails', compact('product', 'relatedProducts', 'sprayVariants', 'oilVariants'));
 
-    public function showShop()
+    }
+    public function showAllScents()
     {
-        $products = Product::latest()->paginate(10);
+        $scents = Scent::all();
+        return view('home.pages.scents', compact('scents'));
+    }
+    public function showShop(Request $request, $slug = null)
+    {
+        $query = Product::latest();
         $searchText = '';
-        return view('home.pages.shop', compact('products', 'searchText'));
+        $activeScent = null;
+
+        // Get all scents for sidebar
+        $allScents = Scent::all();
+
+        // Filter by scent if provided via route parameter
+        if ($slug) {
+            $scent = Scent::where('slug', $slug)->firstOrFail();
+            $query->where('scent_id', $scent->id);
+            $activeScent = $scent;
+        } elseif ($request->has('scent') && $request->scent) {
+            $scent = Scent::where('slug', $request->scent)->firstOrFail();
+            $query->where('scent_id', $scent->id);
+            $activeScent = $scent;
+        }
+
+        $products = $query->paginate(10);
+        $totalProducts = Product::count();
+
+        return view('home.pages.shop', compact('products', 'searchText', 'activeScent', 'allScents', 'totalProducts'));
     }
     public function showFaq()
     {

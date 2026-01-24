@@ -3,11 +3,11 @@
     <div class="container">
         <div class="cs_section_heading cs_style_1">
             <div class="cs_section_heading_in">
-                <h3 class="cs_section_heading_title cs_fs_54 cs_semibold mb-0 d-flex align-items-center">FEATURED
+                <h3 class="text-3xl font-bold cs_section_heading_title cs_fs_54 cs_semibold mb-0 d-flex align-items-center">FEATURED
                     PRODUCTS</h3>
             </div>
             <div class="cs_section_heading_right">
-                <a class="cs_text_btn cs_accent_color cs_medium cs_fs_24" href="{{ route('shop.show') }}">
+                <a class="cs_text_btn cs_accent_color cs_medium cs_fs_24 text-lg" href="{{ route('shop.show') }}">
                     <span>View All</span>
                 </a>
             </div>
@@ -19,20 +19,37 @@
                 data-lg-slides="4" data-xl-slides="5" data-add-slides="5">
                 <div class="cs_slider_wrapper">
                     @foreach ($products as $product)
+                        @php
+                            $discount = floatval($product->discount);
+                            $price = floatval($product->price);
+                            $displayPrice = $discount > 0 ? $discount : $price;
+                            
+                            // Check if product or any variant is in stock
+                            $hasStock = $product->stock > 0;
+                            $hasVariantStock = $product->variants->where('stock', '>', 0)->count() > 0;
+                            $isInStock = $hasStock || $hasVariantStock;
+                        @endphp
                         <div class="cs_slider">
                             <div class="cs_product_card cs_style_1 cs_radius_12">
                                 <div class="cs_product_card_in">
 
-                                    <div class="cs_product_thumb cs_center">
-                                        <img src="/storage/{{ $product->image }}" alt="Product">
+                                    <div class="cs_product_thumb cs_center position-relative">
+                                        <img src="{{asset('/storage/'.$product->image)}}" alt="Product">
+                                        
+                                        <!-- Out of Stock Overlay -->
+                                        @if (!$isInStock)
+                                            <div class="out-of-stock-overlay">
+                                                <span class="out-of-stock-badge">OUT OF STOCK</span>
+                                            </div>
+                                        @endif
+                                        
                                         <div class="cs_products_btns">
-                                            <a href="{{ route('addtocart', $product->id) }}"
-                                                class="cs_btn cs_style_1 cs_medium cs_size_md">
+                                            <a href="{{route('shop.product.detail', $product->slug)}}" 
+                                               class="cs_btn cs_style_1 cs_medium cs_size_md">
                                                 <img src="/template/assets/images/icons/cart_white.svg" alt="">
-                                                <span>Add To Bag</span>
+                                                <span>{{ $isInStock ? 'View Details' : 'Out of Stock' }}</span>
                                             </a>
-                                            <a href="{{ route('addToWishlist', $product->id) }}"
-                                                class="cs_like_btn cs_center cs_accent_color">
+                                            <a href="{{route('addToWishlist', $product->id)}}" class="cs_like_btn cs_center cs_accent_color">
                                                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -50,26 +67,30 @@
                                     </div>
                                     <div class="cs_product_info">
 
-                                        <h2
-                                            class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
+                                        <h2 class="cs_product_title cs_fs_18 cs_normal cs_secondary_font font-semibold uppercase text-xl">
                                             {{ $product->title }}</h2>
-                                        <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
-                                            N{{ $product->discount !== '0' ? $product->discount : $product->price }}
-                                            @if ($product->discount != '0')
-                                                <small>N{{ $product->price }}</small>
+                                            <p class="cs_product_price cs_fs_24 cs_primary_color cs_medium">
+                                                N{{ number_format($displayPrice, 2) }}
+                                                @if ($discount > 0)
+                                                    <small>N{{ number_format($price, 2) }}</small>
+                                                @endif
+                                            </p>
+                                            
+                                            @if (!$isInStock)
+                                                <p class="text-danger cs_fs_14 mb-2" style="color: #dc2626;">
+                                                    <i class="fas fa-exclamation-circle"></i> Out of Stock
+                                                </p>
                                             @endif
-                                        </p>
-                                        <div class="cs_product_ratings">
-                                            <div class="cs_rating" data-rating="4.5">
-                                                <div class="cs_rating_percentage"></div>
+                                            
+                                            <div class="cs_product_ratings">
+                                                <div class="cs_rating" data-rating="4.5">
+                                                    <div class="cs_rating_percentage"></div>
+                                                </div>
                                             </div>
-
-                                        </div>
-                                        
+                                            
                                     </div>
                                 </div>
-                                <a href="{{ route('shop.product.detail', $product->slug) }}"
-                                    class="cs_product_link"></a>
+                                <a href="{{route('shop.product.detail', $product->slug)}}" class="cs_product_link"></a>
                             </div>
                         </div>
                     @endforeach
@@ -100,3 +121,53 @@
         </div>
     </div>
 </section>
+
+<style>
+.out-of-stock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    border-radius: 8px;
+}
+
+.out-of-stock-badge {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    animation: pulse 2s infinite;
+    text-align: center;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.cs_product_card:has(.out-of-stock-overlay) .cs_product_thumb img {
+    filter: grayscale(50%) opacity(0.6);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .out-of-stock-badge {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+</style>

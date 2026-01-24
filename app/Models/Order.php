@@ -27,14 +27,27 @@ class Order extends Model
         'email',
         'phone',
         'state',
-        'postal_code',
-        'city',
         'country',
         'payment_method',
         'payment_status',
         'delivery_status',
         'total_amount',
+        'shipping_fee',
+        'user_id',
+        'order_id',
+        'product_id',
+        'variant_id',
+        'variant_type',
+        'variant_size',
+        'quantity',
+        'price',
     ];
+
+    // Add relationship to User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function items()
     {

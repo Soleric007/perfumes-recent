@@ -10,6 +10,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'price' => 'float',
+        'discount' => 'float',
+        'shippingfee' => 'float',
+        'stock' => 'integer',
+    ];
+
     protected $fillable = [
         'title',
         'description',
@@ -18,17 +25,30 @@ class Product extends Model
         'shippingfee',
         'stock',
         'image',
-        'category_id'
+        'category_id',
+        'scent_id',
     ];
 
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
     }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scent()
+    {
+        return $this->belongsTo(Scent::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(PerfumeVariant::class);
+    }
+
     protected static function boot()
     {
         parent::boot();
